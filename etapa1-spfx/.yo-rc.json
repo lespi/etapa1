@@ -1,0 +1,14 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "version": "1.8.2",
+    "libraryName": "etapa-1-spfx",
+    "libraryId": "66992bb7-b768-4987-b3ac-09bfdaab6b42",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "etapa1-spfx",
+    "framework": "none",
+    "isCreatingSolution": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

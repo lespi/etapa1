@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "etapa-1-spfx-client-side-solution",
+    "id": "66992bb7-b768-4987-b3ac-09bfdaab6b42",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/etapa-1-spfx.sppkg"
+  }
+}
