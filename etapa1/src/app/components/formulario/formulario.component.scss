@@ -33,21 +33,7 @@
   
   
   
-    .full-width {
-      width: 100%;
-      margin-bottom: 10px;
-    }
-
-    .medium-width {
-      width: 50%;
-      margin-bottom: 10px;
-    }
-
-    .full-width-bold {
-      width: 50%;
-      margin-bottom: 10px;
-      font-weight: bold;
-    }
+   
   
     .error-message {
       font-size: 12px;
@@ -84,21 +70,44 @@
       padding-right: 8px;
     }
     .example-small-box, .example-large-box {
-      display: flex;
+      //display: flex;
       align-items: center;
       justify-content: center;
-      margin: 16px;
+      //margin: 16px;
+      margin-bottom: 16px;
       padding: 16px;
       border-radius: 8px;
       padding-top: 30px;
     }
 
-    .example-container {
-      display: flex;
-      flex-direction: column;
-      //margin-top: 100px
+    .example-large-box {
+      margin: 16px;
     }
+
+    // .example-container {
+    //   display: flex;
+    //   flex-direction: column;
+      
+    // }
     
-    .example-container > * {
+    // .example-container > * {
+    //   width: 100%;
+    // }
+
+    .full-width {
       width: 100%;
+      margin-bottom: 10px;
     }
+
+    .mat-tab-body-content {
+      height: 100%;
+      overflow: hidden !important; 
+  }
+
+  .form-group-border{
+    border: 1px solid #dee2e6 !important;
+    border-radius: 0.25rem !important;
+    padding-top: 16px;
+    margin-bottom: 8px;
+
+  }

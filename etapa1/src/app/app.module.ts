@@ -21,10 +21,15 @@ import {
    MatExpansionModule,
    MatAutocompleteModule,
    MatCardModule,
-   MatTabsModule
+   MatTabsModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatToolbarModule,
+  
   } from '@angular/material';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
-
+import { NgxMatSelectSearchModule } from './mat-select-search/ngx-mat-select-search.module';
 
 @NgModule({
   declarations: [
@@ -47,7 +52,12 @@ import {
      MatExpansionModule,
      MatAutocompleteModule,
      MatCardModule,
-     MatTabsModule
+     MatTabsModule,
+     MatFormFieldModule,
+     MatIconModule,
+     MatToolbarModule,
+     NgxMatSelectSearchModule,
+     MatSnackBarModule
   ],
   providers: [],
   entryComponents: [FormularioWebPartComponent]
