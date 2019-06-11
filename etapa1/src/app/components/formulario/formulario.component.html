@@ -424,7 +424,18 @@
                       <input matInput disabled placeholder="Motivación 1" value="Realizar actividades y proyectos variados">
                     </mat-form-field>
                   </td>
-                  
+                </tr>
+                <tr>
+                  <td>
+                    <mat-form-field class="full-width">
+                      <mat-label>Ajuste</mat-label>
+                        <mat-select [formControlName]="campo.nombreCampoAjuste">
+                          <mat-option *ngFor="let ajuste of selectAjuste" [value]="ajuste.nompre">
+                            {{ajuste.nompre}}
+                          </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                  </td>
                 </tr>
                 <tr>
                   <td>

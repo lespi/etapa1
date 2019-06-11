@@ -57,6 +57,24 @@ export class TemplateComponent implements OnInit {
   accountDetailsForm: FormGroup;
   matchingPasswordsGroup: FormGroup;
 
+// Inicio
+
+selectAjuste = [
+  {
+    ID: 1,
+    nompre: 'Alto'
+  },
+  {
+    ID: 2,
+    nompre: 'Medio'
+  },
+  {
+    ID: 3,
+    nompre: 'Bajo'
+  },
+];
+
+// Fin
 
 
 
