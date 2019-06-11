@@ -113,7 +113,7 @@
                         <!-- Sin campo año -->
                         <div class="col-lg-10 col-sm-12" *ngIf="!campo.anyo">
                             <mat-form-field class="full-width">
-                                <input matInput 
+                                <input disabled matInput 
                                       [placeholder]="campo.nombreMostrar"
                                       [formControlName]="campo.nombreCampo">
                               </mat-form-field>
@@ -122,8 +122,8 @@
                           <mat-form-field class="full-width">
                             <mat-label>Ajuste</mat-label>
                             <mat-select [formControlName]="campo.nombreCampoAjuste">
-                              <mat-option *ngFor="let ajuste of selectJerarquizar" [value]="ajuste.nompre">
-                                {{ajuste.nompre}}
+                              <mat-option *ngFor="let jerarquizar of selectJerarquizar" [value]="jerarquizar.nompre">
+                                {{jerarquizar.nompre}}
                               </mat-option>
                             </mat-select>
                           </mat-form-field>
@@ -131,7 +131,7 @@
                         <!-- con campo año -->
                         <div class="col-lg-8 col-sm-12" *ngIf="campo.anyo">
                             <mat-form-field class="full-width">
-                                <input matInput [placeholder]="campo.nombreMostrar"
+                                <input disabled matInput [placeholder]="campo.nombreMostrar"
                                                 [formControlName]="campo.nombreCampo">
                               </mat-form-field>
                         </div>
@@ -172,8 +172,8 @@
                           <mat-form-field class="full-width">
                             <mat-label>Jerarquizar</mat-label>
                             <mat-select [formControlName]="campo.nombreCampoAjuste">
-                              <mat-option *ngFor="let ajuste of selectJerarquizar" [value]="jerarquizar.nompre">
-                                {{jerarquizar.nompre}}
+                              <mat-option *ngFor="let ajuste of selectJerarquizar" [value]="ajuste.nompre">
+                                {{ajuste.nompre}}
                               </mat-option>
                             </mat-select>
                           </mat-form-field>

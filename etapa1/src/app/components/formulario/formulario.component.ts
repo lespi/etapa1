@@ -7,12 +7,13 @@ import { Etapa2Service } from '../../services/etapa2.service';
 import { MatSelect } from '@angular/material';
 import {MatSnackBar} from '@angular/material';
 
-export interface CamposInfoEspecifica {
+export interface CamposPromedioEvaluacion {
   nombreCampo: string;
   nombreMostrar: string;
   nombreCampoAjuste: string;
   anyo?: string;
 }
+
 
 @Component({
   selector: 'app-formulario',
@@ -127,7 +128,7 @@ export class TemplateComponent implements OnInit, AfterViewInit, OnDestroy {
   // @Input() placeholderLabel = 'Suche';
   // @Input() noEntriesFoundLabel = 'Keine Optionen gefunden';
 
-  camposRequerimientos: CamposInfoEspecifica[] = [
+  camposRequerimientos: CamposPromedioEvaluacion[] = [
     {
       nombreCampo: 'infe_req_form',
       nombreMostrar: 'Autogestión',
@@ -157,7 +158,7 @@ export class TemplateComponent implements OnInit, AfterViewInit, OnDestroy {
     },
   ];
 
-  camposCompetencias: CamposInfoEspecifica[] = [
+  camposCompetencias: CamposPromedioEvaluacion[] = [
     {
       nombreCampo: 'infe_comp_1',
       nombreMostrar: 'Competencia 1 (Más Crítica)',
@@ -190,7 +191,7 @@ export class TemplateComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   ];
 
-  camposCondiciones: CamposInfoEspecifica[] = [
+  camposCondiciones: CamposPromedioEvaluacion[] = [
     {
       nombreCampo: 'infe_cond_jornada',
       nombreMostrar: 'Realizar actividades y proyectos variados',
@@ -293,7 +294,7 @@ export class TemplateComponent implements OnInit, AfterViewInit, OnDestroy {
     },
   ];
 
-  camposMotivaciones: CamposInfoEspecifica[] = [
+  camposMotivaciones: CamposPromedioEvaluacion[] = [
     {
       nombreCampo: 'infe_mova_1',
       nombreMostrar: 'Motivación 1',
