@@ -92,75 +92,148 @@
   <br>
 
   <mat-card>
-
-    <h3>Competencias Autodesarrollo</h3>
-    <br>
-
-    <mat-tab-group>
-        <mat-tab label="CARGO 1">
-              
+    <h3>Competencias Autodesarrollo</h3>                
           <div class="row">
             <div class="col-lg-12 col-sm-12">
               
-              <form form [formGroup]="infoEspecificaReqForm" (ngSubmit)="onSubmitInfoEspecifica(infoEspecificaReqForm.value)">
+              <form form [formGroup]="competenciaAutodesarrolloForm" (ngSubmit)="onSubmitInfoEspecifica(infoEspecificaReqForm.value)">
                 <br>
                 <mat-accordion>
-                  <mat-expansion-panel [expanded]="true">
+                  <mat-expansion-panel>
                     <mat-expansion-panel-header>
                       <mat-panel-title>Promedio Evaluaciones</mat-panel-title>
                     </mat-expansion-panel-header>
                     <div class="row form-group-border" *ngFor="let campo of camposRequerimientos">
-                        <!-- Sin campo año -->
-                        <div class="col-lg-10 col-sm-12" *ngIf="!campo.anyo">
+                      
+                        <div class="col-lg-8 col-sm-12">
                             <mat-form-field class="full-width">
-                                <input disabled matInput 
-                                      [placeholder]="campo.nombreMostrar"
-                                      [formControlName]="campo.nombreCampo">
-                              </mat-form-field>
-                        </div>
-                        <div class="col-lg-2 col-sm-12" *ngIf="!campo.anyo">
-                          <mat-form-field class="full-width">
-                            <mat-label>Ajuste</mat-label>
-                            <mat-select [formControlName]="campo.nombreCampoAjuste">
-                              <mat-option *ngFor="let jerarquizar of selectJerarquizar" [value]="jerarquizar.nompre">
-                                {{jerarquizar.nompre}}
-                              </mat-option>
-                            </mat-select>
-                          </mat-form-field>
-                        </div>
-                        <!-- con campo año -->
-                        <div class="col-lg-8 col-sm-12" *ngIf="campo.anyo">
-                            <mat-form-field class="full-width">
-                                <input disabled matInput [placeholder]="campo.nombreMostrar"
+                                <input matInput [placeholder]="campo.nombreMostrar"
                                                 [formControlName]="campo.nombreCampo">
                               </mat-form-field>
                         </div>
-                        <div class="col-lg-2 col-sm-12" *ngIf="campo.anyo">
+                        <div class="col-lg-2 col-sm-12">
                           <mat-form-field class="full-width">
+                              <mat-label>Eval 1</mat-label>
                               <input matInput placeholder="Eval 1"
-                                              [formControlName]="campo.anyo">
+                                              [formControlName]="campo.nombreCampoEval1">
                             </mat-form-field>
                         </div>
-                        <div class="col-lg-2 col-sm-12" *ngIf="campo.anyo">
-                          <mat-form-field class="full-width">
-                            <mat-label>Ajuste</mat-label>
-                            <mat-select [formControlName]="campo.nombreCampoAjuste">
-                              <mat-option *ngFor="let ajuste of selectJerarquizar" [value]="ajuste.nompre">
-                                {{ajuste.nompre}}
-                              </mat-option>
-                            </mat-select>
-                          </mat-form-field>
-                        </div>
-
-                        
+                        <div class="col-lg-2 col-sm-12">
+                            <mat-form-field class="full-width">
+                                <mat-label>Eval 2</mat-label>
+                                <input matInput placeholder="Eval 2"
+                                                [formControlName]="campo.nombreCampoEval2">
+                              </mat-form-field>
+                          </div>
                     </div>     
+
                   </mat-expansion-panel>
+
+                  <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>Feedback Recibido</mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <div class="row form-group-border" *ngFor="let campo of camposFeedbackRecibido">
+
+                          <div class="col-lg-8 col-sm-12" >
+                              <mat-form-field class="full-width">
+                                  <input matInput placeholder="Comentario"
+                                                  [formControlName]="campo.nombreCampoColum1">
+                                </mat-form-field>
+                          </div>
+                          <div class="col-lg-2 col-sm-12" >
+                            <mat-form-field class="full-width">
+                                <mat-label>Fecha</mat-label>
+                                <input matInput placeholder="Fecha"
+                                                [formControlName]="campo.nombreCampoColum2">
+                              </mat-form-field>
+                          </div>
+                          <div class="col-lg-2 col-sm-12" >
+                              <mat-form-field class="full-width">
+                                  <mat-label>Persona</mat-label>
+                                  <input matInput placeholder="Persona"
+                                                  [formControlName]="campo.nombreCampoColum3">
+                                </mat-form-field>
+                            </div>
+                      </div>     
+  
+                    </mat-expansion-panel>
                                 
+                </mat-accordion>
+                  <br>
+                  <button class="submit-btn" color="primary" mat-raised-button type="submit" >Guardar</button>
+              </form>
+            </div>
+          </div>    
+</mat-card>
+
+<mat-card>
+    <h3>Otras Competencias</h3>
+    <p>A partir de la retroalimentación que ya has recibido, las reuniones con tu mentor, tu reflexión personal y tus evaluaciones de desempeño históricas. ¿Qué otras Fortalezas y Oportunidades de Mejora crees que tienes?							
+        </p>                   
+          <div class="row">
+            <div class="col-lg-12 col-sm-12">
+              
+              <form form [formGroup]="otrasCompetenciasForm" (ngSubmit)="onSubmitInfoEspecifica(infoEspecificaReqForm.value)">
+                <br>
+                <mat-accordion>                             
                   <mat-expansion-panel>
                     <mat-expansion-panel-header>
-                      <mat-panel-title>Motivaciones y Valores</mat-panel-title>
+                      <mat-panel-title>Mis 3 Top Fortalezas</mat-panel-title>
                     </mat-expansion-panel-header>
-                    <div class="row form-group-border" *ngFor="let campo of camposCondiciones">
+                    <div class="row form-group-border" *ngFor="let campo of camposOtrasCompetencias">
+                        <div class="col-lg-10 col-sm-12">
+                            <mat-form-field class="full-width">
+                                <input matInput [placeholder]="campo.nombreMostrar"
+                                                [formControlName]="campo.nombreCampo">
+                              </mat-form-field>
+                        </div>
+                    </div>
+                  </mat-expansion-panel>
+                                
+                </mat-accordion>
+
+                <mat-accordion>                             
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>Mis 2 Oportunidades de Mejora</mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <div class="row form-group-border" *ngFor="let campo of camposOportunidadesMejora">
+                          <div class="col-lg-10 col-sm-12">
+                              <mat-form-field class="full-width">
+                                  <input matInput [placeholder]="campo.nombreMostrar"
+                                                  [formControlName]="campo.nombreCampo">
+                                </mat-form-field>
+                          </div>
+                          
+                      </div>
+                    </mat-expansion-panel>
+                                  
+                  </mat-accordion>
+                  <br>
+                  <button class="submit-btn" color="primary" mat-raised-button type="submit" >Guardar</button>
+              </form>
+            </div>
+          </div>    
+</mat-card>
+
+<mat-card>
+    <h3>Motivaciones y Valores</h3> 
+    <p>Todos tenemos diferentes prioridades. ¿Qué es importante para ti en el trabajo? ¿Que te moviliza? ¿Qué valoras? En el siguiente listado te presentamos 17 Valores/Preferencias. Al final de éste, puedes agregar 3 valores adicionales que no estén considerados y que son significativos en tu vida laboral. Ordena estos valores según su importancia para ti, siendo 1 el más importante y 20 el menos. 
+        ¡No repitas los números! Si lo repites, se resaltará en rojo.											
+        </p>               
+          <div class="row">
+            <div class="col-lg-12 col-sm-12">
+              
+              <form form [formGroup]="MotivacionesValoresForm" (ngSubmit)="onSubmitInfoEspecifica(infoEspecificaReqForm.value)">
+                <br>
+                <mat-accordion>
+                              
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>Check List de Motivaciones y Valores</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="row form-group-border" *ngFor="let campo of camposMotivacionesValores">
                         <div class="col-lg-10 col-sm-12">
                             <mat-form-field class="full-width">
                                 <input matInput [placeholder]="campo.nombreMostrar"
@@ -171,7 +244,7 @@
                         <div class="col-lg-2 col-sm-12">
                           <mat-form-field class="full-width">
                             <mat-label>Jerarquizar</mat-label>
-                            <mat-select [formControlName]="campo.nombreCampoAjuste">
+                            <mat-select [formControlName]="campo.nombreCampoValor">
                               <mat-option *ngFor="let ajuste of selectJerarquizar" [value]="ajuste.nompre">
                                 {{ajuste.nompre}}
                               </mat-option>
@@ -180,22 +253,40 @@
                         </div>
                     </div>
                   </mat-expansion-panel>
+
+                  <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>Mis Top 5 Valores</mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <div class="row form-group-border" *ngFor="let campo of camposTop5Valores">
+                          <div class="col-lg-10 col-sm-12">
+                              <mat-form-field class="full-width">
+                                  <input matInput [placeholder]="campo.nombreMostrar"
+                                                  [formControlName]="campo.nombreCampo">
+                                </mat-form-field>
+                          </div>
+                          
+                          <div class="col-lg-2 col-sm-12">
+                            <mat-form-field class="full-width">
+                              <mat-label>Jerarquizar</mat-label>
+                              <mat-select [formControlName]="campo.nombreCampoValor">
+                                <mat-option *ngFor="let ajuste of selectJerarquizar" [value]="ajuste.nompre">
+                                  {{ajuste.nompre}}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </div>
+                      </div>
+                    </mat-expansion-panel>
                                 
                 </mat-accordion>
-            
                   <br>
-                  <button class="submit-btn" color="primary" mat-raised-button type="submit" [disabled]="!infoEspecificaReqForm.valid">Guardar</button>
+                  <button class="submit-btn" color="primary" mat-raised-button type="submit" >Guardar</button>
               </form>
             </div>
           </div>    
-
-        </mat-tab>
-      </mat-tab-group>
-
 </mat-card>
 
 <br>
 <br>
-
- 
 </div>

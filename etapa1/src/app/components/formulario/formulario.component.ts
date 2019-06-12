@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation, AfterViewInit, OnDestroy, ViewChi
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Observable, ReplaySubject, Subject } from 'rxjs';
 import { map, startWith, takeUntil, take } from 'rxjs/operators';
-import { Cargo, InfoGeneral, InfoEspecifica, Usuario, Periodo, Rol } from 'src/app/models/etapa2.module';
+import { Cargo, InfoGeneral, InfoEspecifica, Usuario, Periodo, Rol, CamposFeedbackRec } from 'src/app/models/etapa2.module';
 import { Etapa2Service } from '../../services/etapa2.service';
 import { MatSelect } from '@angular/material';
 import {MatSnackBar} from '@angular/material';
@@ -10,8 +10,39 @@ import {MatSnackBar} from '@angular/material';
 export interface CamposPromedioEvaluacion {
   nombreCampo: string;
   nombreMostrar: string;
-  nombreCampoAjuste: string;
-  anyo?: string;
+  nombreCampoEval1: string;
+  nombreCampoEval2?: string;
+}
+
+export interface CamposTablaGenerica {
+  nombreCampoColum1?: string;
+  nombreMostrar?: string;
+  nombreCampoColum2?: string;
+  nombreCampoColum3?: string;
+}
+
+export interface CamposOtrasCompetencias {
+  nombreCampo: string;
+  nombreMostrar: string;
+  nombreCampoTipo: string;
+}
+
+export interface CamposOportunidadesMejoras {
+  nombreCampo: string;
+  nombreMostrar: string;
+  nombreCampoTipo: string;
+}
+
+export interface CamposMotivacionesyValores {
+  nombreCampo: string;
+  nombreMostrar: string;
+  nombreCampoValor: string;
+}
+
+export interface CamposTop5Valore {
+  nombreCampo: string;
+  nombreMostrar: string;
+  nombreCampoValor: string;
 }
 
 
@@ -130,170 +161,231 @@ export class TemplateComponent implements OnInit, AfterViewInit, OnDestroy {
 
   camposRequerimientos: CamposPromedioEvaluacion[] = [
     {
-      nombreCampo: 'infe_req_form',
+      nombreCampo: 'coau_competencia',
       nombreMostrar: 'Autogestión',
-      nombreCampoAjuste: 'infe_req_form_ajus'
+      nombreCampoEval1: 'coau_evala',
+      nombreCampoEval2: 'coau_evalb'
     },
     {
-      nombreCampo: 'infe_req_esp',
+      nombreCampo: 'coau_competencia2',
       nombreMostrar: 'Accountability',
-      nombreCampoAjuste: 'infe_req_esp_ajus'
+      nombreCampoEval1: 'coau_evala2',
+      nombreCampoEval2: 'coau_evalb2'
     },
     {
-      nombreCampo: 'infe_req_cono',
+      nombreCampo: 'coau_competencia3',
       nombreMostrar: 'Generación de Redes',
-      nombreCampoAjuste: 'infe_req_cono_ajus'
+      nombreCampoEval1: 'coau_evala3',
+      nombreCampoEval2: 'coau_evalb3'
     },
     {
-      nombreCampo: 'infe_req_exp_general',
+      nombreCampo: 'coau_competencia4',
       nombreMostrar: 'Innovación',
-      nombreCampoAjuste: 'infe_req_exp_general_ajus',
-      anyo: 'infe_req_exp_general_anyo'
+      nombreCampoEval1: 'coau_evala4',
+      nombreCampoEval2: 'coau_evalb4'
     },
     {
-      nombreCampo: 'infe_req_exp_esp',
+      nombreCampo: 'coau_competencia5',
       nombreMostrar: 'Tolerancia a la Frustración',
-      nombreCampoAjuste: 'infe_req_exp_esp_ajus',
-      anyo: 'infe_req_exp_esp_anyo'
+      nombreCampoEval1: 'coau_evala5',
+      nombreCampoEval2: 'coau_evalb5'
+    },
+  ];
+  camposFeedbackRecibido: CamposTablaGenerica[] = [
+    {
+      nombreCampoColum1: 'fdbk_comentario',
+      nombreMostrar: 'Comentario',
+      nombreCampoColum2: 'fdbk_fecha',
+      nombreCampoColum3: 'fdbk_persona'
+    },
+    {
+      nombreCampoColum1: 'fdbk_comentario2',
+      nombreMostrar: 'Comentario',
+      nombreCampoColum2: 'fdbk_fecha2',
+      nombreCampoColum3: 'fdbk_persona2'
+    },
+    {
+      nombreCampoColum1: 'fdbk_comentario3',
+      nombreMostrar: 'Comentario',
+      nombreCampoColum2: 'fdbk_fecha3',
+      nombreCampoColum3: 'fdbk_persona3'
+    },
+    {
+      nombreCampoColum1: 'fdbk_comentario4',
+      nombreMostrar: 'Comentario',
+      nombreCampoColum2: 'fdbk_fecha4',
+      nombreCampoColum3: 'fdbk_persona4'
+    },
+    {
+      nombreCampoColum1: 'fdbk_comentario5',
+      nombreMostrar: 'Comentario',
+      nombreCampoColum2: 'fdbk_fecha5',
+      nombreCampoColum3: 'fdbk_persona5'
     },
   ];
 
-  camposCompetencias: CamposPromedioEvaluacion[] = [
+  camposOtrasCompetencias: CamposOtrasCompetencias[] = [
     {
-      nombreCampo: 'infe_comp_1',
-      nombreMostrar: 'Competencia 1 (Más Crítica)',
-      nombreCampoAjuste: 'infe_comp_1_ajus'
+      nombreCampo: 'ocom_descripcion',
+      nombreMostrar: 'Excelencia y  Orientación a los resultados',
+      nombreCampoTipo: 'ocom_tipo'
     },
     {
-      nombreCampo: 'infe_comp_2',
-      nombreMostrar: 'Competencia 2',
-      nombreCampoAjuste: 'infe_comp_2_ajus'
+      nombreCampo: 'ocom_descripcion2',
+      nombreMostrar: 'Responsabilidad y  Compromiso',
+      nombreCampoTipo: 'ocom_tipo2'
     },
     {
-      nombreCampo: 'infe_comp_3',
-      nombreMostrar: 'Competencia 3',
-      nombreCampoAjuste: 'infe_comp_3_ajus'
+      nombreCampo: 'ocom_descripcion3',
+      nombreMostrar: 'Otra: Rápido para tomar decisiones',
+      nombreCampoTipo: 'ocom_tipo3'
     },
-    {
-      nombreCampo: 'infe_comp_4',
-      nombreMostrar: 'Competencia 4',
-      nombreCampoAjuste: 'infe_comp_4_ajus'
-    },
-    {
-      nombreCampo: 'infe_comp_5',
-      nombreMostrar: 'Competencia 5',
-      nombreCampoAjuste: 'infe_comp_5_ajus'
-    },
-    {
-      nombreCampo: 'infe_comp_6',
-      nombreMostrar: 'Competencia 6 (Menos Crítica)',
-      nombreCampoAjuste: 'infe_comp_6_ajus'
-    }
   ];
 
-  camposCondiciones: CamposPromedioEvaluacion[] = [
+  camposOportunidadesMejora: CamposOportunidadesMejoras[] = [
     {
-      nombreCampo: 'infe_cond_jornada',
+      nombreCampo: 'ocom_descripcion4',
+      nombreMostrar: 'Comunicación y  Negociación',
+      nombreCampoTipo: 'ocom_tipo4'
+    },
+    {
+      nombreCampo: 'ocom_descripcion5',
+      nombreMostrar: 'Otra: Ignorar la opinión de personas que no tengo validadas',
+      nombreCampoTipo: 'ocom_tipo5'
+    },
+  ];
+
+  camposTop5Valores: CamposTop5Valore[] = [
+    {
+      nombreCampo: 'mova_descripcion',
+      nombreMostrar: '1',
+      nombreCampoValor: 'mova_valor'
+    },
+    {
+      nombreCampo: 'mova_descripcion2',
+      nombreMostrar: '2',
+      nombreCampoValor: 'mova_valor2'
+    },
+    {
+      nombreCampo: 'mova_descripcion3',
+      nombreMostrar: '3',
+      nombreCampoValor: 'mova_valor3'
+    },
+    {
+      nombreCampo: 'mova_descripcion4',
+      nombreMostrar: '4',
+      nombreCampoValor: 'mova_valor4'
+    },
+    {
+      nombreCampo: 'mova_descripcion5',
+      nombreMostrar: '5',
+      nombreCampoValor: 'mova_valor5'
+    },
+  ];
+
+  camposMotivacionesValores: CamposMotivacionesyValores[] = [
+    {
+      nombreCampo: 'mova_descripcion',
       nombreMostrar: 'Realizar actividades y proyectos variados',
-      nombreCampoAjuste: 'infe_cond_jornada_ajus'
+      nombreCampoValor: 'mova_valor'
     },
     {
-      nombreCampo: 'infe_cond_otro',
+      nombreCampo: 'mova_descripcion2',
       nombreMostrar: 'Ser un/a experto/a en mi área',
-      nombreCampoAjuste: 'infe_cond_otro_ajus'
+      nombreCampoValor: 'mova_valor2'
     },
     {
-      nombreCampo: 'infe_cond_otro',
+      nombreCampo: 'mova_descripcion3',
       nombreMostrar: 'Innovar y ser creativo/a',
-      nombreCampoAjuste: 'infe_cond_otro_ajus'
+      nombreCampoValor: 'mova_valor3'
     },
     {
-      nombreCampo: 'infe_cond_otro',
+      nombreCampo: 'mova_descripcion4',
       nombreMostrar: 'Tener un trabajo con sentido e impacto',
-      nombreCampoAjuste: 'infe_cond_otro_ajus'
+      nombreCampoValor: 'mova_valor4'
     },
     {
-      nombreCampo: 'infe_cond_otro',
+      nombreCampo: 'mova_descripcion5',
       nombreMostrar: 'Asumir desafíos',
-      nombreCampoAjuste: 'infe_cond_otro_ajus'
+      nombreCampoValor: 'mova_valor5'
     },
     {
-      nombreCampo: 'infe_cond_otro',
+      nombreCampo: 'mova_descripcion6',
       nombreMostrar: 'Influenciar a otros/as',
-      nombreCampoAjuste: 'infe_cond_otro_ajus'
+      nombreCampoValor: 'mova_valor6'
     },
     {
-      nombreCampo: 'infe_cond_otro',
+      nombreCampo: 'mova_descripcion7',
       nombreMostrar: 'Alcanzar una sensación de logro',
-      nombreCampoAjuste: 'infe_cond_otro_ajus'
+      nombreCampoValor: 'mova_valor7'
     },
     {
-      nombreCampo: 'infe_cond_otro',
+      nombreCampo: 'mova_descripcion8',
       nombreMostrar: 'Tener visibilidad/prestigio dentro y/o fuera de la empresa',
-      nombreCampoAjuste: 'infe_cond_otro_ajus'
+      nombreCampoValor: 'mova_valor8'
     },
     {
-      nombreCampo: 'infe_cond_otro',
+      nombreCampo: 'mova_descripcion9',
       nombreMostrar: 'Tener líderes que sean referentes en mi contexto laboral',
-      nombreCampoAjuste: 'infe_cond_otro_ajus'
+      nombreCampoValor: 'mova_valor9'
     },
     {
-      nombreCampo: 'infe_cond_otro',
+      nombreCampo: 'mova_descripcion10',
       nombreMostrar: 'Tener tiempo para mí vida personal',
-      nombreCampoAjuste: 'infe_cond_otro_ajus'
+      nombreCampoValor: 'mova_valor10'
     },
     {
-      nombreCampo: 'infe_cond_otro',
+      nombreCampo: 'mova_descripcion11',
       nombreMostrar: 'Gestionar e integrar distintas funciones',
-      nombreCampoAjuste: 'infe_cond_otro_ajus'
+      nombreCampoValor: 'mova_valor11'
     },
     {
-      nombreCampo: 'infe_cond_otro',
+      nombreCampo: 'mova_descripcion12',
       nombreMostrar: 'Recibir recompensas monetarias',
-      nombreCampoAjuste: 'infe_cond_otro_ajus'
+      nombreCampoValor: 'mova_valor12'
     },
     {
-      nombreCampo: 'infe_cond_otro',
+      nombreCampo: 'mova_descripcion13',
       nombreMostrar: 'Trabajar como equipo',
-      nombreCampoAjuste: 'infe_cond_otro_ajus'
+      nombreCampoValor: 'mova_valor13'
     },
     {
-      nombreCampo: 'infe_cond_otro',
+      nombreCampo: 'mova_descripcion14',
       nombreMostrar: 'Motivación 14" value="Tener autonomía para realizar mis funciones',
-      nombreCampoAjuste: 'infe_cond_otro_ajus'
+      nombreCampoValor: 'mova_valor14'
     },
     {
-      nombreCampo: 'infe_cond_otro',
+      nombreCampo: 'mova_descripcion15',
       nombreMostrar: 'Trabajar sin mucha presión',
-      nombreCampoAjuste: 'infe_cond_otro_ajus'
+      nombreCampoValor: 'mova_valor15'
     },
     {
-      nombreCampo: 'infe_cond_otro',
+      nombreCampo: 'mova_descripcion16',
       nombreMostrar: 'Tener flexibilidad para compatibilizar con otros aspectos de mi vida',
-      nombreCampoAjuste: 'infe_cond_otro_ajus'
+      nombreCampoValor: 'mova_valor16'
     },
     {
-      nombreCampo: 'infe_cond_otro',
+      nombreCampo: 'mova_descripcion17',
       nombreMostrar: 'Prestar un servicio que sea valorado por el/la cliente',
-      nombreCampoAjuste: 'infe_cond_otro_ajus'
+      nombreCampoValor: 'mova_valor17'
     },
     {
-      nombreCampo: 'infe_cond_otro',
+      nombreCampo: 'mova_descripcion18',
       nombreMostrar: '',
-      nombreCampoAjuste: 'infe_cond_otro_ajus'
+      nombreCampoValor: 'mova_valor18'
     },
     {
-      nombreCampo: 'infe_cond_otro',
+      nombreCampo: 'mova_descripcion19',
       nombreMostrar: '',
-      nombreCampoAjuste: 'infe_cond_otro_ajus'
+      nombreCampoValor: 'mova_valor19'
     },
     {
-      nombreCampo: 'infe_cond_otro',
+      nombreCampo: 'mova_descripcion20',
       nombreMostrar: '',
-      nombreCampoAjuste: 'infe_cond_otro_ajus'
+      nombreCampoValor: 'mova_valor20'
     },
   ];
-
+/*
   camposMotivaciones: CamposPromedioEvaluacion[] = [
     {
       nombreCampo: 'infe_mova_1',
@@ -322,6 +414,7 @@ export class TemplateComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   ];
 
+  */
 // Valores Jerarquzar
   selectJerarquizar = [
     {
@@ -406,7 +499,9 @@ export class TemplateComponent implements OnInit, AfterViewInit, OnDestroy {
   infoEspecificaReqForm: FormGroup;
   infoEspecificaReqForm2: FormGroup;
   infoEspecificaReqForm3: FormGroup;
-  
+  competenciaAutodesarrolloForm: FormGroup;
+  otrasCompetenciasForm: FormGroup;
+  MotivacionesValoresForm: FormGroup;
 
   // Sin uso hasta el momento
   infoGeneralValidationMessages = {
@@ -430,103 +525,13 @@ export class TemplateComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
 
-    // Obtener Cargos
-    this.etapa2Service.obtenerCargos().then( (resp: [any]) => {
-      // console.log(resp);
-      this.cargos = [];
-      resp.forEach( element => {
-        this.cargos.push( new Cargo(
-              element.ID,
-              element.car_nombre,
-              element.car_direccion,
-              element.car_mision,
-              element.car_req_cono,
-              element.car_req_esp,
-              element.car_req_exp_esp,
-              element.car_req_exp_general,
-              element.car_req_exp_lider,
-              element.car_req_form,
-              element.car_rotacion
-              ));
-      });
-
-      this.cargos2 = this.cargos;
-      this.cargos3 = this.cargos;
-       // Inicializar select cargos
-      //this.cargoCtrl.setValue(this.cargos[0]);
-      this.filteredCargos.next(this.cargos.slice());
-      this.cargoFilterCtrl.valueChanges
-           .pipe(takeUntil(this._onDestroy))
-           .subscribe(() => {
-            this.filterCargos();
-           });
-
-      this.filteredCargos2.next(this.cargos2.slice());
-      this.cargo2FilterCtrl.valueChanges
-                .pipe(takeUntil(this._onDestroy))
-                .subscribe(() => {
-                 this.filterCargos2();
-                });
-
-      this.filteredCargos3.next(this.cargos3.slice());
-      this.cargo3FilterCtrl.valueChanges
-           .pipe(takeUntil(this._onDestroy))
-           .subscribe(() => {
-            this.filterCargos3();
-           });
-    });
 
     // Obtener usuarioActivo
-    this.usuarioLogin();
+    // this.usuarioLogin();
     // Creamos el Form
     this.createForms();
 
-    // Obener Usuarios
-    this.etapa2Service.obtenerUsuarios().then( (resp: [any]) => {
-      // console.log(resp);
-      this.usuarios = [];
-      resp.forEach( element => {
-        this.usuarios.push( new Usuario(
-              element.ID,
-              element.id_num_sap,
-              element.id_carId,
-              element.per_fecha_ingreso,
-              element.per_login,
-              element.per_lugar_trabajo,
-              element.per_nombre
-              ));
-      });
-       // Inicializar select usuarios
-       //this.usuarios.find( x => x.ID === this.usuarioActivo.ID)
-      this.usuarioCtrl.setValue(this.usuarios[0]);
-      this.filteredUsuarios.next(this.usuarios.slice());
-      this.usuarioFilterCtrl.valueChanges
-          .pipe(takeUntil(this._onDestroy))
-          .subscribe(() => {
-            this.filterUsuarios();
-          });
-      this.usuarioCtrl.disable();
-   });
 
-    // Obtener Periodos --> por default deberia aparecer el ultimo periodo
-    this.etapa2Service.obtenerPeriodos().then( (resp: [any]) => {
-      // console.log(resp);
-      this.periodos = [];
-      resp.forEach( element => {
-              this.periodos.push( new Periodo(
-                    element.peri_descripcion,
-                    element.peri_fecha_anyo
-                    ));
-            });
-      // Inicializar select periodos
-      this.periodoCtrl.setValue(this.periodos[0]);
-      this.filteredPeriodos.next(this.periodos.slice());
-      this.periodoFilterCtrl.valueChanges
-            .pipe(takeUntil(this._onDestroy))
-            .subscribe(() => {
-              this.filterPeriodos();
-            });
- });
 
 
   }
@@ -620,178 +625,141 @@ export class TemplateComponent implements OnInit, AfterViewInit, OnDestroy {
       id_num_sapId: ['']
     });
 
-    this.infoEspecificaReqForm = this.fb.group({
+    this.competenciaAutodesarrolloForm = this.fb.group({
       id_carId: ['', Validators.required],
       id_periId: [''],
       id_num_sapId: [''],
 
-      infe_req_form: ['' ],
-      infe_req_form_ajus: [this.selectJerarquizar[1].nompre],
-      infe_req_esp: [''],
-      infe_req_esp_ajus: [this.selectJerarquizar[1].nompre],
-      infe_req_cono: [''],
-      infe_req_cono_ajus: [this.selectJerarquizar[1].nompre],
-      infe_req_exp_general: [''],
-      infe_req_exp_general_ajus: [this.selectJerarquizar[1].nompre],
-      infe_req_exp_general_anyo: [''],
-      infe_req_exp_esp: [''],
-      infe_req_exp_esp_ajus: [this.selectJerarquizar[1].nompre],
-      infe_req_exp_esp_anyo: [''],
-      infe_req_exp_lider: [''],
-      infe_req_exp_lider_ajus: [this.selectJerarquizar[1].nompre],
-      infe_req_exp_lider_anyo: [''],
-      infe_req_otro: [''],
-      infe_req_otro_ajus: [this.selectJerarquizar[1].nompre],
+      fdbk_comentario: [''],
+      fdbk_fecha: [''],
+      fdbk_persona: [''],
 
-      infe_comp_1: ['' ],
-      infe_comp_1_ajus: [this.selectJerarquizar[1].nompre],
-      infe_comp_2: [''],
-      infe_comp_2_ajus: [this.selectJerarquizar[1].nompre],
-      infe_comp_3: [''],
-      infe_comp_3_ajus: [this.selectJerarquizar[1].nompre],
-      infe_comp_4: [''],
-      infe_comp_4_ajus: [this.selectJerarquizar[1].nompre],
-      infe_comp_5: [''],
-      infe_comp_5_ajus: [this.selectJerarquizar[1].nompre],
-      infe_comp_6: [''],
-      infe_comp_6_ajus: [this.selectJerarquizar[1].nompre],
+      fdbk_comentario2: [''],
+      fdbk_fecha2: [''],
+      fdbk_persona2: [''],
 
-      infe_cond_jornada: ['' ],
-      infe_cond_jornada_ajus: [this.selectJerarquizar[1].nompre],
-      infe_cond_otro: [''],
-      infe_cond_otro_ajus: [this.selectJerarquizar[1].nompre],
+      fdbk_comentario3: [''],
+      fdbk_fecha3: [''],
+      fdbk_persona3: [''],
 
-      infe_mova_1: [''],
-      infe_mova_1_ajus: [this.selectJerarquizar[1].nompre],
-      infe_mova_2: [''],
-      infe_mova_2_ajus: [this.selectJerarquizar[1].nompre],
-      infe_mova_3: [''],
-      infe_mova_3_ajus: [this.selectJerarquizar[1].nompre],
-      infe_mova_4: [''],
-      infe_mova_4_ajus: [this.selectJerarquizar[1].nompre],
-      infe_mova_5: [''],
-      infe_mova_5_ajus: [this.selectJerarquizar[1].nompre],
+      fdbk_comentario4: [''],
+      fdbk_fecha4: [''],
+      fdbk_persona4: [''],
 
-      infe_direccion: [''],
-      infe_rotacion: [''],
-      infe_gerencia: [''],
-      infe_mision: ['']
+      fdbk_comentario5: [''],
+      fdbk_fecha5: [''],
+      fdbk_persona5: [''],
+
+      coau_competencia: [''],
+      coau_evala: [''],
+      coau_evalb: [''],
+
+      coau_competencia2: [''],
+      coau_evala2: [''],
+      coau_evalb2: [''],
+
+      coau_competencia3: [''],
+      coau_evala3: [''],
+      coau_evalb3: [''],
+
+      coau_competencia4: [''],
+      coau_evala4: [''],
+      coau_evalb4: [''],
+
+      coau_competencia5: [''],
+      coau_evala5: [''],
+      coau_evalb5: [''],
+
     });
 
-    this.infoEspecificaReqForm2 = this.fb.group({
+    this.otrasCompetenciasForm = this.fb.group({
       id_carId: ['', Validators.required],
       id_periId: [''],
       id_num_sapId: [''],
 
-      infe_req_form: ['' ],
-      infe_req_form_ajus: [this.selectJerarquizar[1].nompre],
-      infe_req_esp: [''],
-      infe_req_esp_ajus: [this.selectJerarquizar[1].nompre],
-      infe_req_cono: [''],
-      infe_req_cono_ajus: [this.selectJerarquizar[1].nompre],
-      infe_req_exp_general: [''],
-      infe_req_exp_general_ajus: [this.selectJerarquizar[1].nompre],
-      infe_req_exp_general_anyo: [''],
-      infe_req_exp_esp: [''],
-      infe_req_exp_esp_ajus: [this.selectJerarquizar[1].nompre],
-      infe_req_exp_esp_anyo: [''],
-      infe_req_exp_lider: [''],
-      infe_req_exp_lider_ajus: [this.selectJerarquizar[1].nompre],
-      infe_req_exp_lider_anyo: [''],
-      infe_req_otro: [''],
-      infe_req_otro_ajus: [this.selectJerarquizar[1].nompre],
+        ocom_descripcion: [''],
+        ocom_tipo: [''],
 
-      infe_comp_1: ['' ],
-      infe_comp_1_ajus: [this.selectJerarquizar[1].nompre],
-      infe_comp_2: [''],
-      infe_comp_2_ajus: [this.selectJerarquizar[1].nompre],
-      infe_comp_3: [''],
-      infe_comp_3_ajus: [this.selectJerarquizar[1].nompre],
-      infe_comp_4: [''],
-      infe_comp_4_ajus: [this.selectJerarquizar[1].nompre],
-      infe_comp_5: [''],
-      infe_comp_5_ajus: [this.selectJerarquizar[1].nompre],
-      infe_comp_6: [''],
-      infe_comp_6_ajus: [this.selectJerarquizar[1].nompre],
+        ocom_descripcion2: [''],
+        ocom_tipo2: [''],
 
-      infe_cond_jornada: ['' ],
-      infe_cond_jornada_ajus: [this.selectJerarquizar[1].nompre],
-      infe_cond_otro: [''],
-      infe_cond_otro_ajus: [this.selectJerarquizar[1].nompre],
+        ocom_descripcion3: [''],
+        ocom_tipo3: [''],
 
-      infe_mova_1: [''],
-      infe_mova_1_ajus: [this.selectJerarquizar[1].nompre],
-      infe_mova_2: [''],
-      infe_mova_2_ajus: [this.selectJerarquizar[1].nompre],
-      infe_mova_3: [''],
-      infe_mova_3_ajus: [this.selectJerarquizar[1].nompre],
-      infe_mova_4: [''],
-      infe_mova_4_ajus: [this.selectJerarquizar[1].nompre],
-      infe_mova_5: [''],
-      infe_mova_5_ajus: [this.selectJerarquizar[1].nompre],
+        ocom_descripcion4: [''],
+        ocom_tipo4: [''],
 
-      infe_direccion: [''],
-      infe_rotacion: [''],
-      infe_gerencia: [''],
-      infe_mision: ['']
+        ocom_descripcion5: [''],
+        ocom_tipo5: [''],
+
     });
 
-    this.infoEspecificaReqForm3 = this.fb.group({
+
+    this.MotivacionesValoresForm = this.fb.group({
       id_carId: ['', Validators.required],
       id_periId: [''],
       id_num_sapId: [''],
 
-      infe_req_form: ['' ],
-      infe_req_form_ajus: [this.selectJerarquizar[1].nompre],
-      infe_req_esp: [''],
-      infe_req_esp_ajus: [this.selectJerarquizar[1].nompre],
-      infe_req_cono: [''],
-      infe_req_cono_ajus: [this.selectJerarquizar[1].nompre],
-      infe_req_exp_general: [''],
-      infe_req_exp_general_ajus: [this.selectJerarquizar[1].nompre],
-      infe_req_exp_general_anyo: [''],
-      infe_req_exp_esp: [''],
-      infe_req_exp_esp_ajus: [this.selectJerarquizar[1].nompre],
-      infe_req_exp_esp_anyo: [''],
-      infe_req_exp_lider: [''],
-      infe_req_exp_lider_ajus: [this.selectJerarquizar[1].nompre],
-      infe_req_exp_lider_anyo: [''],
-      infe_req_otro: [''],
-      infe_req_otro_ajus: [this.selectJerarquizar[1].nompre],
+        mova_descripcion: [''],
+        mova_valor: [''],
 
-      infe_comp_1: ['' ],
-      infe_comp_1_ajus: [this.selectJerarquizar[1].nompre],
-      infe_comp_2: [''],
-      infe_comp_2_ajus: [this.selectJerarquizar[1].nompre],
-      infe_comp_3: [''],
-      infe_comp_3_ajus: [this.selectJerarquizar[1].nompre],
-      infe_comp_4: [''],
-      infe_comp_4_ajus: [this.selectJerarquizar[1].nompre],
-      infe_comp_5: [''],
-      infe_comp_5_ajus: [this.selectJerarquizar[1].nompre],
-      infe_comp_6: [''],
-      infe_comp_6_ajus: [this.selectJerarquizar[1].nompre],
+        mova_descripcion2: [''],
+        mova_valor2: [''],
 
-      infe_cond_jornada: ['' ],
-      infe_cond_jornada_ajus: [this.selectJerarquizar[1].nompre],
-      infe_cond_otro: [''],
-      infe_cond_otro_ajus: [this.selectJerarquizar[1].nompre],
+        mova_descripcion3: [''],
+        mova_valor3: [''],
 
-      infe_mova_1: [''],
-      infe_mova_1_ajus: [this.selectJerarquizar[1].nompre],
-      infe_mova_2: [''],
-      infe_mova_2_ajus: [this.selectJerarquizar[1].nompre],
-      infe_mova_3: [''],
-      infe_mova_3_ajus: [this.selectJerarquizar[1].nompre],
-      infe_mova_4: [''],
-      infe_mova_4_ajus: [this.selectJerarquizar[1].nompre],
-      infe_mova_5: [''],
-      infe_mova_5_ajus: [this.selectJerarquizar[1].nompre],
+        mova_descripcion4: [''],
+        mova_valor4: [''],
 
-      infe_direccion: [''],
-      infe_rotacion: [''],
-      infe_gerencia: [''],
-      infe_mision: ['']
+        mova_descripcion5: [''],
+        mova_valor5: [''],
+
+        mova_descripcion6: [''],
+        mova_valor6: [''],
+
+        mova_descripcion7: [''],
+        mova_valor7: [''],
+
+        mova_descripcion8: [''],
+        mova_valor8: [''],
+
+        mova_descripcion9: [''],
+        mova_valor9: [''],
+
+        mova_descripcion10: [''],
+        mova_valor10: [''],
+
+        mova_descripcion11: [''],
+        mova_valor11: [''],
+
+        mova_descripcion12: [''],
+        mova_valor12: [''],
+
+        mova_descripcion13: [''],
+        mova_valor13: [''],
+
+        mova_descripcion14: [''],
+        mova_valor14: [''],
+
+        mova_descripcion15: [''],
+        mova_valor15: [''],
+
+        mova_descripcion16: [''],
+        mova_valor16: [''],
+
+        mova_descripcion17: [''],
+        mova_valor17: [''],
+
+        mova_descripcion18: [''],
+        mova_valor18: [''],
+
+        mova_descripcion19: [''],
+        mova_valor19: [''],
+
+        mova_descripcion20: [''],
+        mova_valor20: [''],
+
     });
 
   }
@@ -977,119 +945,6 @@ export class TemplateComponent implements OnInit, AfterViewInit, OnDestroy {
     );
   }
 
-  cargoSeleccionado() {
-
-    this.cargoSel = this.cargos.find( x => x.ID === this.cargoCtrl.value.ID);
-
-    this.infoEspecificaReqForm.patchValue({
-      id_carId: this.cargoSel.ID,
-      infe_req_form: this.cargoSel.car_req_form,
-      infe_req_esp: this.cargoSel.car_req_esp,
-      infe_req_cono: this.cargoSel.car_req_cono,
-      infe_req_exp_general: this.cargoSel.car_req_exp_general,
-      infe_req_exp_general_anyo: '',
-      infe_req_exp_esp: this.cargoSel.car_req_exp_esp,
-      infe_req_exp_esp_anyo: '',
-      infe_req_exp_lider: this.cargoSel.car_req_exp_lider,
-      infe_req_exp_lider_anyo: '',
-      infe_req_otro: '',
-      infe_comp_1: '',
-      infe_comp_2: '',
-      infe_comp_3: '',
-      infe_comp_4: '',
-      infe_comp_5: '',
-      infe_comp_6: '',
-      infe_cond_jornada: '',
-      infe_cond_otro: '',
-      infe_mova_1: '',
-      infe_mova_2: '',
-      infe_mova_3: '',
-      infe_mova_4: '',
-      infe_mova_5: '',
-      infe_direccion: this.cargoSel.car_direccion,
-      infe_rotacion: this.cargoSel.car_rotacion,
-      infe_gerencia: '',
-      infe_mision: this.cargoSel.car_mision,
-    });
-    console.log('Cargo Activo desde cargoSel');
-    console.log(this.cargoSel);
-  }
-
-  cargoSeleccionado2() {
-
-    this.cargoSel2 = this.cargos2.find( x => x.ID === this.cargo2Ctrl.value.ID);
-
-    this.infoEspecificaReqForm2.patchValue({
-      id_carId: this.cargoSel2.ID,
-      infe_req_form: this.cargoSel.car_req_form,
-      infe_req_esp: this.cargoSel2.car_req_esp,
-      infe_req_cono: this.cargoSel2.car_req_cono,
-      infe_req_exp_general: this.cargoSel2.car_req_exp_general,
-      infe_req_exp_general_anyo: '',
-      infe_req_exp_esp: this.cargoSel2.car_req_exp_esp,
-      infe_req_exp_esp_anyo: '',
-      infe_req_exp_lider: this.cargoSel2.car_req_exp_lider,
-      infe_req_exp_lider_anyo: '',
-      infe_req_otro: '',
-      infe_comp_1: '',
-      infe_comp_2: '',
-      infe_comp_3: '',
-      infe_comp_4: '',
-      infe_comp_5: '',
-      infe_comp_6: '',
-      infe_cond_jornada: '',
-      infe_cond_otro: '',
-      infe_mova_1: '',
-      infe_mova_2: '',
-      infe_mova_3: '',
-      infe_mova_4: '',
-      infe_mova_5: '',
-      infe_direccion: this.cargoSel2.car_direccion,
-      infe_rotacion: this.cargoSel2.car_rotacion,
-      infe_gerencia: '',
-      infe_mision: this.cargoSel2.car_mision,
-    });
-    console.log('Cargo Activo desde cargoSel2');
-    console.log(this.cargoSel2);
-  }
-
-  cargoSeleccionado3() {
-
-    this.cargoSel3 = this.cargos3.find( x => x.ID === this.cargo3Ctrl.value.ID);
-
-    this.infoEspecificaReqForm3.patchValue({
-      id_carId: this.cargoSel3.ID,
-      infe_req_form: this.cargoSel3.car_req_form,
-      infe_req_esp: this.cargoSel3.car_req_esp,
-      infe_req_cono: this.cargoSel3.car_req_cono,
-      infe_req_exp_general: this.cargoSel3.car_req_exp_general,
-      infe_req_exp_general_anyo: '',
-      infe_req_exp_esp: this.cargoSel3.car_req_exp_esp,
-      infe_req_exp_esp_anyo: '',
-      infe_req_exp_lider: this.cargoSel3.car_req_exp_lider,
-      infe_req_exp_lider_anyo: '',
-      infe_req_otro: '',
-      infe_comp_1: '',
-      infe_comp_2: '',
-      infe_comp_3: '',
-      infe_comp_4: '',
-      infe_comp_5: '',
-      infe_comp_6: '',
-      infe_cond_jornada: '',
-      infe_cond_otro: '',
-      infe_mova_1: '',
-      infe_mova_2: '',
-      infe_mova_3: '',
-      infe_mova_4: '',
-      infe_mova_5: '',
-      infe_direccion: this.cargoSel3.car_direccion,
-      infe_rotacion: this.cargoSel3.car_rotacion,
-      infe_gerencia: '',
-      infe_mision: this.cargoSel3.car_mision,
-    });
-    console.log('Cargo Activo desde cargoSel3');
-    console.log(this.cargoSel3);
-  }
 
   usuarioSeleccionado() {
 

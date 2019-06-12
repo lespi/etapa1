@@ -79,6 +79,16 @@ export class InfoEspecifica {
 
 }
 
+export class CamposFeedbackRec {
+    constructor(
+        public ID?: number,
+        public fdbk_comentario?: string,
+        public fdbk_fecha?: Date,
+        public fdbk_persona?: string
+    ) {}
+
+}
+
 export class Cargo {
     constructor(
         public ID?: number,
