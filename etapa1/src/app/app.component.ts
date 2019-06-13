@@ -7,7 +7,7 @@ import { Genero } from './models/genero.module';
 
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-root-etapa1',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.Emulated

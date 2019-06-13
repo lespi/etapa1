@@ -47,7 +47,7 @@ export interface CamposTop5Valore {
 
 
 @Component({
-  selector: 'app-formulario',
+  selector: 'app-formulario-etapa1',
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.scss'],
   encapsulation: ViewEncapsulation.None

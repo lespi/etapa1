@@ -67,7 +67,7 @@ export class AppModule {
 
    ngDoBootstrap() {
      const el = createCustomElement(FormularioWebPartComponent, { injector: this.injector });
-     customElements.define('app-root', el);
+     customElements.define('app-root-etapa1', el);
    }
 
 

@@ -19,7 +19,7 @@ export interface IFormularioWebPartProps {
 export default class FormularioWebPart extends BaseClientSideWebPart<IFormularioWebPartProps> {
 
   public render(): void {
-    this.domElement.innerHTML = `<app-root description="${ this.properties.description }"></app-root>`;
+    this.domElement.innerHTML = `<app-root-etapa1 description="${ this.properties.description }"></app-root-etapa1>`;
   }
 
   protected get dataVersion(): Version {
