@@ -23,40 +23,6 @@ export class FormularioWebPartComponent implements OnInit {
   ngOnInit() {
 
 
-
-    //Guardar información General
-
-
-    // Obtener Cargos
-
-    //Guardar info Especifica
-
-
-    
-
-    // this.bookService.obtenerBook().then( (resp: [any]) => {
-
-    //   resp.forEach(element => {
-    //      this.books.push( new Book(element.title0, element.author0, element.url, element.url));
-    //    });
-
-    //   console.log(this.books);
-
-    // });
-
-
-    // this.bookService.obtenerGenero().then( (resp: [any]) => {
-
-    //   resp.forEach(element => {
-    //      this.generos.push( new Genero(element.Title, element.ID));
-    //    });
-
-    //   console.log(this.generos);
-
-    // });
-
-
-
   }
 
 }

@@ -10,6 +10,7 @@ import { escape } from '@microsoft/sp-lodash-subset';
 import * as strings from 'FormularioWebPartStrings';
 
 import 'etapa1/dist/etapa1/bundle.js';
+import 'etapa1/dist/etapa1/styles.css';
 
 export interface IFormularioWebPartProps {
   description: string;
@@ -18,7 +19,7 @@ export interface IFormularioWebPartProps {
 export default class FormularioWebPart extends BaseClientSideWebPart<IFormularioWebPartProps> {
 
   public render(): void {
-    this.domElement.innerHTML = `<app-formulario-web-part description="${ this.properties.description }"></app-formulario-web-part>`;
+    this.domElement.innerHTML = `<app-root description="${ this.properties.description }"></app-root>`;
   }
 
   protected get dataVersion(): Version {

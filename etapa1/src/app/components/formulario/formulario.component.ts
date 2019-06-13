@@ -163,9 +163,9 @@ export class TemplateComponent implements OnInit, AfterViewInit, OnDestroy {
     {
       nombreCampo: 'coau_competencia',
       nombreMostrar: 'Autogestión',
-      nombreCampoEval1: 'coau_evala',
-      nombreCampoEval2: 'coau_evalb'
-    },
+      nombreCampoEval1: 'coau_eval1',
+      nombreCampoEval2: 'coau_eval2'
+    }/*,
     {
       nombreCampo: 'coau_competencia2',
       nombreMostrar: 'Accountability',
@@ -189,7 +189,7 @@ export class TemplateComponent implements OnInit, AfterViewInit, OnDestroy {
       nombreMostrar: 'Tolerancia a la Frustración',
       nombreCampoEval1: 'coau_evala5',
       nombreCampoEval2: 'coau_evalb5'
-    },
+    },*/
   ];
   camposFeedbackRecibido: CamposTablaGenerica[] = [
     {
@@ -495,7 +495,7 @@ export class TemplateComponent implements OnInit, AfterViewInit, OnDestroy {
     },
   ];
 
-  infoGeneralForm: FormGroup;
+  perfilPersoForm: FormGroup;
   infoEspecificaReqForm: FormGroup;
   infoEspecificaReqForm2: FormGroup;
   infoEspecificaReqForm3: FormGroup;
@@ -568,7 +568,7 @@ export class TemplateComponent implements OnInit, AfterViewInit, OnDestroy {
       // console.log(resp);
       // inicializo id_num_sap en formControls
       this.usuarioCtrl.setValue(this.usuarioActivo);
-      this.infoGeneralForm.patchValue({
+      this.perfilPersoForm.patchValue({
         id_periId: '1',
         id_num_sapId: this.usuarioActivo.ID,
       });
@@ -616,59 +616,57 @@ export class TemplateComponent implements OnInit, AfterViewInit, OnDestroy {
 
   createForms() {
 
-    this.infoGeneralForm = this.fb.group({
-      infg_busqueda_desafio: ['' ],
-      infg_busqueda_desafio_ajuste_com: [''],
-      infg_area_desarrollo: [''],
-      infg_area_desarrollo_ajuste_comp: [''],
-      id_periId: [''],
-      id_num_sapId: ['']
+    this.perfilPersoForm = this.fb.group({
+      id_periId: [1],
+      id_num_sapId: [1],
+      disc_mova: [''],
+      disc_fort: ['']
     });
 
     this.competenciaAutodesarrolloForm = this.fb.group({
-      id_carId: ['', Validators.required],
-      id_periId: [''],
-      id_num_sapId: [''],
+      //id_carId: ['', Validators.required],
+      id_periId: [1],
+      id_num_sapId: [1],
 
-      fdbk_comentario: [''],
-      fdbk_fecha: [''],
-      fdbk_persona: [''],
+    //  fdbk_comentario: [''],
+    //  fdbk_fecha: [''],
+    //  fdbk_persona: [''],
 
-      fdbk_comentario2: [''],
-      fdbk_fecha2: [''],
-      fdbk_persona2: [''],
+   //   fdbk_comentario2: [''],
+   //   fdbk_fecha2: [''],
+   //   fdbk_persona2: [''],
 
-      fdbk_comentario3: [''],
-      fdbk_fecha3: [''],
-      fdbk_persona3: [''],
+  //    fdbk_comentario3: [''],
+   //   fdbk_fecha3: [''],
+  //    fdbk_persona3: [''],
 
-      fdbk_comentario4: [''],
-      fdbk_fecha4: [''],
-      fdbk_persona4: [''],
+  //    fdbk_comentario4: [''],
+   //   fdbk_fecha4: [''],
+   //   fdbk_persona4: [''],
 
-      fdbk_comentario5: [''],
-      fdbk_fecha5: [''],
-      fdbk_persona5: [''],
+   //   fdbk_comentario5: [''],
+   //   fdbk_fecha5: [''],
+    //  fdbk_persona5: [''],
 
       coau_competencia: [''],
-      coau_evala: [''],
-      coau_evalb: [''],
+      coau_eval1: [''],
+      coau_eval2: [''],
 
-      coau_competencia2: [''],
-      coau_evala2: [''],
-      coau_evalb2: [''],
+     // coau_competencia2: [''],
+     // coau_evala2: [''],
+     // coau_evalb2: [''],
 
-      coau_competencia3: [''],
-      coau_evala3: [''],
-      coau_evalb3: [''],
+     // coau_competencia3: [''],
+     // coau_evala3: [''],
+     // coau_evalb3: [''],
 
-      coau_competencia4: [''],
-      coau_evala4: [''],
-      coau_evalb4: [''],
+      //coau_competencia4: [''],
+    //  coau_evala4: [''],
+    //  coau_evalb4: [''],
 
-      coau_competencia5: [''],
-      coau_evala5: [''],
-      coau_evalb5: [''],
+      //coau_competencia5: [''],
+     // coau_evala5: [''],
+     // coau_evalb5: [''],
 
     });
 
@@ -764,6 +762,69 @@ export class TemplateComponent implements OnInit, AfterViewInit, OnDestroy {
 
   }
 
+  onSubmitPerfilForm(value) {
+    console.log(value);
+    // console.warn(value);
+    this.etapa2Service.guardarperfilPerso(value);
+    /*
+    if(this.infogeSel) {
+      console.log('Existe info general objeto');
+      console.log(value);
+      this.etapa2Service.actualizarInfoGeneral(value, this.infogeSel.ID);
+      console.log(this.infogeSel);
+
+    } else {
+      console.log('NO Existe info general objeto');
+      this.etapa2Service.guardarInfoGeneral(value);
+      // this.infogeSel = new InfoGeneral(value);
+      this.infoGenSel();
+
+    }
+    */
+  }
+
+  onSubmitCAutodesarrollo(value) {
+    console.log(value);
+    // console.warn(value);
+    this.etapa2Service.guardarCAutodesarrollo(value);
+    /*
+    if(this.infogeSel) {
+      console.log('Existe info general objeto');
+      console.log(value);
+      this.etapa2Service.actualizarInfoGeneral(value, this.infogeSel.ID);
+      console.log(this.infogeSel);
+
+    } else {
+      console.log('NO Existe info general objeto');
+      this.etapa2Service.guardarInfoGeneral(value);
+      // this.infogeSel = new InfoGeneral(value);
+      this.infoGenSel();
+
+    }
+    */
+  }
+
+ // onSubmitCAutodesarrollo(value) {
+   // console.log(value);
+    // console.warn(value);
+    /*
+    if(this.infoEsSel) {
+      console.log('Existe info competencia autodesarrollo');
+      console.log(value);
+      this.etapa2Service.actualizarInfoEspecifica(value, this.infoEsSel.ID);
+      console.log(this.infogeSel);
+
+    } else {
+      console.log('NO Existe info competencia autodesarrollo');
+      this.etapa2Service.guardarCAutodesarrollo(value);
+      this.infoEspSel();
+    }
+
+    this.snackBar.open('Información guardada', 'x', {
+      duration: 5000,
+    });
+  }
+*/
   onSubmitInfoGeneral(value) {
     console.log(value);
     // console.warn(value);
@@ -956,7 +1017,7 @@ export class TemplateComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.createForms();
 
-    this.infoGeneralForm.patchValue({
+    this.perfilPersoForm.patchValue({
       id_periId: '1',
       id_num_sapId: this.usuarioActivo.ID,
     });
@@ -1205,13 +1266,10 @@ export class TemplateComponent implements OnInit, AfterViewInit, OnDestroy {
       console.log(resp);
       // Solo un registro
       if( resp[0] ) {
-        this.infoGeneralForm.patchValue({
+        this.perfilPersoForm.patchValue({
           id_periId: resp[0].id_periId,
-          id_num_sapId: resp[0].id_num_sapId,
-          infg_area_desarrollo: resp[0].infg_area_desarrollo,
-          infg_area_desarrollo_ajuste_comp: resp[0].infg_area_desarrollo_ajuste_comp,
-          infg_busqueda_desafio: resp[0].infg_busqueda_desafio,
-          infg_busqueda_desafio_ajuste_com: resp[0].infg_busqueda_desafio_ajuste_com,
+          disc_mova: resp[0].disc_mova,
+          disc_fort: resp[0].disc_fort,
         });
 
         this.infogeSel = new InfoGeneral(

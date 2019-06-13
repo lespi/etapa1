@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Web, ItemAddResult } from '@pnp/sp';
 //import { Observable } from 'rxjs';
 //import { environment } from '../../environments/environment';
-import { InfoEspecifica, InfoGeneral } from '../models/etapa2.module';
+import { InfoEspecifica, InfoGeneral, PerfilPerso, CAutodesarrollo } from '../models/etapa2.module';
 import { CurrentUser } from '@pnp/sp/src/siteusers';
 
 const web = new Web('https://o365saven.sharepoint.com/sites/mpdc/app');
@@ -132,8 +132,34 @@ export class Etapa2Service {
                           .get<{Title: string}[]>();
   }
 
+  guardarperfilPerso(perfilPerso: PerfilPerso) {
+    web.lists
+      .getByTitle('perfil_personalidad')
+      .items.add(perfilPerso)
+      .then( (iar: ItemAddResult) => {
+          console.log(iar);
+      });
+}
 
+guardarCAutodesarrollo(infoCAutodesarrollo) {
+  web.lists
+    .getByTitle('competencia_autodesarrollo')
+    .items.add(infoCAutodesarrollo)
+    .then( (iar: ItemAddResult) => {
+        console.log(iar);
+    });
+}
 
+actualizarCAutodesarrollo(infoCAutodesarrollo: CAutodesarrollo, ID?: number) {
+  web.lists
+    .getByTitle('competencia_autodesarrollo')
+    .items
+    .getById(ID)
+    .update(infoCAutodesarrollo)
+    .then(i => {
+      console.log(i);
+    });
 
+}
 
 }

@@ -8,6 +8,31 @@ export class Etapa2 {
 
 }
 
+export class PerfilPerso {
+    constructor(
+        public ID?: number,
+        public id_periId?: number,
+        public id_num_sapId?: number,
+        public disc_mova?: string,
+        public disc_fort?: string
+    ) {}
+
+}
+
+export class CAutodesarrollo {
+    constructor(
+        public ID?: number,
+        public id_periId?: number,
+        public id_num_sapId?: number,
+        public coau_competencia?: string,
+        public coau_estado_actual?: string,
+        public coau_estado_deseado?: string,
+        public coau_eval1?: string,
+        public coau_eval2?: string,
+    ) {}
+
+}
+
 export class InfoGeneral {
     constructor(
         public ID?: number,
