@@ -3,32 +3,8 @@ export class Etapa2 {
         public id_peri: number,
         public id_num_sap: number,
         public infoGeneral: InfoGeneral,
+        public InfoCA: InfoCA,
         public infoEspecifica: InfoEspecifica[]
-    ) {}
-
-}
-
-export class PerfilPerso {
-    constructor(
-        public ID?: number,
-        public id_periId?: number,
-        public id_num_sapId?: number,
-        public disc_mova?: string,
-        public disc_fort?: string
-    ) {}
-
-}
-
-export class CAutodesarrollo {
-    constructor(
-        public ID?: number,
-        public id_periId?: number,
-        public id_num_sapId?: number,
-        public coau_competencia?: string,
-        public coau_estado_actual?: string,
-        public coau_estado_deseado?: string,
-        public coau_eval1?: string,
-        public coau_eval2?: string,
     ) {}
 
 }
@@ -104,16 +80,6 @@ export class InfoEspecifica {
 
 }
 
-export class CamposFeedbackRec {
-    constructor(
-        public ID?: number,
-        public fdbk_comentario?: string,
-        public fdbk_fecha?: Date,
-        public fdbk_persona?: string
-    ) {}
-
-}
-
 export class Cargo {
     constructor(
         public ID?: number,
@@ -158,6 +124,20 @@ export class Rol {
         public rol_grupo_adc?: string,
         public rol_tipo?: string,
         public id_num_sap?: number
+    ) {}
+
+}
+
+//Etapa1
+
+export class InfoCA {
+    constructor(
+        public ID?: number,
+        public id_periId?: number,
+        public id_num_sapId?: string,
+        public coau_competencia?: string,
+        public coau_eval1?: string,
+        public coau_eval2?: string
     ) {}
 
 }

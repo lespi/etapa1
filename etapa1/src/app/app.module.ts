@@ -5,8 +5,6 @@ import { createCustomElement } from '@angular/elements';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FormularioWebPartComponent } from './app.component';
-import { BookFormComponent } from './components/book-form/book-form.component';
-import { BookListaComponent } from './components/book-lista/book-lista.component';
 import { TemplateComponent } from './components/formulario/formulario.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,18 +23,19 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatToolbarModule,
-  
+
   } from '@angular/material';
+
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { NgxMatSelectSearchModule } from './mat-select-search/ngx-mat-select-search.module';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     FormularioWebPartComponent,
-    BookFormComponent,
-    BookListaComponent,
-    TemplateComponent
+    TemplateComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +59,8 @@ import { NgxMatSelectSearchModule } from './mat-select-search/ngx-mat-select-sea
      MatSnackBarModule
   ],
   providers: [],
-  entryComponents: [FormularioWebPartComponent]
+  entryComponents: [FormularioWebPartComponent],
+  //bootstrap:    [ FormularioWebPartComponent ]
 })
 export class AppModule {
   constructor(private injector: Injector) {}
