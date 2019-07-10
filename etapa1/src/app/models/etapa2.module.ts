@@ -4,6 +4,7 @@ export class Etapa2 {
         public id_num_sap: number,
         public infoGeneral: InfoGeneral,
         public InfoCA: InfoCA,
+        public InfoFR: InfoFR,
         public infoEspecifica: InfoEspecifica[]
     ) {}
 
@@ -128,8 +129,7 @@ export class Rol {
 
 }
 
-//Etapa1
-
+//Etapa 1
 export class InfoCA {
     constructor(
         public ID?: number,
@@ -139,5 +139,16 @@ export class InfoCA {
         public coau_eval1?: string,
         public coau_eval2?: string
     ) {}
+}
 
+export class InfoFR {
+    constructor(
+        public ID?: number,
+        public id_periId?: number,
+        public id_num_sapId?: string,
+        public coau_competencia?: string,
+        public fdbk_comentario?: string,
+        public fdbk_fecha?: Date,
+        public fdbk_persona?: string
+    ) {}
 }

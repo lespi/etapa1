@@ -17,6 +17,9 @@ export const selectAjuste = [
     },
   ];
 
+  //Error
+//export class DatepickerCustomIconExample {}
+
 // Campos para el HTML
 export const CAMPOSLARGO = [
   {
@@ -209,14 +212,133 @@ export const CAMPOSCAUTODESARROLLO5 = [
 
 export const CAMPOSFEEDBACKR = [
   {
-    nombreCampo: 'fdbk_comentario',
-    nombreMostrar: '',
-    nombreCampo2: 'fdbk_fecha',
-    nombreMostrar2: '',
-    nombreCampo3: 'fdbk_persona',
-    nombreMostrar3: ''
+    nombreCampoFR: 'coau_competencia',
+    nombreMostrarFR: 'Competencia',
+    nombreCampo1FR: 'fdbk_comentario',
+    nombreMostrar1FR: 'Comentario',
+    nombreCampo2FR: 'fdbk_fecha',
+    nombreMostrar2FR: 'Fecha',
+    nombreCampo3FR: 'fdbk_persona',
+    nombreMostrar3FR: 'Persona'
   },
 ];
+
+export const CAMPOSFEEDBACKR2 = [
+  {
+    nombreCampoFR: 'coau_competencia',
+    nombreMostrarFR: 'Competencia',
+    nombreCampo1FR: 'fdbk_comentario',
+    nombreMostrar1FR: 'Comentario',
+    nombreCampo2FR: 'fdbk_fecha',
+    nombreMostrar2FR: '',
+    nombreCampo3FR: 'fdbk_persona',
+    nombreMostrar3FR: ''
+  },
+];
+
+export const CAMPOSFEEDBACKR3 = [
+  {
+    nombreCampoFR: 'coau_competencia',
+    nombreMostrarFR: 'Competencia',
+    nombreCampo1FR: 'fdbk_comentario',
+    nombreMostrar1FR: 'Comentario',
+    nombreCampo2FR: 'fdbk_fecha',
+    nombreMostrar2FR: '',
+    nombreCampo3FR: 'fdbk_persona',
+    nombreMostrar3FR: ''
+  },
+];
+
+export const CAMPOSFEEDBACKR4 = [
+  {
+    nombreCampoFR: 'coau_competencia',
+    nombreMostrarFR: 'Competencia',
+    nombreCampo1FR: 'fdbk_comentario',
+    nombreMostrar1FR: 'Comentario',
+    nombreCampo2FR: 'fdbk_fecha',
+    nombreMostrar2FR: '',
+    nombreCampo3FR: 'fdbk_persona',
+    nombreMostrar3FR: ''
+  },
+];
+
+export const CAMPOSFEEDBACKR5 = [
+  {
+    nombreCampoFR: 'coau_competencia',
+    nombreMostrarFR: 'Competencia',
+    nombreCampo1FR: 'fdbk_comentario',
+    nombreMostrar1FR: 'Comentario',
+    nombreCampo2FR: 'fdbk_fecha',
+    nombreMostrar2FR: '',
+    nombreCampo3FR: 'fdbk_persona',
+    nombreMostrar3FR: ''
+  },
+];
+
+export const CAMPOSTFORTALEZA = [
+  {
+    nombreCampoTF1: 'ocom_descripcion',
+    nombreMostrarTF1: 'Fortaleza',
+    nombreCampoTF2: 'ocom_tipo',
+    nombreMostrarTF2: 'Tipo',
+  },
+];
+
+export const CAMPOSTFORTALEZA1 = [
+  {
+    nombreCampoTF1: 'ocom_descripcion',
+    nombreMostrarTF1: 'Fortaleza',
+    nombreCampoTF2: 'ocom_tipo',
+    nombreMostrarTF2: 'Tipo',
+  },
+];
+
+export const CAMPOSTFORTALEZA2 = [
+  {
+    nombreCampoTF1: 'ocom_descripcion',
+    nombreMostrarTF1: 'Fortaleza',
+    nombreCampoTF2: 'ocom_tipo',
+    nombreMostrarTF2: 'Tipo',
+  },
+];
+
+export const CAMPOSTFORTALEZA3 = [
+  {
+    nombreCampoTF1: 'ocom_descripcion',
+    nombreMostrarTF1: 'Fortaleza',
+    nombreCampoTF2: 'ocom_tipo',
+    nombreMostrarTF2: 'Tipo',
+  },
+];
+
+export const CAMPOSOMEJORA = [
+  {
+    nombreCampoOM1: 'ocom_descripcion',
+    nombreMostrarOM1: 'Fortaleza',
+    nombreCampoOM2: 'ocom_tipo',
+    nombreMostrarOM2: 'Tipo',
+  },
+];
+
+export const CAMPOSOMEJORA1 = [
+  {
+    nombreCampoOM1: 'ocom_descripcion',
+    nombreMostrarOM1: 'Fortaleza',
+    nombreCampoOM2: 'ocom_tipo',
+    nombreMostrarOM2: 'Tipo',
+  },
+];
+
+export const CAMPOSOMEJORA2 = [
+  {
+    nombreCampoOM1: 'ocom_descripcion',
+    nombreMostrarOM1: 'Fortaleza',
+    nombreCampoOM2: 'ocom_tipo',
+    nombreMostrarOM2: 'Tipo',
+  },
+];
+
+
 
 
   
@@ -279,7 +401,26 @@ export const INICIALIZARFEEDBACKR = {
   id_periId: '',
   id_num_sapId: '',
 
+  coau_competencia: '',
   fdbk_comentario: '',
   fdbk_fecha: '',
   fdbk_persona: '',
+};
+
+export const INICIALIZARTFORTALEZA = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  ocom_descripcion: '',
+  ocom_tipo: '',
+};
+
+export const INICIALIZAROMEJORA = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  ocom_descripcion: '',
+  ocom_tipo: '',
 };

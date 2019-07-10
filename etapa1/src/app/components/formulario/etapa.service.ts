@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Web, ItemAddResult } from '@pnp/sp';
-import { InfoEspecifica, InfoGeneral, InfoCA } from '../../models/etapa2.module';
+import { InfoEspecifica, InfoGeneral, InfoCA, InfoFR } from '../../models/etapa2.module';
 import { CurrentUser } from '@pnp/sp/src/siteusers';
 import { promise } from 'protractor';
 
@@ -94,6 +94,13 @@ export class EtapaService {
 
   //Etapa1
 
+  async obtenerinfoFR( ID ) {
+    return await web.lists.getByTitle('competencia_autodesarrollo')
+                          .items
+                          .filter(`id_num_sap eq '${ ID }'`)
+                          .get<{Title: string}[]>();
+  }
+
   async obtenerinfoCAutodesarrollo( ID ) {
     return await web.lists.getByTitle('competencia_autodesarrollo')
                           .items
@@ -119,6 +126,38 @@ export class EtapaService {
 
   }
 
+  actualizarFR(InfoFR: InfoFR, ID?: number) {
+
+    return new Promise( resolve => {
+
+      web.lists
+        .getByTitle('competencia_autodesarrollo')
+        .items
+        .getById(ID)
+        .update(InfoFR)
+        .then(i => {
+          console.log(i);
+          resolve(true);
+        });
+
+    });
+
+  }
+
+  guardarFR(InfoFR: InfoFR) {
+    return new Promise( resolve => {
+
+      web.lists
+        .getByTitle('competencia_autodesarrollo')
+        .items.add(InfoFR)
+        .then( (iar: ItemAddResult) => {
+            console.log(iar);
+            resolve(true);
+        });
+
+    });
+  }
+
   guardarCA(InfoCA: InfoCA) {
     return new Promise( resolve => {
 
@@ -134,4 +173,5 @@ export class EtapaService {
   }
 
 
+  
 }
