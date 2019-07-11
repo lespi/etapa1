@@ -135,9 +135,9 @@ export class TemplateComponent implements OnInit {
   infofrSel: InfoFR = null; //REVISAR
 
   // controles y estructura para formularios (Escucha los campos del formulario)
-  formGroupPadre: FormGroup;
-  formGroupHijo1: FormGroup;
-  formGroupHijo2: FormGroup;
+  formGroupPadrePPer: FormGroup;
+ // formGroupHijo1: FormGroup;
+  formGroupHijoPPer: FormGroup;
   formGroupHijo3: FormGroup;
   formGroupHijo4: FormGroup;
 
@@ -159,10 +159,10 @@ export class TemplateComponent implements OnInit {
 
   formGroupPadreMVal: FormGroup;
 
-  nombresFromGroup = ['formGroupHijo2', 'formGroupHijo3'];
+  nombresFromGroup = ['formGroupHijoPPer', 'formGroupHijo3'];
 
   inicializarFormHijo1 = INICIALIZARFORMLARGO;
-  inicializarFormHijo2 = INICIALIZARFORMCORTO; // Se utilizará para corto y mediano
+  inicializarFormHijoPPer = INICIALIZARFORMCORTO; // Se utilizará para corto y mediano
 
   //Inicializa valors del formulario
   inicializarFormHijo4 = INICIALIZARPERFILPERSONALIDAD; // Se utilizará para ETAPA 1
@@ -259,10 +259,10 @@ export class TemplateComponent implements OnInit {
 
   createForms() {
 
-    this.formGroupPadre = this.fb.group({
-      formGroupHijo1: this.fb.group(this.inicializarFormHijo1),
-      formGroupHijo2: this.fb.group(this.inicializarFormHijo2),
-      formGroupHijo3: this.fb.group(this.inicializarFormHijo2),
+    this.formGroupPadrePPer = this.fb.group({
+   //   formGroupHijo1: this.fb.group(this.inicializarFormHijo1),
+      formGroupHijoPPer: this.fb.group(this.inicializarFormHijoPPer),
+      formGroupHijo3: this.fb.group(this.inicializarFormHijoPPer),
       formGroupHijo4: this.fb.group(this.inicializarFormHijo4)
 
     });
@@ -322,39 +322,7 @@ export class TemplateComponent implements OnInit {
       });
 }
 
-  async onSubmitInfoLargo() {
-
-    this.guardando = true;
-    console.log(this.formGroupPadre.get('formGroupHijo1').value);
-    const elementInfoId = this.formGroupPadre.get('formGroupHijo1').get('ID').value;
-    const elementInfoValue = this.formGroupPadre.get('formGroupHijo1').value;
-    const objetoAuxiliar = elementInfoValue;
-    delete objetoAuxiliar.ID;
-
-    if ( elementInfoId !== '' ) {
-      console.log('Existe info objeto');
-      await this.etapaService.actualizarInfoLargo(elementInfoValue, elementInfoId).then( () => {
-        this.snackBar.open('Información LP guardada', 'x', {
-          duration: 5000,
-        });
-        this.guardando = false;
-      });
-    } else {
-      console.log('NO Existe info objeto');
-      console.log(objetoAuxiliar);
-      await this.etapaService.guardarInfoLargo(objetoAuxiliar).then( () => {
-        this.infoLargo().then( () => {
-          this.snackBar.open('Información LP guardada', 'x', {
-            duration: 5000,
-          });
-          this.guardando = false;
-        });
-      });
-    }
-
-  }
-
-  async onSubmitInfoInter() {
+  async onSubmitPPer() {
 
     this.guardando = true;
     //console.log(this.infoEspecificaForm.value);
@@ -363,8 +331,8 @@ export class TemplateComponent implements OnInit {
     for (let i = 0; i < this.nombresFromGroup.length; i++) {
 
       const element = this.nombresFromGroup[i]; // se asigna nombre del form hijo
-      const elementInfoId = this.formGroupPadre.get(element).get('ID').value; //obtengo el valor de form indicado pero solo el campo ID
-      const elementInfoValue = this.formGroupPadre.get(element).value; // Obtengo todos los values del submit del form hijo
+      const elementInfoId = this.formGroupPadrePPer.get(element).get('ID').value; //obtengo el valor de form indicado pero solo el campo ID
+      const elementInfoValue = this.formGroupPadrePPer.get(element).value; // Obtengo todos los values del submit del form hijo
       // console.log(this.formGroupPadre.get(element).get('ID').value );
 
       if (elementInfoId !== '') { // si el ID NO esta vacio
@@ -373,7 +341,7 @@ export class TemplateComponent implements OnInit {
         await this.etapaService.actualizarInfoInter(elementInfoValue, elementInfoId).then(() => {
               if ( i === this.nombresFromGroup.length - 1 ) { // solo para el ultimo form Hijo
                 this.guardando = false;
-                this.snackBar.open('Información Inter guardada', 'x', {
+                this.snackBar.open('Información Perfil de Personalidad guardada', 'x', {
                       duration: 5000,
                     });
               }
@@ -388,7 +356,7 @@ export class TemplateComponent implements OnInit {
           if ( i === this.nombresFromGroup.length - 1 ) {
             this.infoInter().then( () => {
               this.guardando = false;
-              this.snackBar.open('Información Inter guardada', 'x', {
+              this.snackBar.open('Información Perfil de Personalidad guardada', 'x', {
                     duration: 5000,
                   });
             });
@@ -482,8 +450,8 @@ export class TemplateComponent implements OnInit {
   }
 
   submitEtapa() {
-        this.onSubmitInfoLargo().then( () => {
-          this.onSubmitInfoInter();
+        this.onSubmitPPer().then( () => {//Etapa1
+          //this.onSubmitPPer();
           this.onSubmitCAutodesarrollo(); //Etapa1
           this.onSubmitFEEDBACKR(); //Etapa1
         });
@@ -498,11 +466,11 @@ export class TemplateComponent implements OnInit {
       if (resp.length > 0 ) {
         resp.forEach(element => {
           if ( element.hiti_tipo_plzo === 'Corto' ) {
-            this.formGroupPadre.get('formGroupHijo2').patchValue(element);
+            this.formGroupPadrePPer.get('formGroupHijoPPer').patchValue(element);
           }
 
           if ( element.hiti_tipo_plzo === 'Largo' ) {
-            this.formGroupPadre.get('formGroupHijo3').patchValue(element);
+            this.formGroupPadrePPer.get('formGroupHijo3').patchValue(element);
           }
           
           
@@ -510,45 +478,20 @@ export class TemplateComponent implements OnInit {
       } else {
         // Inicializar los form group con datos del usuario activo
         
-          this.formGroupPadre.get('formGroupHijo2').patchValue(this.inicializarFormHijo2);
-          this.formGroupPadre.get('formGroupHijo2').get('id_num_sapId').setValue(this.usuarioActivo.ID);
-          this.formGroupPadre.get('formGroupHijo2').get('id_periId').setValue(1);
-          this.formGroupPadre.get('formGroupHijo2').get('hiti_tipo_plzo').setValue('Corto');
+          this.formGroupPadrePPer.get('formGroupHijoPPer').patchValue(this.inicializarFormHijoPPer);
+          this.formGroupPadrePPer.get('formGroupHijoPPer').get('id_num_sapId').setValue(this.usuarioActivo.ID);
+          this.formGroupPadrePPer.get('formGroupHijoPPer').get('id_periId').setValue(1);
+          this.formGroupPadrePPer.get('formGroupHijoPPer').get('hiti_tipo_plzo').setValue('Corto');
 
-          this.formGroupPadre.get('formGroupHijo3').patchValue(this.inicializarFormHijo2);
-          this.formGroupPadre.get('formGroupHijo3').get('id_num_sapId').setValue(this.usuarioActivo.ID);
-          this.formGroupPadre.get('formGroupHijo3').get('id_periId').setValue(1);
-          this.formGroupPadre.get('formGroupHijo3').get('hiti_tipo_plzo').setValue('Largo');
+          this.formGroupPadrePPer.get('formGroupHijo3').patchValue(this.inicializarFormHijoPPer);
+          this.formGroupPadrePPer.get('formGroupHijo3').get('id_num_sapId').setValue(this.usuarioActivo.ID);
+          this.formGroupPadrePPer.get('formGroupHijo3').get('id_periId').setValue(1);
+          this.formGroupPadrePPer.get('formGroupHijo3').get('hiti_tipo_plzo').setValue('Largo');
   
       }
 
     });
     // console.log(this.infoEspecificaForm.get(this.nombresFromGroup[0]).value);
-  }
-
-  async infoLargo() {
-    await this.etapaService.obtenerInfoLargo(this.usuarioActivo.ID).then( (resp: [any]) => {
-      console.log('Obtener datos info LARGO');
-      console.log(resp);
-      if ( resp[0] ) {
-        this.formGroupPadre.get('formGroupHijo1').patchValue(resp[0]);
-      } else {
-        this.formGroupPadre.get('formGroupHijo1').patchValue({
-          ID: '',
-          id_periId: '1',
-          id_num_sapId: this.usuarioActivo.ID,
-          meca_area_py: '',
-          meca_comp_falta: '',
-          meca_comp_tengo: '',
-          meca_cuando: '',
-          meca_escala: '',
-          meca_mision: '',
-          meca_motivacion: '',
-          meca_reg_falta: '',
-          meca_req_tengo: '',
-        });
-      }
-    });
   }
 
   async infoCAutodesarrollo() {
@@ -668,7 +611,7 @@ export class TemplateComponent implements OnInit {
     console.log('usuarioActivo desde Padre ' + this.usuarioActivo.ID);
     // A continuación las acciones necesarias a realizar con el dato del usuario
 
-    this.infoLargo(); // Cargar info Largo
+    //this.infoLargo(); // Cargar info Largo
     this.infoInter(); // Cargar info Inter
 
     //Etapa2

@@ -29,38 +29,6 @@ export class EtapaService {
 
   }
 
-  guardarInfoLargo(infoGeneral: InfoGeneral) {
-    return new Promise( resolve => {
-
-      web.lists
-        .getByTitle('meta_carrera_lp')
-        .items.add(infoGeneral)
-        .then( (iar: ItemAddResult) => {
-            console.log(iar);
-            resolve(true);
-        });
-
-    });
-  }
-
-  actualizarInfoLargo(infoGeneral: InfoGeneral, ID?: number) {
-
-    return new Promise( resolve => {
-
-      web.lists
-        .getByTitle('meta_carrera_lp')
-        .items
-        .getById(ID)
-        .update(infoGeneral)
-        .then(i => {
-          console.log(i);
-          resolve(true);
-        });
-
-    });
-
-  }
-
   actualizarInfoInter(infoEspecifica: InfoEspecifica, ID?: number) {
 
     return new Promise( resolve => {
