@@ -85,12 +85,12 @@ export interface CamposForm {
 
   nombreCampoFR?: string;
   nombreMostrarFR?: string;
-  nombreCampo1FR?: string;
-  nombreMostrar1FR?: string;
-  nombreCampo2FR?: string;
-  nombreMostrar2FR?: string;
-  nombreCampo3FR?: string;
-  nombreMostrar3FR?: string;
+  nombreCampoFR1?: string;
+  nombreMostrarFR1?: string;
+  nombreCampoFR2?: string;
+  nombreMostrarFR2?: string;
+  nombreCampoFR3?: string;
+  nombreMostrarFR3?: string;
 
   nombreCampoTF1?: string;
   nombreMostrarTF1?: string;
@@ -188,7 +188,7 @@ export class TemplateComponent implements OnInit {
 
   nombresFromGroupCAUTODESARROLLO = ['formGroupHijoPE', 'formGroupHijoPE2', 'formGroupHijoPE3', 'formGroupHijoPE4', 'formGroupHijoPE5'];
 
-  nombresFromGroupFEEDBACKR = ['formGroupHijoFR', 'formGroupHijoFR2', 'formGroupHijoFR3', 'formGroupHijoFR4', 'formGroupHijoFR5'];
+  nombresFromGroupFEEDBACKR = ['formGroupHijoFR1', 'formGroupHijoFR2', 'formGroupHijoFR3', 'formGroupHijoFR4', 'formGroupHijoFR5'];
 
   nombresFromGroupTFORTALEZA = ['formGroupHijoTF1', 'formGroupHijoTF2', 'formGroupHijoTF3'];
 
@@ -199,11 +199,12 @@ export class TemplateComponent implements OnInit {
 // tslint:disable-next-line: max-line-length  
   nombresFromGroupTOP5V = ['formGroupHijoTOP5V1', 'formGroupHijoTOP5V2', 'formGroupHijoTOP5V3', 'formGroupHijoTOP5V4', 'formGroupHijoTOP5V5'];
 
-  camposFormFR: CamposForm[] = CAMPOSFEEDBACKR; //ETAPA1
+  camposFormFR: CamposForm[] = CAMPOSFEEDBACKR5; //ETAPA1
+  camposFormFR1: CamposForm[] = CAMPOSFEEDBACKR; //ETAPA1 No utilizado
   camposFormFR2: CamposForm[] = CAMPOSFEEDBACKR2; //ETAPA1 No utilizado
   camposFormFR3: CamposForm[] = CAMPOSFEEDBACKR3; //ETAPA1 No utilizado
   camposFormFR4: CamposForm[] = CAMPOSFEEDBACKR4; //ETAPA1 No utilizado
-  camposFormFR5: CamposForm[] = CAMPOSFEEDBACKR5; //ETAPA1 No utilizado
+
 
   camposFormTF: CamposForm[] = CAMPOSTFORTALEZA; //ETAPA1
   camposFormTF1: CamposForm[] = CAMPOSTFORTALEZA1; //ETAPA1 No utilizado
@@ -273,7 +274,7 @@ export class TemplateComponent implements OnInit {
       formGroupHijoPE4: this.fb.group(this.inicializarFormHijoPE),
       formGroupHijoPE5: this.fb.group(this.inicializarFormHijoPE),
 
-      formGroupHijoFR: this.fb.group(this.inicializarFormHijoFR),
+      formGroupHijoFR1: this.fb.group(this.inicializarFormHijoFR),
       formGroupHijoFR2: this.fb.group(this.inicializarFormHijoFR),
       formGroupHijoFR3: this.fb.group(this.inicializarFormHijoFR),
       formGroupHijoFR4: this.fb.group(this.inicializarFormHijoFR),

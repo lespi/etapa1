@@ -214,12 +214,12 @@ export const CAMPOSFEEDBACKR = [
   {
     nombreCampoFR: 'coau_competencia',
     nombreMostrarFR: 'Competencia',
-    nombreCampo1FR: 'fdbk_comentario',
-    nombreMostrar1FR: 'Comentario',
-    nombreCampo2FR: 'fdbk_fecha',
-    nombreMostrar2FR: 'Fecha',
-    nombreCampo3FR: 'fdbk_persona',
-    nombreMostrar3FR: 'Persona'
+    nombreCampoFR1: 'fdbk_comentario',
+    nombreMostrarFR1: 'Comentario',
+    nombreCampoFR2: 'fdbk_fecha',
+    nombreMostrarFR2: 'Fecha',
+    nombreCampoFR3: 'fdbk_persona',
+    nombreMostrarFR3: 'Persona'
   },
 ];
 
@@ -227,12 +227,12 @@ export const CAMPOSFEEDBACKR2 = [
   {
     nombreCampoFR: 'coau_competencia',
     nombreMostrarFR: 'Competencia',
-    nombreCampo1FR: 'fdbk_comentario',
-    nombreMostrar1FR: 'Comentario',
-    nombreCampo2FR: 'fdbk_fecha',
-    nombreMostrar2FR: '',
-    nombreCampo3FR: 'fdbk_persona',
-    nombreMostrar3FR: ''
+    nombreCampoFR1: 'fdbk_comentario',
+    nombreMostrarFR1: 'Comentario',
+    nombreCampoFR2: 'fdbk_fecha',
+    nombreMostrarFR2: 'Fecha',
+    nombreCampoFR3: 'fdbk_persona',
+    nombreMostrarFR3: 'Persona'
   },
 ];
 
@@ -240,12 +240,12 @@ export const CAMPOSFEEDBACKR3 = [
   {
     nombreCampoFR: 'coau_competencia',
     nombreMostrarFR: 'Competencia',
-    nombreCampo1FR: 'fdbk_comentario',
-    nombreMostrar1FR: 'Comentario',
-    nombreCampo2FR: 'fdbk_fecha',
-    nombreMostrar2FR: '',
-    nombreCampo3FR: 'fdbk_persona',
-    nombreMostrar3FR: ''
+    nombreCampoFR1: 'fdbk_comentario',
+    nombreMostrarFR1: 'Comentario',
+    nombreCampoFR2: 'fdbk_fecha',
+    nombreMostrarFR2: 'Fecha',
+    nombreCampoFR3: 'fdbk_persona',
+    nombreMostrarFR3: 'Persona'
   },
 ];
 
@@ -253,12 +253,12 @@ export const CAMPOSFEEDBACKR4 = [
   {
     nombreCampoFR: 'coau_competencia',
     nombreMostrarFR: 'Competencia',
-    nombreCampo1FR: 'fdbk_comentario',
-    nombreMostrar1FR: 'Comentario',
-    nombreCampo2FR: 'fdbk_fecha',
-    nombreMostrar2FR: '',
-    nombreCampo3FR: 'fdbk_persona',
-    nombreMostrar3FR: ''
+    nombreCampoFR1: 'fdbk_comentario',
+    nombreMostrarFR1: 'Comentario',
+    nombreCampoFR2: 'fdbk_fecha',
+    nombreMostrarFR2: 'Fecha',
+    nombreCampoFR3: 'fdbk_persona',
+    nombreMostrarFR3: 'Persona'
   },
 ];
 
@@ -266,12 +266,12 @@ export const CAMPOSFEEDBACKR5 = [
   {
     nombreCampoFR: 'coau_competencia',
     nombreMostrarFR: 'Competencia',
-    nombreCampo1FR: 'fdbk_comentario',
-    nombreMostrar1FR: 'Comentario',
-    nombreCampo2FR: 'fdbk_fecha',
-    nombreMostrar2FR: '',
-    nombreCampo3FR: 'fdbk_persona',
-    nombreMostrar3FR: ''
+    nombreCampoFR1: 'fdbk_comentario',
+    nombreMostrarFR1: 'Comentario',
+    nombreCampoFR2: 'fdbk_fecha',
+    nombreMostrarFR2: 'Fecha',
+    nombreCampoFR3: 'fdbk_persona',
+    nombreMostrarFR3: 'Persona'
   },
 ];
 
