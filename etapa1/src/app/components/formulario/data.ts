@@ -338,9 +338,230 @@ export const CAMPOSOMEJORA2 = [
   },
 ];
 
+export const CAMPOSCHECKL = [
+  {
+    nombreCampoCHECKL1: 'ocom_descripcion',
+    nombreMostrarCHECKL1: 'Motivación o Valor',
+    nombreCampoCHECKL2: 'ocom_tipo',
+    nombreMostrarCHECKL2: 'Jerarquizar',
+  },
+];
 
+export const CAMPOSCHECKL2 = [
+  {
+    nombreCampoCHECKL1: 'ocom_descripcion',
+    nombreMostrarCHECKL1: 'Motivación o Valor',
+    nombreCampoCHECKL2: 'ocom_tipo',
+    nombreMostrarCHECKL2: 'Jerarquizar',
+  },
+];
 
+export const CAMPOSCHECKL3 = [
+  {
+    nombreCampoOM1: 'ocom_descripcion',
+    nombreMostrarOM1: 'Fortaleza',
+    nombreCampoOM2: 'ocom_tipo',
+    nombreMostrarOM2: 'Tipo',
+  },
+];
 
+export const CAMPOSCHECKL4 = [
+  {
+    nombreCampoOM1: 'ocom_descripcion',
+    nombreMostrarOM1: 'Fortaleza',
+    nombreCampoOM2: 'ocom_tipo',
+    nombreMostrarOM2: 'Tipo',
+  },
+];
+
+export const CAMPOSCHECKL5 = [
+  {
+    nombreCampoOM1: 'ocom_descripcion',
+    nombreMostrarOM1: 'Fortaleza',
+    nombreCampoOM2: 'ocom_tipo',
+    nombreMostrarOM2: 'Tipo',
+  },
+];
+
+export const CAMPOSCHECKL6 = [
+  {
+    nombreCampoOM1: 'ocom_descripcion',
+    nombreMostrarOM1: 'Fortaleza',
+    nombreCampoOM2: 'ocom_tipo',
+    nombreMostrarOM2: 'Tipo',
+  },
+];
+
+export const CAMPOSCHECKL7 = [
+  {
+    nombreCampoOM1: 'ocom_descripcion',
+    nombreMostrarOM1: 'Fortaleza',
+    nombreCampoOM2: 'ocom_tipo',
+    nombreMostrarOM2: 'Tipo',
+  },
+];
+
+export const CAMPOSCHECKL8 = [
+  {
+    nombreCampoOM1: 'ocom_descripcion',
+    nombreMostrarOM1: 'Fortaleza',
+    nombreCampoOM2: 'ocom_tipo',
+    nombreMostrarOM2: 'Tipo',
+  },
+];
+
+export const CAMPOSCHECKL9 = [
+  {
+    nombreCampoOM1: 'ocom_descripcion',
+    nombreMostrarOM1: 'Fortaleza',
+    nombreCampoOM2: 'ocom_tipo',
+    nombreMostrarOM2: 'Tipo',
+  },
+];
+
+export const CAMPOSCHECKL10 = [
+  {
+    nombreCampoOM1: 'ocom_descripcion',
+    nombreMostrarOM1: 'Fortaleza',
+    nombreCampoOM2: 'ocom_tipo',
+    nombreMostrarOM2: 'Tipo',
+  },
+];
+
+export const CAMPOSCHECKL11 = [
+  {
+    nombreCampoOM1: 'ocom_descripcion',
+    nombreMostrarOM1: 'Fortaleza',
+    nombreCampoOM2: 'ocom_tipo',
+    nombreMostrarOM2: 'Tipo',
+  },
+];
+
+export const CAMPOSCHECKL12 = [
+  {
+    nombreCampoOM1: 'ocom_descripcion',
+    nombreMostrarOM1: 'Fortaleza',
+    nombreCampoOM2: 'ocom_tipo',
+    nombreMostrarOM2: 'Tipo',
+  },
+];
+
+export const CAMPOSCHECKL13 = [
+  {
+    nombreCampoOM1: 'ocom_descripcion',
+    nombreMostrarOM1: 'Fortaleza',
+    nombreCampoOM2: 'ocom_tipo',
+    nombreMostrarOM2: 'Tipo',
+  },
+];
+
+export const CAMPOSCHECKL14 = [
+  {
+    nombreCampoOM1: 'ocom_descripcion',
+    nombreMostrarOM1: 'Fortaleza',
+    nombreCampoOM2: 'ocom_tipo',
+    nombreMostrarOM2: 'Tipo',
+  },
+];
+
+export const CAMPOSCHECKL15 = [
+  {
+    nombreCampoOM1: 'ocom_descripcion',
+    nombreMostrarOM1: 'Fortaleza',
+    nombreCampoOM2: 'ocom_tipo',
+    nombreMostrarOM2: 'Tipo',
+  },
+];
+
+export const CAMPOSCHECKL16 = [
+  {
+    nombreCampoOM1: 'ocom_descripcion',
+    nombreMostrarOM1: 'Fortaleza',
+    nombreCampoOM2: 'ocom_tipo',
+    nombreMostrarOM2: 'Tipo',
+  },
+];
+
+export const CAMPOSCHECKL17 = [
+  {
+    nombreCampoOM1: 'ocom_descripcion',
+    nombreMostrarOM1: 'Fortaleza',
+    nombreCampoOM2: 'ocom_tipo',
+    nombreMostrarOM2: 'Tipo',
+  },
+];
+
+export const CAMPOSCHECKL18 = [
+  {
+    nombreCampoOM1: 'ocom_descripcion',
+    nombreMostrarOM1: 'Fortaleza',
+    nombreCampoOM2: 'ocom_tipo',
+    nombreMostrarOM2: 'Tipo',
+  },
+];
+
+export const CAMPOSCHECKL19 = [
+  {
+    nombreCampoOM1: 'ocom_descripcion',
+    nombreMostrarOM1: 'Fortaleza',
+    nombreCampoOM2: 'ocom_tipo',
+    nombreMostrarOM2: 'Tipo',
+  },
+];
+
+export const CAMPOSCHECKL20 = [
+  {
+    nombreCampoOM1: 'ocom_descripcion',
+    nombreMostrarOM1: 'Fortaleza',
+    nombreCampoOM2: 'ocom_tipo',
+    nombreMostrarOM2: 'Tipo',
+  },
+];
+
+export const CAMPOSTOP5V1 = [
+  {
+    nombreCampoTOP5V1: 'ocom_descripcion',
+    nombreMostrarTOP5V1: 'Jerarquizar',
+    nombreCampoTOP5V2: 'ocom_tipo',
+    nombreMostrarTOP5V2: 'Valor',
+  },
+];
+
+export const CAMPOSTOP5V2 = [
+  {
+    nombreCampoTOP5V1: 'ocom_descripcion',
+    nombreMostrarTOP5V1: 'Jerarquizar',
+    nombreCampoTOP5V2: 'ocom_tipo',
+    nombreMostrarTOP5V2: 'Valor',
+  },
+];
+
+export const CAMPOSTOP5V3 = [
+  {
+    nombreCampoTOP5V1: 'ocom_descripcion',
+    nombreMostrarTOP5V1: 'Jerarquizar',
+    nombreCampoTOP5V2: 'ocom_tipo',
+    nombreMostrarTOP5V2: 'Valor',
+  },
+];
+
+export const CAMPOSTOP5V4 = [
+  {
+    nombreCampoTOP5V1: 'ocom_descripcion',
+    nombreMostrarTOP5V1: 'Jerarquizar',
+    nombreCampoTOP5V2: 'ocom_tipo',
+    nombreMostrarTOP5V2: 'Valor',
+  },
+];
+
+export const CAMPOSTOP5V5 = [
+  {
+    nombreCampoTOP5V1: 'ocom_descripcion',
+    nombreMostrarTOP5V1: 'Jerarquizar',
+    nombreCampoTOP5V2: 'ocom_tipo',
+    nombreMostrarTOP5V2: 'Valor',
+  },
+];
   
 
 // Inicializar campos en FormGrouop Control

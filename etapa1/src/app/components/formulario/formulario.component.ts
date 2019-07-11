@@ -39,7 +39,32 @@ import {
   INICIALIZAROMEJORA,
   CAMPOSOMEJORA,
   CAMPOSOMEJORA1,
-  CAMPOSOMEJORA2
+  CAMPOSOMEJORA2,
+  CAMPOSCHECKL,
+  CAMPOSCHECKL2,
+  CAMPOSCHECKL3,
+  CAMPOSCHECKL4,
+  CAMPOSCHECKL5,
+  CAMPOSCHECKL6,
+  CAMPOSCHECKL7,
+  CAMPOSCHECKL8,
+  CAMPOSCHECKL9,
+  CAMPOSCHECKL10,
+  CAMPOSCHECKL11,
+  CAMPOSCHECKL12,
+  CAMPOSCHECKL13,
+  CAMPOSCHECKL14,
+  CAMPOSCHECKL15,
+  CAMPOSCHECKL16,
+  CAMPOSCHECKL17,
+  CAMPOSCHECKL18,
+  CAMPOSCHECKL19,
+  CAMPOSCHECKL20,
+  CAMPOSTOP5V1,
+  CAMPOSTOP5V2,
+  CAMPOSTOP5V3,
+  CAMPOSTOP5V4,
+  CAMPOSTOP5V5
 } from './data';
 import { Form } from '@pnp/sp/src/forms';
 import { INICIALIZARFORMCORTO } from './data';
@@ -76,6 +101,17 @@ export interface CamposForm {
   nombreMostrarOM1?: string;
   nombreCampoOM2?: string;
   nombreMostrarOM2?: string;
+
+  nombreCampoCHECKL1?: string;
+  nombreMostrarCHECKL1?: string;
+  nombreCampoCHECKL2?: string;
+  nombreMostrarCHECKL2?: string;
+
+  nombreCampoTOP5V1?: string;
+  nombreMostrarTOP5V1?: string;
+  nombreCampoTOP5V2?: string;
+  nombreMostrarTOP5V2?: string;
+
 }
 
 @Component({
@@ -121,6 +157,8 @@ export class TemplateComponent implements OnInit {
   
   formGroupPadreOCom: FormGroup;
 
+  formGroupPadreMVal: FormGroup;
+
   nombresFromGroup = ['formGroupHijo2', 'formGroupHijo3'];
 
   inicializarFormHijo1 = INICIALIZARFORMLARGO;
@@ -156,6 +194,11 @@ export class TemplateComponent implements OnInit {
 
   nombresFromGroupOMEJORA = ['formGroupHijoOM1', 'formGroupHijoOM2'];
 
+// tslint:disable-next-line: max-line-length
+  nombresFromGroupCHECKLISTMV = ['formGroupHijoCHECKL1', 'formGroupHijoCHECKL2', 'formGroupHijoCHECKL3', 'formGroupHijoCHECKL4', 'formGroupHijoCHECKL5', 'formGroupHijoCHECKL6', 'formGroupHijoCHECKL7','formGroupHijoCHECKL8', 'formGroupHijoCHECKL9', 'formGroupHijoCHECKL10', 'formGroupHijoCHECKL11', 'formGroupHijoCHECKL12', 'formGroupHijoCHECKL13', 'formGroupHijoCHECKL14', 'formGroupHijoCHECKL15', 'formGroupHijoCHECKL16', 'formGroupHijoCHECKL17', 'formGroupHijoCHECKL18', 'formGroupHijoCHECKL19', 'formGroupHijoCHECKL20'];
+// tslint:disable-next-line: max-line-length  
+  nombresFromGroupTOP5V = ['formGroupHijoTOP5V1', 'formGroupHijoTOP5V2', 'formGroupHijoTOP5V3', 'formGroupHijoTOP5V4', 'formGroupHijoTOP5V5'];
+
   camposFormFR: CamposForm[] = CAMPOSFEEDBACKR; //ETAPA1
   camposFormFR2: CamposForm[] = CAMPOSFEEDBACKR2; //ETAPA1 No utilizado
   camposFormFR3: CamposForm[] = CAMPOSFEEDBACKR3; //ETAPA1 No utilizado
@@ -169,6 +212,33 @@ export class TemplateComponent implements OnInit {
   camposFormOM: CamposForm[] = CAMPOSOMEJORA; //ETAPA1
   camposFormOM1: CamposForm[] = CAMPOSOMEJORA1; //ETAPA1 No utilizado
   camposFormOM2: CamposForm[] = CAMPOSOMEJORA2; //ETAPA1 No utilizado
+
+  camposFormCHECKL: CamposForm[] = CAMPOSCHECKL; //ETAPA1
+  camposFormCHECKL2: CamposForm[] = CAMPOSCHECKL2; //ETAPA1 No utilizado
+  camposFormCHECKL3: CamposForm[] = CAMPOSCHECKL3; //ETAPA1 No utilizado
+  camposFormCHECKL4: CamposForm[] = CAMPOSCHECKL4; //ETAPA1 No utilizado
+  camposFormCHECKL5: CamposForm[] = CAMPOSCHECKL5; //ETAPA1 No utilizado
+  camposFormCHECKL6: CamposForm[] = CAMPOSCHECKL6; //ETAPA1 No utilizado
+  camposFormCHECKL7: CamposForm[] = CAMPOSCHECKL7; //ETAPA1 No utilizado
+  camposFormCHECKL8: CamposForm[] = CAMPOSCHECKL8; //ETAPA1 No utilizado
+  camposFormCHECKL9: CamposForm[] = CAMPOSCHECKL9; //ETAPA1 No utilizado
+  camposFormCHECKL10: CamposForm[] = CAMPOSCHECKL10; //ETAPA1 No utilizado
+  camposFormCHECKL11: CamposForm[] = CAMPOSCHECKL11; //ETAPA1 No utilizado
+  camposFormCHECKL12: CamposForm[] = CAMPOSCHECKL12; //ETAPA1 No utilizado
+  camposFormCHECKL13: CamposForm[] = CAMPOSCHECKL13; //ETAPA1 No utilizado
+  camposFormCHECKL14: CamposForm[] = CAMPOSCHECKL14; //ETAPA1 No utilizado
+  camposFormCHECKL15: CamposForm[] = CAMPOSCHECKL15; //ETAPA1 No utilizado
+  camposFormCHECKL16: CamposForm[] = CAMPOSCHECKL16; //ETAPA1 No utilizado
+  camposFormCHECKL17: CamposForm[] = CAMPOSCHECKL17; //ETAPA1 No utilizado
+  camposFormCHECKL18: CamposForm[] = CAMPOSCHECKL18; //ETAPA1 No utilizado
+  camposFormCHECKL19: CamposForm[] = CAMPOSCHECKL19; //ETAPA1 No utilizado
+  camposFormCHECKL20: CamposForm[] = CAMPOSCHECKL20; //ETAPA1 No utilizado
+
+  camposFormTOP5V1: CamposForm[] = CAMPOSTOP5V1; //ETAPA1
+  //camposFormTOP5V2: CamposForm[] = CAMPOSTOP5V2; //ETAPA1 No utilizado
+  //camposFormTOP5V3: CamposForm[] = CAMPOSTOP5V3; //ETAPA1 No utilizado
+  //camposFormTOP5V4: CamposForm[] = CAMPOSTOP5V4; //ETAPA1 No utilizado
+  //camposFormTOP5V5: CamposForm[] = CAMPOSTOP5V5; //ETAPA1 No utilizado
 
 
   public guardando = false;
@@ -219,9 +289,37 @@ export class TemplateComponent implements OnInit {
       formGroupHijoOM1: this.fb.group(this.inicializarFormHijoOM),
       formGroupHijoOM2: this.fb.group(this.inicializarFormHijoOM)
 
-
     });
-  }
+  
+    this.formGroupPadreMVal = this.fb.group({
+        formGroupHijoCHECKL1: this.fb.group(this.inicializarFormHijoTF),
+        formGroupHijoCHECKL2: this.fb.group(this.inicializarFormHijoTF),
+        formGroupHijoCHECKL3: this.fb.group(this.inicializarFormHijoTF),
+        formGroupHijoCHECKL4: this.fb.group(this.inicializarFormHijoTF),
+        formGroupHijoCHECKL5: this.fb.group(this.inicializarFormHijoTF),
+        formGroupHijoCHECKL6: this.fb.group(this.inicializarFormHijoTF),
+        formGroupHijoCHECKL7: this.fb.group(this.inicializarFormHijoTF),
+        formGroupHijoCHECKL8: this.fb.group(this.inicializarFormHijoTF),
+        formGroupHijoCHECKL9: this.fb.group(this.inicializarFormHijoTF),
+        formGroupHijoCHECKL10: this.fb.group(this.inicializarFormHijoTF),
+        formGroupHijoCHECKL11: this.fb.group(this.inicializarFormHijoTF),
+        formGroupHijoCHECKL12: this.fb.group(this.inicializarFormHijoTF),
+        formGroupHijoCHECKL13: this.fb.group(this.inicializarFormHijoTF),
+        formGroupHijoCHECKL14: this.fb.group(this.inicializarFormHijoTF),
+        formGroupHijoCHECKL15: this.fb.group(this.inicializarFormHijoTF),
+        formGroupHijoCHECKL16: this.fb.group(this.inicializarFormHijoTF),
+        formGroupHijoCHECKL17: this.fb.group(this.inicializarFormHijoTF),
+        formGroupHijoCHECKL18: this.fb.group(this.inicializarFormHijoTF),
+        formGroupHijoCHECKL19: this.fb.group(this.inicializarFormHijoTF),
+        formGroupHijoCHECKL20: this.fb.group(this.inicializarFormHijoTF),
+
+        formGroupHijoTOP5V1: this.fb.group(this.inicializarFormHijoTF),
+        formGroupHijoTOP5V2: this.fb.group(this.inicializarFormHijoTF),
+        formGroupHijoTOP5V3: this.fb.group(this.inicializarFormHijoTF),
+        formGroupHijoTOP5V4: this.fb.group(this.inicializarFormHijoTF),
+        formGroupHijoTOP5V5: this.fb.group(this.inicializarFormHijoTF)
+      });
+}
 
   async onSubmitInfoLargo() {
 
