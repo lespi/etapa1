@@ -142,7 +142,7 @@ export class TemplateComponent implements OnInit {
   formGroupHijo4: FormGroup;
 
   // ETAPA1
-  formGroupPadre2: FormGroup;
+  formGroupPadreCA: FormGroup;
   formGroupHijoPE: FormGroup;
   formGroupHijoPE2: FormGroup;
   formGroupHijoPE3: FormGroup;
@@ -180,7 +180,7 @@ export class TemplateComponent implements OnInit {
 
   camposForm4: CamposForm[] = CAMPOSPERFIL; //ETAPA1
 
-  camposForm5: CamposForm[] = CAMPOSCAUTODESARROLLO1; //ETAPA1
+  camposFormCA: CamposForm[] = CAMPOSCAUTODESARROLLO1; //ETAPA1
   camposForm6: CamposForm[] = CAMPOSCAUTODESARROLLO2; //ETAPA1 No utilizado
   camposForm7: CamposForm[] = CAMPOSCAUTODESARROLLO3; //ETAPA1 No utilizado
   camposForm8: CamposForm[] = CAMPOSCAUTODESARROLLO4; //ETAPA1 No utilizado
@@ -267,7 +267,7 @@ export class TemplateComponent implements OnInit {
 
     });
 
-    this.formGroupPadre2 = this.fb.group({
+    this.formGroupPadreCA = this.fb.group({
       formGroupHijoPE: this.fb.group(this.inicializarFormHijoPE),
       formGroupHijoPE2: this.fb.group(this.inicializarFormHijoPE),
       formGroupHijoPE3: this.fb.group(this.inicializarFormHijoPE),
@@ -373,8 +373,8 @@ export class TemplateComponent implements OnInit {
     for (let i = 0; i < this.nombresFromGroupCAUTODESARROLLO.length; i++) {
 
       const element = this.nombresFromGroupCAUTODESARROLLO[i]; // se asigna nombre del form hijo
-      const elementInfoId = this.formGroupPadre2.get(element).get('ID').value; //obtengo el valor de form indicado pero solo el campo ID
-      const elementInfoValue = this.formGroupPadre2.get(element).value; // Obtengo todos los values del submit del form hijo
+      const elementInfoId = this.formGroupPadreCA.get(element).get('ID').value; //obtengo el valor de form indicado pero solo el campo ID
+      const elementInfoValue = this.formGroupPadreCA.get(element).value; // Obtengo todos los values del submit del form hijo
       // console.log(this.formGroupPadre.get(element).get('ID').value );
 
       if (elementInfoId !== '') { // si el ID NO esta vacio
@@ -414,8 +414,8 @@ export class TemplateComponent implements OnInit {
     for (let i = 0; i < this.nombresFromGroupFEEDBACKR.length; i++) {
 
       const element = this.nombresFromGroupFEEDBACKR[i]; // se asigna nombre del form hijo
-      const elementInfoId = this.formGroupPadre2.get(element).get('ID').value; //obtengo el valor de form indicado pero solo el campo ID
-      const elementInfoValue = this.formGroupPadre2.get(element).value; // Obtengo todos los values del submit del form hijo
+      const elementInfoId = this.formGroupPadreCA.get(element).get('ID').value; //obtengo el valor de form indicado pero solo el campo ID
+      const elementInfoValue = this.formGroupPadreCA.get(element).value; // Obtengo todos los values del submit del form hijo
       // console.log(this.formGroupPadre.get(element).get('ID').value );
 
       if (elementInfoId !== '') { // si el ID NO esta vacio
@@ -504,24 +504,24 @@ export class TemplateComponent implements OnInit {
         resp.forEach(element => {
   
           if ( element.coau_competencia === 'Autogestión' ) {
-            this.formGroupPadre2.get('formGroupHijoPE').patchValue(element);
-            this.formGroupPadre2.get('formGroupHijoPE').get('coau_competencia').disable();
+            this.formGroupPadreCA.get('formGroupHijoPE').patchValue(element);
+            this.formGroupPadreCA.get('formGroupHijoPE').get('coau_competencia').disable();
           }
           if ( element.coau_competencia === 'Accountability' ) {
-            this.formGroupPadre2.get('formGroupHijoPE2').patchValue(element);
-            this.formGroupPadre2.get('formGroupHijoPE2').get('coau_competencia').disable();
+            this.formGroupPadreCA.get('formGroupHijoPE2').patchValue(element);
+            this.formGroupPadreCA.get('formGroupHijoPE2').get('coau_competencia').disable();
           }
           if ( element.coau_competencia === 'Generación de Redes' ) {
-            this.formGroupPadre2.get('formGroupHijoPE3').patchValue(element);
-            this.formGroupPadre2.get('formGroupHijoPE3').get('coau_competencia').disable();
+            this.formGroupPadreCA.get('formGroupHijoPE3').patchValue(element);
+            this.formGroupPadreCA.get('formGroupHijoPE3').get('coau_competencia').disable();
           }
           if ( element.coau_competencia === 'Innovación' ) {
-            this.formGroupPadre2.get('formGroupHijoPE4').patchValue(element);
-            this.formGroupPadre2.get('formGroupHijoPE4').get('coau_competencia').disable();
+            this.formGroupPadreCA.get('formGroupHijoPE4').patchValue(element);
+            this.formGroupPadreCA.get('formGroupHijoPE4').get('coau_competencia').disable();
           }
           if ( element.coau_competencia === 'Tolerancia a la Frustración' ) {
-            this.formGroupPadre2.get('formGroupHijoPE5').patchValue(element);
-            this.formGroupPadre2.get('formGroupHijoPE5').get('coau_competencia').disable();
+            this.formGroupPadreCA.get('formGroupHijoPE5').patchValue(element);
+            this.formGroupPadreCA.get('formGroupHijoPE5').get('coau_competencia').disable();
           }
   
         });
@@ -529,7 +529,7 @@ export class TemplateComponent implements OnInit {
 
         this.nombresFromGroupCAUTODESARROLLO.forEach(element => {
 
-                  this.formGroupPadre2.get(element).patchValue({
+                  this.formGroupPadreCA.get(element).patchValue({
                     ID: '',
                     id_periId: '1',
                     id_num_sapId: this.usuarioActivo.ID,
@@ -538,7 +538,7 @@ export class TemplateComponent implements OnInit {
                     coau_eval2: '',
                   });
 
-                  this.formGroupPadre2.get(element).get('coau_competencia').disable();
+                  this.formGroupPadreCA.get(element).get('coau_competencia').disable();
         });
 
 
@@ -557,24 +557,24 @@ export class TemplateComponent implements OnInit {
         resp.forEach(element => {
   
           if ( element.coau_competencia === 'Autogestión' ) {
-            this.formGroupPadre2.get('formGroupHijoFR').patchValue(element);
-            this.formGroupPadre2.get('formGroupHijoFR').get('coau_competencia').disable();
+            this.formGroupPadreCA.get('formGroupHijoFR').patchValue(element);
+            this.formGroupPadreCA.get('formGroupHijoFR').get('coau_competencia').disable();
           }
           if ( element.coau_competencia === 'Accountability' ) {
-            this.formGroupPadre2.get('formGroupHijoFR2').patchValue(element);
-            this.formGroupPadre2.get('formGroupHijoFR2').get('coau_competencia').disable();
+            this.formGroupPadreCA.get('formGroupHijoFR2').patchValue(element);
+            this.formGroupPadreCA.get('formGroupHijoFR2').get('coau_competencia').disable();
           }
           if ( element.coau_competencia === 'Generación de Redes' ) {
-            this.formGroupPadre2.get('formGroupHijoFR3').patchValue(element);
-            this.formGroupPadre2.get('formGroupHijoFR3').get('coau_competencia').disable();
+            this.formGroupPadreCA.get('formGroupHijoFR3').patchValue(element);
+            this.formGroupPadreCA.get('formGroupHijoFR3').get('coau_competencia').disable();
           }
           if ( element.coau_competencia === 'Innovación' ) {
-            this.formGroupPadre2.get('formGroupHijoFR4').patchValue(element);
-            this.formGroupPadre2.get('formGroupHijoFR4').get('coau_competencia').disable();
+            this.formGroupPadreCA.get('formGroupHijoFR4').patchValue(element);
+            this.formGroupPadreCA.get('formGroupHijoFR4').get('coau_competencia').disable();
           }
           if ( element.coau_competencia === 'Tolerancia a la Frustración' ) {
-            this.formGroupPadre2.get('formGroupHijoFR5').patchValue(element);
-            this.formGroupPadre2.get('formGroupHijoFR5').get('coau_competencia').disable();
+            this.formGroupPadreCA.get('formGroupHijoFR5').patchValue(element);
+            this.formGroupPadreCA.get('formGroupHijoFR5').get('coau_competencia').disable();
           }
   
         });
@@ -582,7 +582,7 @@ export class TemplateComponent implements OnInit {
 
         this.nombresFromGroupFEEDBACKR.forEach(element => {
 
-                  this.formGroupPadre2.get(element).patchValue({
+                  this.formGroupPadreCA.get(element).patchValue({
                     ID: '',
                     id_periId: '1',
                     id_num_sapId: this.usuarioActivo.ID,
@@ -592,7 +592,7 @@ export class TemplateComponent implements OnInit {
                     fdbk_persona: '',
                   });
 
-                  this.formGroupPadre2.get(element).get('coau_competencia').disable();
+                  this.formGroupPadreCA.get(element).get('coau_competencia').disable();
         });
 
 
