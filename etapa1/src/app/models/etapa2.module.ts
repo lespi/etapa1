@@ -3,6 +3,7 @@ export class Etapa2 {
         public id_peri: number,
         public id_num_sap: number,
         public infoGeneral: InfoGeneral,
+        public infoPPer: InfoPPer,
         public InfoCA: InfoCA,
         public InfoFR: InfoFR,
         public infoEspecifica: InfoEspecifica[]
@@ -130,6 +131,16 @@ export class Rol {
 }
 
 //Etapa 1
+
+export class InfoPPer {
+    constructor(
+        public ID?: number,
+        public id_periId?: number,
+        public id_num_sapId?: string,
+        public disc_mova?: string,
+        public disc_fort?: string
+    ) {}
+}
 export class InfoCA {
     constructor(
         public ID?: number,

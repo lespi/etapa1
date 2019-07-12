@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Web, ItemAddResult } from '@pnp/sp';
-import { InfoEspecifica, InfoGeneral, InfoCA, InfoFR } from '../../models/etapa2.module';
+import { InfoEspecifica, InfoGeneral, InfoPPer, InfoCA, InfoFR } from '../../models/etapa2.module';
 import { CurrentUser } from '@pnp/sp/src/siteusers';
 import { promise } from 'protractor';
 
@@ -46,6 +46,23 @@ export class EtapaService {
 
   }
 
+  actualizarInfoPPer(infoPPer: InfoPPer, ID?: number) {
+
+    return new Promise( resolve => {
+      web.lists
+      .getByTitle('perfil_personalidad')
+      .items
+      .getById(ID)
+      .update(infoPPer)
+      .then(i => {
+        console.log(i);
+        resolve(true);
+      });
+    });
+    
+
+  }
+
   async obtenerInfoLargo( ID ) {
     return await web.lists.getByTitle('meta_carrera_lp')
                           .items
@@ -62,6 +79,26 @@ export class EtapaService {
 
   //Etapa1
 
+  async obtenerInfoPPer( ID ) {
+    return await web.lists.getByTitle('perfil_personalidad')
+                          .items
+                          .filter(`id_num_sap eq '${ ID }'`)
+                          .get<{Title: string}[]>();
+  }
+  guardarPPer(infoPPer) {
+
+    return new Promise( resolve => {
+      web.lists
+        .getByTitle('perfil_personalidad')
+        .items.add(infoPPer)
+        .then( (iar: ItemAddResult) => {
+            console.log(iar);
+            resolve(true);
+        });
+    });
+
+  }
+ 
   async obtenerinfoFR( ID ) {
     return await web.lists.getByTitle('competencia_autodesarrollo')
                           .items
@@ -139,7 +176,5 @@ export class EtapaService {
 
     });
   }
-
-
   
 }

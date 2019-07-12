@@ -69,41 +69,6 @@ export const CAMPOSLARGO = [
 
 ];
 
-export const CAMPOSCORTO = [
-  {
-    nombreCampo: 'hiti_logro',
-    nombreMostrar: '¿Qué quiero lograr?',
-    nombreCampo2: '',
-    nombreMostrar2: '',
-  },
-  {
-    nombreCampo: 'hiti_como',
-    nombreMostrar: '¿Cómo contribuye esto al logro de mi meta final?',
-    nombreCampo2: '',
-    nombreMostrar2: '',
-  },  
-  {
-    nombreCampo: 'hiti_comp_cuando',
-    nombreMostrar: '¿Cuándo la quiero lograr?',
-    nombreCampo2: '',
-    nombreMostrar2: '',
-  },  
-  {
-    nombreCampo: 'hiti_req_tengo',
-    nombreMostrar: '¿Con qué cuento?',
-    nombreCampo2: 'hiti_req_falta',
-    nombreMostrar2: '¿Qué me falta?',
-    titulo: '¿Qué requerimientos piden? (experiencia, conocimientos)'
-  },
-  {
-    nombreCampo: 'hiti_comp_tengo',
-    nombreMostrar: '¿Con qué cuento?',
-    nombreCampo2: 'hiti_comp_falta',
-    nombreMostrar2: '¿Qué me falta?',
-    titulo: '¿Qué competencias necesito? (para obtener el cargo y para ser exitoso en este)'
-  },
-];
-
 export const CAMPOSMEDIANO = [
   {
     nombreCampo: 'hiti_logro',

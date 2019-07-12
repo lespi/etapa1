@@ -3,7 +3,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Observable, ReplaySubject, Subject } from 'rxjs';
 import { map, startWith, takeUntil, take } from 'rxjs/operators';
-import { Cargo, InfoGeneral, InfoEspecifica, InfoCA, InfoFR, Usuario, Periodo, Rol } from 'src/app/models/etapa2.module';
+import { Cargo, InfoGeneral, InfoEspecifica, InfoPPer, InfoCA, InfoFR, Usuario, Periodo, Rol } from 'src/app/models/etapa2.module';
 import { EtapaService } from './etapa.service';
 import { MatSelect } from '@angular/material';
 import { MatSnackBar } from '@angular/material';
@@ -15,7 +15,6 @@ import {
   //CAMPOSMOTIVACIONES,
   //CAMPOSREQUERIMIENTOS,
   CAMPOSLARGO,
-  CAMPOSCORTO,
   CAMPOSMEDIANO,
   INICIALIZARFORMLARGO,
   INICIALIZARPERFILPERSONALIDAD,
@@ -133,6 +132,7 @@ export class TemplateComponent implements OnInit {
   infogeSel: InfoGeneral = null;
   infocaSel: InfoCA = null;
   infofrSel: InfoFR = null; //REVISAR
+  infoPPSel: InfoPPer = null; //Etapa1
 
   // controles y estructura para formularios (Escucha los campos del formulario)
   formGroupPadrePPer: FormGroup;
@@ -162,10 +162,10 @@ export class TemplateComponent implements OnInit {
   nombresFromGroup = ['formGroupHijoPPer', 'formGroupHijo3'];
 
   inicializarFormHijo1 = INICIALIZARFORMLARGO;
-  inicializarFormHijoPPer = INICIALIZARFORMCORTO; // Se utilizará para corto y mediano
+ // inicializarFormHijoPPer = INICIALIZARFORMCORTO; // Se utilizará para corto y mediano
 
   //Inicializa valors del formulario
-  inicializarFormHijo4 = INICIALIZARPERFILPERSONALIDAD; // Se utilizará para ETAPA 1
+  inicializarFormHijoPPer = INICIALIZARPERFILPERSONALIDAD; // Se utilizará para ETAPA 1
   inicializarFormHijoPE = INICIALIZARCAUTODESARROLLO; // Se utilizará para ETAPA 1
   inicializarFormHijoFR = INICIALIZARFEEDBACKR; // Se utilizará para ETAPA 1
 
@@ -175,7 +175,6 @@ export class TemplateComponent implements OnInit {
 
   // Crea el formulario HTML
   camposForm1: CamposForm[] = CAMPOSLARGO;
-  camposForm2: CamposForm[] = CAMPOSCORTO;
   camposForm3: CamposForm[] = CAMPOSMEDIANO;
 
   camposForm4: CamposForm[] = CAMPOSPERFIL; //ETAPA1
@@ -262,8 +261,8 @@ export class TemplateComponent implements OnInit {
     this.formGroupPadrePPer = this.fb.group({
    //   formGroupHijo1: this.fb.group(this.inicializarFormHijo1),
       formGroupHijoPPer: this.fb.group(this.inicializarFormHijoPPer),
-      formGroupHijo3: this.fb.group(this.inicializarFormHijoPPer),
-      formGroupHijo4: this.fb.group(this.inicializarFormHijo4)
+      //formGroupHijo3: this.fb.group(this.inicializarFormHijoPPer),
+     // formGroupHijo4: this.fb.group(this.inicializarFormHijo4)
 
     });
 
@@ -325,20 +324,46 @@ export class TemplateComponent implements OnInit {
   async onSubmitPPer() {
 
     this.guardando = true;
-    //console.log(this.infoEspecificaForm.value);
 
+    const elementInfoId = this.formGroupPadrePPer.get('formGroupHijoPPer').get('ID').value;
+    const elementInfoValue = this.formGroupPadrePPer.get('formGroupHijoPPer').value;
+
+    if (elementInfoId !== '') {
+      console.log('Existe info objeto');
+      console.log(elementInfoValue );
+      await this.etapaService.actualizarInfoPPer(elementInfoValue, elementInfoId).then(() => {
+              this.guardando = false;
+              this.snackBar.open('Información Perfil de Personalidad guardada', 'x', {
+                    duration: 5000,
+                  });
+          });
+    } else{
+      console.log('NO Existe info  objeto');
+      const objetoAuxiliar = elementInfoValue;
+      delete objetoAuxiliar.ID; // ELIMINO DEL SUBMIT EL ELEMENTO ID PARA QUE EN SP SE INGRESE UNO NUEVO
+      console.log(objetoAuxiliar);
+      await this.etapaService.guardarPPer(objetoAuxiliar).then(() => {
+          this.infoPPer().then( () => {
+            this.guardando = false;
+            this.snackBar.open('Información Perfil de Personalidad guardada', 'x', {
+                  duration: 5000,
+                });
+          });
+      });
+    }
+/*
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.nombresFromGroup.length; i++) {
 
       const element = this.nombresFromGroup[i]; // se asigna nombre del form hijo
-      const elementInfoId = this.formGroupPadrePPer.get(element).get('ID').value; //obtengo el valor de form indicado pero solo el campo ID
-      const elementInfoValue = this.formGroupPadrePPer.get(element).value; // Obtengo todos los values del submit del form hijo
+      //const elementInfoId = this.formGroupPadrePPer.get(element).get('ID').value; //obtengo el valor de form indicado pero solo el campo ID
+      //const elementInfoValue = this.formGroupPadrePPer.get(element).value; // Obtengo todos los values del submit del form hijo
       // console.log(this.formGroupPadre.get(element).get('ID').value );
 
       if (elementInfoId !== '') { // si el ID NO esta vacio
         console.log('Existe info objeto');
         console.log(elementInfoValue );
-        await this.etapaService.actualizarInfoInter(elementInfoValue, elementInfoId).then(() => {
+        await this.etapaService.actualizarInfoPPer(elementInfoValue, elementInfoId).then(() => {
               if ( i === this.nombresFromGroup.length - 1 ) { // solo para el ultimo form Hijo
                 this.guardando = false;
                 this.snackBar.open('Información Perfil de Personalidad guardada', 'x', {
@@ -352,9 +377,9 @@ export class TemplateComponent implements OnInit {
         delete objetoAuxiliar.ID; // ELIMINO DEL SUBMIT EL ELEMENTO ID PARA QUE EN SP SE INGRESE UNO NUEVO
         console.log(objetoAuxiliar);
 
-        await this.etapaService.guardarInfoInter(objetoAuxiliar).then(() => {
+        await this.etapaService.guardarPPer(objetoAuxiliar).then(() => {
           if ( i === this.nombresFromGroup.length - 1 ) {
-            this.infoInter().then( () => {
+            this.infoPPer().then( () => {
               this.guardando = false;
               this.snackBar.open('Información Perfil de Personalidad guardada', 'x', {
                     duration: 5000,
@@ -364,6 +389,7 @@ export class TemplateComponent implements OnInit {
         });
       }
     }
+    */
   }
 
   //Etapa1
@@ -450,28 +476,23 @@ export class TemplateComponent implements OnInit {
   }
 
   submitEtapa() {
-        this.onSubmitPPer().then( () => {//Etapa1
-          //this.onSubmitPPer();
-          this.onSubmitCAutodesarrollo(); //Etapa1
-          this.onSubmitFEEDBACKR(); //Etapa1
-        });
-
+        // this.onSubmitPPer().then( () => {//Etapa1
+        //   //this.onSubmitPPer();
+        //   this.onSubmitCAutodesarrollo(); //Etapa1
+        //   //this.onSubmitFEEDBACKR(); //Etapa1
+        // });
+        this.onSubmitPPer();
   }
 
-  async infoInter() {
-    await this.etapaService.obtenerInfoInter(this.usuarioActivo.ID).then( (resp: [any]) => {
-      console.log('Obtener datos info INTER');
+  async infoPPer() {
+    await this.etapaService.obtenerInfoPPer(this.usuarioActivo.ID).then( (resp: [any]) => {
+      console.log('Obtener datos info Perfil Personalidad');
       console.log(resp);
 
       if (resp.length > 0 ) {
         resp.forEach(element => {
-          if ( element.hiti_tipo_plzo === 'Corto' ) {
-            this.formGroupPadrePPer.get('formGroupHijoPPer').patchValue(element);
-          }
-
-          if ( element.hiti_tipo_plzo === 'Largo' ) {
-            this.formGroupPadrePPer.get('formGroupHijo3').patchValue(element);
-          }
+          
+          this.formGroupPadrePPer.get('formGroupHijoPPer').patchValue(element);
           
           
         });
@@ -481,12 +502,8 @@ export class TemplateComponent implements OnInit {
           this.formGroupPadrePPer.get('formGroupHijoPPer').patchValue(this.inicializarFormHijoPPer);
           this.formGroupPadrePPer.get('formGroupHijoPPer').get('id_num_sapId').setValue(this.usuarioActivo.ID);
           this.formGroupPadrePPer.get('formGroupHijoPPer').get('id_periId').setValue(1);
-          this.formGroupPadrePPer.get('formGroupHijoPPer').get('hiti_tipo_plzo').setValue('Corto');
-
-          this.formGroupPadrePPer.get('formGroupHijo3').patchValue(this.inicializarFormHijoPPer);
-          this.formGroupPadrePPer.get('formGroupHijo3').get('id_num_sapId').setValue(this.usuarioActivo.ID);
-          this.formGroupPadrePPer.get('formGroupHijo3').get('id_periId').setValue(1);
-          this.formGroupPadrePPer.get('formGroupHijo3').get('hiti_tipo_plzo').setValue('Largo');
+          this.formGroupPadrePPer.get('formGroupHijoPPer').get('disc_mova').setValue('');
+          this.formGroupPadrePPer.get('formGroupHijoPPer').get('disc_fort').setValue('');
   
       }
 
@@ -612,11 +629,12 @@ export class TemplateComponent implements OnInit {
     // A continuación las acciones necesarias a realizar con el dato del usuario
 
     //this.infoLargo(); // Cargar info Largo
-    this.infoInter(); // Cargar info Inter
+    //this.infoInter(); // Cargar info Inter
 
-    //Etapa2
+    //Etapa1
+    this.infoPPer(); //Cargar info Perfil Personalidad
     this.infoCAutodesarrollo(); // Cargar info Competencia Autodesarrollo
-    this.infoFeedbackR(); // Cargar info Feedback Recibido 
+    //this.infoFeedbackR(); // Cargar info Feedback Recibido 
     }
 
     
