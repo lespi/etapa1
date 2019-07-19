@@ -245,7 +245,7 @@ export const CAMPOSTFORTALEZA = [
     nombreCampoTF1: 'ocom_descripcion',
     nombreMostrarTF1: 'Fortaleza',
     nombreCampoTF2: 'ocom_tipo',
-    nombreMostrarTF2: 'Tipo',
+    nombreMostrarTF2: 'Fortaleza1',
   },
 ];
 
@@ -254,7 +254,7 @@ export const CAMPOSTFORTALEZA1 = [
     nombreCampoTF1: 'ocom_descripcion',
     nombreMostrarTF1: 'Fortaleza',
     nombreCampoTF2: 'ocom_tipo',
-    nombreMostrarTF2: 'Tipo',
+    nombreMostrarTF2: 'Fortaleza2',
   },
 ];
 
@@ -263,16 +263,7 @@ export const CAMPOSTFORTALEZA2 = [
     nombreCampoTF1: 'ocom_descripcion',
     nombreMostrarTF1: 'Fortaleza',
     nombreCampoTF2: 'ocom_tipo',
-    nombreMostrarTF2: 'Tipo',
-  },
-];
-
-export const CAMPOSTFORTALEZA3 = [
-  {
-    nombreCampoTF1: 'ocom_descripcion',
-    nombreMostrarTF1: 'Fortaleza',
-    nombreCampoTF2: 'ocom_tipo',
-    nombreMostrarTF2: 'Tipo',
+    nombreMostrarTF2: 'Fortaleza3',
   },
 ];
 
@@ -594,6 +585,15 @@ export const INICIALIZARFEEDBACKR = {
 };
 
 export const INICIALIZARTFORTALEZA = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  ocom_descripcion: '',
+  ocom_tipo: 'Fortaleza1',
+};
+
+export const INICIALIZARTFORTALEZA2 = {
   ID: '',
   id_periId: '',
   id_num_sapId: '',

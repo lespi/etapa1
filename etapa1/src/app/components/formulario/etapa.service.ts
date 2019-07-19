@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Web, ItemAddResult } from '@pnp/sp';
-import { InfoEspecifica, InfoGeneral, InfoPPer, InfoCA, InfoFR } from '../../models/etapa2.module';
+import { InfoEspecifica, InfoGeneral, InfoPPer, InfoCA, InfoFR, InfoTF } from '../../models/etapa2.module';
 import { CurrentUser } from '@pnp/sp/src/siteusers';
 import { promise } from 'protractor';
 
@@ -113,6 +113,13 @@ export class EtapaService {
                           .get<{Title: string}[]>();
   }
 
+  async obtenerInfoTFor( ID ) {
+    return await web.lists.getByTitle('otra_competencia')
+                          .items
+                          .filter(`id_num_sap eq '${ ID }'`)
+                          .get<{Title: string}[]>();
+  }
+
   actualizarCA(InfoCA: InfoCA, ID?: number) {
 
     return new Promise( resolve => {
@@ -149,6 +156,24 @@ export class EtapaService {
 
   }
 
+  actualizarTFor(InfoTF: InfoTF, ID?: number) {
+
+    return new Promise( resolve => {
+
+      web.lists
+        .getByTitle('otra_competencia')
+        .items
+        .getById(ID)
+        .update(InfoTF)
+        .then(i => {
+          console.log(i);
+          resolve(true);
+        });
+
+    });
+
+  }
+
   guardarFR(InfoFR: InfoFR) {
     return new Promise( resolve => {
 
@@ -176,5 +201,21 @@ export class EtapaService {
 
     });
   }
+
+  guardarTFor(InfoTF: InfoTF) {
+    console.log("Intentando guardar" + InfoTF);
+    return new Promise( resolve => {
+
+      web.lists
+        .getByTitle('otra_competencia')
+        .items.add(InfoTF)
+        .then( (iar: ItemAddResult) => {
+            console.log(iar);
+            resolve(true);
+        });
+
+    });
+  }
+
   
 }

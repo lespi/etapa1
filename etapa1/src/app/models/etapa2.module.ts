@@ -6,6 +6,7 @@ export class Etapa2 {
         public infoPPer: InfoPPer,
         public InfoCA: InfoCA,
         public InfoFR: InfoFR,
+        public infoTF: InfoTF,
         public infoEspecifica: InfoEspecifica[]
     ) {}
 
@@ -151,7 +152,6 @@ export class InfoCA {
         public coau_eval2?: string
     ) {}
 }
-
 export class InfoFR {
     constructor(
         public ID?: number,
@@ -159,7 +159,17 @@ export class InfoFR {
         public id_num_sapId?: string,
         public coau_competencia?: string,
         public fdbk_comentario?: string,
-        public fdbk_fecha?: Date,
+        public fdbk_fecha?: string,
         public fdbk_persona?: string
+    ) {}
+}
+
+export class InfoTF {
+    constructor(
+        public ID?: number,
+        public id_periId?: number,
+        public id_num_sapId?: string,
+        public ocom_descripcion?: string,
+        public ocom_tipo?: string,
     ) {}
 }

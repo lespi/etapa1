@@ -31,10 +31,13 @@ import {
   CAMPOSFEEDBACKR3,
   CAMPOSFEEDBACKR4,
   CAMPOSFEEDBACKR5,
+
   INICIALIZARTFORTALEZA,
+  INICIALIZARTFORTALEZA2,
   CAMPOSTFORTALEZA,
   CAMPOSTFORTALEZA1,
   CAMPOSTFORTALEZA2,
+  
   INICIALIZAROMEJORA,
   CAMPOSOMEJORA,
   CAMPOSOMEJORA1,
@@ -135,13 +138,15 @@ export class TemplateComponent implements OnInit {
   infoPPSel: InfoPPer = null; //Etapa1
 
   // controles y estructura para formularios (Escucha los campos del formulario)
-  formGroupPadrePPer: FormGroup;
+ 
  // formGroupHijo1: FormGroup;
-  formGroupHijoPPer: FormGroup;
   formGroupHijo3: FormGroup;
   formGroupHijo4: FormGroup;
 
   // ETAPA1
+  formGroupPadrePPer: FormGroup;
+  formGroupHijoPPer: FormGroup;
+
   formGroupPadreCA: FormGroup;
   formGroupHijoPE: FormGroup;
   formGroupHijoPE2: FormGroup;
@@ -149,11 +154,15 @@ export class TemplateComponent implements OnInit {
   formGroupHijoPE4: FormGroup;
   formGroupHijoPE5: FormGroup;
 
-  formGroupHijoFR: FormGroup;
+  formGroupHijoFR1: FormGroup;
   formGroupHijoFR2: FormGroup;
   formGroupHijoFR3: FormGroup;
   formGroupHijoFR4: FormGroup;
   formGroupHijoFR5: FormGroup;
+
+  formGroupHijoTF: FormGroup;
+  formGroupHijoTF2: FormGroup;
+  formGroupHijoTF3: FormGroup;
   
   formGroupPadreOCom: FormGroup;
 
@@ -170,6 +179,11 @@ export class TemplateComponent implements OnInit {
   inicializarFormHijoFR = INICIALIZARFEEDBACKR; // Se utilizará para ETAPA 1
 
   inicializarFormHijoTF = INICIALIZARTFORTALEZA; // Se utilizará para ETAPA 1
+  inicializarFormHijoTF2 = INICIALIZARTFORTALEZA2; // Se utilizará para ETAPA 1
+
+  inicializarFormHijoCHECKL = INICIALIZARTFORTALEZA;
+
+  inicializarFormHijoTOP5V = INICIALIZARTFORTALEZA;
 
   inicializarFormHijoOM = INICIALIZAROMEJORA; // Se utilizará para ETAPA 1
 
@@ -189,7 +203,11 @@ export class TemplateComponent implements OnInit {
 
   nombresFromGroupFEEDBACKR = ['formGroupHijoFR1', 'formGroupHijoFR2', 'formGroupHijoFR3', 'formGroupHijoFR4', 'formGroupHijoFR5'];
 
-  nombresFromGroupTFORTALEZA = ['formGroupHijoTF1', 'formGroupHijoTF2', 'formGroupHijoTF3'];
+  nombresFromGroupTFORTALEZA1 = ['formGroupHijoTF'];
+
+  nombresFromGroupTFORTALEZA2 = ['formGroupHijoTF2', 'formGroupHijoTF3'];
+
+  nombresFromGroupTFORTALEZAall = ['formGroupHijoTF', 'formGroupHijoTF2', 'formGroupHijoTF3'];
 
   nombresFromGroupOMEJORA = ['formGroupHijoOM1', 'formGroupHijoOM2'];
 
@@ -282,9 +300,9 @@ export class TemplateComponent implements OnInit {
     });
 
     this.formGroupPadreOCom = this.fb.group({
-      formGroupHijoTF1: this.fb.group(this.inicializarFormHijoTF),
-      formGroupHijoTF2: this.fb.group(this.inicializarFormHijoTF),
-      formGroupHijoTF3: this.fb.group(this.inicializarFormHijoTF),
+      formGroupHijoTF: this.fb.group(this.inicializarFormHijoTF),
+      formGroupHijoTF2: this.fb.group(this.inicializarFormHijoTF2),
+      formGroupHijoTF3: this.fb.group(this.inicializarFormHijoTF2),
 
       formGroupHijoOM1: this.fb.group(this.inicializarFormHijoOM),
       formGroupHijoOM2: this.fb.group(this.inicializarFormHijoOM)
@@ -292,35 +310,36 @@ export class TemplateComponent implements OnInit {
     });
   
     this.formGroupPadreMVal = this.fb.group({
-        formGroupHijoCHECKL1: this.fb.group(this.inicializarFormHijoTF),
-        formGroupHijoCHECKL2: this.fb.group(this.inicializarFormHijoTF),
-        formGroupHijoCHECKL3: this.fb.group(this.inicializarFormHijoTF),
-        formGroupHijoCHECKL4: this.fb.group(this.inicializarFormHijoTF),
-        formGroupHijoCHECKL5: this.fb.group(this.inicializarFormHijoTF),
-        formGroupHijoCHECKL6: this.fb.group(this.inicializarFormHijoTF),
-        formGroupHijoCHECKL7: this.fb.group(this.inicializarFormHijoTF),
-        formGroupHijoCHECKL8: this.fb.group(this.inicializarFormHijoTF),
-        formGroupHijoCHECKL9: this.fb.group(this.inicializarFormHijoTF),
-        formGroupHijoCHECKL10: this.fb.group(this.inicializarFormHijoTF),
-        formGroupHijoCHECKL11: this.fb.group(this.inicializarFormHijoTF),
-        formGroupHijoCHECKL12: this.fb.group(this.inicializarFormHijoTF),
-        formGroupHijoCHECKL13: this.fb.group(this.inicializarFormHijoTF),
-        formGroupHijoCHECKL14: this.fb.group(this.inicializarFormHijoTF),
-        formGroupHijoCHECKL15: this.fb.group(this.inicializarFormHijoTF),
-        formGroupHijoCHECKL16: this.fb.group(this.inicializarFormHijoTF),
-        formGroupHijoCHECKL17: this.fb.group(this.inicializarFormHijoTF),
-        formGroupHijoCHECKL18: this.fb.group(this.inicializarFormHijoTF),
-        formGroupHijoCHECKL19: this.fb.group(this.inicializarFormHijoTF),
-        formGroupHijoCHECKL20: this.fb.group(this.inicializarFormHijoTF),
+        formGroupHijoCHECKL1: this.fb.group(this.inicializarFormHijoCHECKL),
+        formGroupHijoCHECKL2: this.fb.group(this.inicializarFormHijoCHECKL),
+        formGroupHijoCHECKL3: this.fb.group(this.inicializarFormHijoCHECKL),
+        formGroupHijoCHECKL4: this.fb.group(this.inicializarFormHijoCHECKL),
+        formGroupHijoCHECKL5: this.fb.group(this.inicializarFormHijoCHECKL),
+        formGroupHijoCHECKL6: this.fb.group(this.inicializarFormHijoCHECKL),
+        formGroupHijoCHECKL7: this.fb.group(this.inicializarFormHijoCHECKL),
+        formGroupHijoCHECKL8: this.fb.group(this.inicializarFormHijoCHECKL),
+        formGroupHijoCHECKL9: this.fb.group(this.inicializarFormHijoCHECKL),
+        formGroupHijoCHECKL10: this.fb.group(this.inicializarFormHijoCHECKL),
+        formGroupHijoCHECKL11: this.fb.group(this.inicializarFormHijoCHECKL),
+        formGroupHijoCHECKL12: this.fb.group(this.inicializarFormHijoCHECKL),
+        formGroupHijoCHECKL13: this.fb.group(this.inicializarFormHijoCHECKL),
+        formGroupHijoCHECKL14: this.fb.group(this.inicializarFormHijoCHECKL),
+        formGroupHijoCHECKL15: this.fb.group(this.inicializarFormHijoCHECKL),
+        formGroupHijoCHECKL16: this.fb.group(this.inicializarFormHijoCHECKL),
+        formGroupHijoCHECKL17: this.fb.group(this.inicializarFormHijoCHECKL),
+        formGroupHijoCHECKL18: this.fb.group(this.inicializarFormHijoCHECKL),
+        formGroupHijoCHECKL19: this.fb.group(this.inicializarFormHijoCHECKL),
+        formGroupHijoCHECKL20: this.fb.group(this.inicializarFormHijoCHECKL),
 
-        formGroupHijoTOP5V1: this.fb.group(this.inicializarFormHijoTF),
-        formGroupHijoTOP5V2: this.fb.group(this.inicializarFormHijoTF),
-        formGroupHijoTOP5V3: this.fb.group(this.inicializarFormHijoTF),
-        formGroupHijoTOP5V4: this.fb.group(this.inicializarFormHijoTF),
-        formGroupHijoTOP5V5: this.fb.group(this.inicializarFormHijoTF)
+        formGroupHijoTOP5V1: this.fb.group(this.inicializarFormHijoTOP5V),
+        formGroupHijoTOP5V2: this.fb.group(this.inicializarFormHijoTOP5V),
+        formGroupHijoTOP5V3: this.fb.group(this.inicializarFormHijoTOP5V),
+        formGroupHijoTOP5V4: this.fb.group(this.inicializarFormHijoTOP5V),
+        formGroupHijoTOP5V5: this.fb.group(this.inicializarFormHijoTOP5V)
       });
 }
 
+//Etapa1
   async onSubmitPPer() {
 
     this.guardando = true;
@@ -352,47 +371,9 @@ export class TemplateComponent implements OnInit {
       });
     }
 /*
-    // tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < this.nombresFromGroup.length; i++) {
-
-      const element = this.nombresFromGroup[i]; // se asigna nombre del form hijo
-      //const elementInfoId = this.formGroupPadrePPer.get(element).get('ID').value; //obtengo el valor de form indicado pero solo el campo ID
-      //const elementInfoValue = this.formGroupPadrePPer.get(element).value; // Obtengo todos los values del submit del form hijo
-      // console.log(this.formGroupPadre.get(element).get('ID').value );
-
-      if (elementInfoId !== '') { // si el ID NO esta vacio
-        console.log('Existe info objeto');
-        console.log(elementInfoValue );
-        await this.etapaService.actualizarInfoPPer(elementInfoValue, elementInfoId).then(() => {
-              if ( i === this.nombresFromGroup.length - 1 ) { // solo para el ultimo form Hijo
-                this.guardando = false;
-                this.snackBar.open('Información Perfil de Personalidad guardada', 'x', {
-                      duration: 5000,
-                    });
-              }
-            });
-      } else { // SI ESTA VACIO
-        console.log('NO Existe info  objeto');
-        const objetoAuxiliar = elementInfoValue;
-        delete objetoAuxiliar.ID; // ELIMINO DEL SUBMIT EL ELEMENTO ID PARA QUE EN SP SE INGRESE UNO NUEVO
-        console.log(objetoAuxiliar);
-
-        await this.etapaService.guardarPPer(objetoAuxiliar).then(() => {
-          if ( i === this.nombresFromGroup.length - 1 ) {
-            this.infoPPer().then( () => {
-              this.guardando = false;
-              this.snackBar.open('Información Perfil de Personalidad guardada', 'x', {
-                    duration: 5000,
-                  });
-            });
-          }
-        });
-      }
-    }
     */
   }
-
-  //Etapa1
+  
   async onSubmitCAutodesarrollo() {
 
     this.guardando = true;
@@ -475,13 +456,99 @@ export class TemplateComponent implements OnInit {
     }
   }
 
+  async onSubmitTFOR1() {
+
+    this.guardando = true;
+    for (let i = 0; i < this.nombresFromGroupTFORTALEZA1.length; i++) {
+
+      const element = this.nombresFromGroupTFORTALEZA1[i]; // se asigna nombre del form hijo
+      const elementInfoId = this.formGroupPadreOCom.get(element).get('ID').value; //obtengo el valor de form indicado pero solo el campo ID
+      const elementInfoValue = this.formGroupPadreOCom.get(element).value; // Obtengo todos los values del submit del form hijo
+      // console.log(this.formGroupPadre.get(element).get('ID').value );
+
+      if (elementInfoId !== '') { // si el ID NO esta vacio
+        console.log('Existe info objeto');
+        console.log(elementInfoValue );
+        await this.etapaService.actualizarTFor(elementInfoValue, elementInfoId).then(() => {
+              if ( i === this.nombresFromGroupTFORTALEZA1.length - 1 ) { // solo para el ultimo form Hijo
+                this.guardando = false;
+                this.snackBar.open('Información TF guardada', 'x', {
+                      duration: 5000,
+                    });
+              }
+            });
+      } else { // SI ESTA VACIO
+        console.log('NO Existe info  objeto');
+        const objetoAuxiliar = elementInfoValue;
+        delete objetoAuxiliar.ID; // ELIMINO DEL SUBMIT EL ELEMENTO ID PARA QUE EN SP SE INGRESE UNO NUEVO
+        console.log(objetoAuxiliar);
+
+        await this.etapaService.guardarTFor(objetoAuxiliar).then(() => {
+          if ( i === this.nombresFromGroupTFORTALEZA1.length - 1 ) {
+            this.infoTFortaleza().then( () => {
+              this.guardando = false;
+              this.snackBar.open('Información TF guardada', 'x', {
+                    duration: 5000,
+                  });
+            });
+          }
+        });
+      }
+    }
+  }
+
+  async onSubmitTFOR2() {
+
+    this.guardando = true;
+    for (let i = 0; i < this.nombresFromGroupTFORTALEZA2.length; i++) {
+
+      const element = this.nombresFromGroupTFORTALEZA2[i]; // se asigna nombre del form hijo
+      const elementInfoId = this.formGroupPadreOCom.get(element).get('ID').value; //obtengo el valor de form indicado pero solo el campo ID
+      const elementInfoValue = this.formGroupPadreOCom.get(element).value; // Obtengo todos los values del submit del form hijo
+      // console.log(this.formGroupPadre.get(element).get('ID').value );
+
+      if (elementInfoId !== '') { // si el ID NO esta vacio
+        console.log('Existe info objeto');
+        console.log(elementInfoValue );
+        await this.etapaService.actualizarTFor(elementInfoValue, elementInfoId).then(() => {
+              if ( i === this.nombresFromGroupTFORTALEZA2.length - 1 ) { // solo para el ultimo form Hijo
+                this.guardando = false;
+                this.snackBar.open('Información TF2 guardada', 'x', {
+                      duration: 5000,
+                    });
+              }
+            });
+      } else { // SI ESTA VACIO
+        console.log('NO Existe info  objeto');
+        const objetoAuxiliar = elementInfoValue;
+        delete objetoAuxiliar.ID; // ELIMINO DEL SUBMIT EL ELEMENTO ID PARA QUE EN SP SE INGRESE UNO NUEVO
+        console.log(objetoAuxiliar);
+
+        await this.etapaService.guardarTFor(objetoAuxiliar).then(() => {
+          if ( i === this.nombresFromGroupTFORTALEZA2.length - 1 ) {
+            this.infoTFortaleza().then( () => {
+              this.guardando = false;
+              this.snackBar.open('Información TF2 guardada', 'x', {
+                    duration: 5000,
+                  });
+            });
+          }
+        });
+      }
+    }
+  }
+ 
+
   submitEtapa() {
         // this.onSubmitPPer().then( () => {//Etapa1
         //   //this.onSubmitPPer();
-        //   this.onSubmitCAutodesarrollo(); //Etapa1
-        //   //this.onSubmitFEEDBACKR(); //Etapa1
+       
         // });
-        this.onSubmitPPer();
+        this.onSubmitPPer(); //Etapa1
+        this.onSubmitCAutodesarrollo(); //Etapa1
+        this.onSubmitFEEDBACKR(); //Etapa1
+        this.onSubmitTFOR1(); //Etapa1
+        this.onSubmitTFOR2(); //Etapa1
   }
 
   async infoPPer() {
@@ -574,8 +641,8 @@ export class TemplateComponent implements OnInit {
         resp.forEach(element => {
   
           if ( element.coau_competencia === 'Autogestión' ) {
-            this.formGroupPadreCA.get('formGroupHijoFR').patchValue(element);
-            this.formGroupPadreCA.get('formGroupHijoFR').get('coau_competencia').disable();
+            this.formGroupPadreCA.get('formGroupHijoFR1').patchValue(element);
+            this.formGroupPadreCA.get('formGroupHijoFR1').get('coau_competencia').disable();
           }
           if ( element.coau_competencia === 'Accountability' ) {
             this.formGroupPadreCA.get('formGroupHijoFR2').patchValue(element);
@@ -618,6 +685,50 @@ export class TemplateComponent implements OnInit {
     });
   }
 
+  async infoTFortaleza() {
+    await this.etapaService.obtenerInfoTFor(this.usuarioActivo.ID).then( (resp: [any]) => {
+      console.log('Obtener datos info Top Fortalezas');
+      console.log(resp);
+
+      if (resp.length > 0) {
+
+        resp.forEach(element => {
+  
+          if ( element.ocom_tipo === 'Fortaleza1' ) {
+            this.formGroupPadreOCom.get('formGroupHijoTF').patchValue(element);
+            //this.formGroupPadreOCom.get('formGroupHijoTF').get('ocom_tipo').disable();
+          }
+          if ( element.ocom_tipo === 'Fortaleza2' ) {
+            this.formGroupPadreOCom.get('formGroupHijoTF2').patchValue(element);
+           // this.formGroupPadreOCom.get('formGroupHijoTF2').get('ocom_tipo').disable();
+          }
+          if ( element.ocom_tipo === 'Fortaleza3' ) {
+            this.formGroupPadreOCom.get('formGroupHijoTF3').patchValue(element);
+           // this.formGroupPadreOCom.get('formGroupHijoTF3').get('ocom_tipo').disable();
+          }
+  
+        });
+      } else {
+
+        this.nombresFromGroupTFORTALEZAall.forEach(element => {
+
+                  this.formGroupPadreOCom.get(element).patchValue({
+                    ID: '',
+                    id_periId: '1',
+                    id_num_sapId: this.usuarioActivo.ID,
+                    ocom_descripcion: '',
+                    ocom_tipo: '',
+                  });
+
+                  //this.formGroupPadreOCom.get(element).get('ocom_tipo').disable();
+        });
+
+
+      }
+
+    });
+  }
+
 
   goToLink(url: string) {
     window.open(url, '_blank');
@@ -628,14 +739,11 @@ export class TemplateComponent implements OnInit {
     console.log('usuarioActivo desde Padre ' + this.usuarioActivo.ID);
     // A continuación las acciones necesarias a realizar con el dato del usuario
 
-    //this.infoLargo(); // Cargar info Largo
-    //this.infoInter(); // Cargar info Inter
-
     //Etapa1
     this.infoPPer(); //Cargar info Perfil Personalidad
     this.infoCAutodesarrollo(); // Cargar info Competencia Autodesarrollo
-    //this.infoFeedbackR(); // Cargar info Feedback Recibido 
+    this.infoFeedbackR(); // Cargar info Feedback Recibido 
+    this.infoTFortaleza(); // Cargar info Top Fortalezas 
     }
 
-    
 }
