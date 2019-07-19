@@ -599,7 +599,16 @@ export const INICIALIZARTFORTALEZA2 = {
   id_num_sapId: '',
 
   ocom_descripcion: '',
-  ocom_tipo: '',
+  ocom_tipo: 'Fortaleza2',
+};
+
+export const INICIALIZARTFORTALEZA3 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  ocom_descripcion: '',
+  ocom_tipo: 'Fortaleza3',
 };
 
 export const INICIALIZAROMEJORA = {

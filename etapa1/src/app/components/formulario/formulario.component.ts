@@ -34,6 +34,7 @@ import {
 
   INICIALIZARTFORTALEZA,
   INICIALIZARTFORTALEZA2,
+  INICIALIZARTFORTALEZA3,
   CAMPOSTFORTALEZA,
   CAMPOSTFORTALEZA1,
   CAMPOSTFORTALEZA2,
@@ -180,6 +181,7 @@ export class TemplateComponent implements OnInit {
 
   inicializarFormHijoTF = INICIALIZARTFORTALEZA; // Se utilizará para ETAPA 1
   inicializarFormHijoTF2 = INICIALIZARTFORTALEZA2; // Se utilizará para ETAPA 1
+  inicializarFormHijoTF3 = INICIALIZARTFORTALEZA3; // Se utilizará para ETAPA 1
 
   inicializarFormHijoCHECKL = INICIALIZARTFORTALEZA;
 
@@ -205,7 +207,9 @@ export class TemplateComponent implements OnInit {
 
   nombresFromGroupTFORTALEZA1 = ['formGroupHijoTF'];
 
-  nombresFromGroupTFORTALEZA2 = ['formGroupHijoTF2', 'formGroupHijoTF3'];
+  nombresFromGroupTFORTALEZA2 = ['formGroupHijoTF2'];
+
+  nombresFromGroupTFORTALEZA3 = ['formGroupHijoTF3'];
 
   nombresFromGroupTFORTALEZAall = ['formGroupHijoTF', 'formGroupHijoTF2', 'formGroupHijoTF3'];
 
@@ -224,8 +228,8 @@ export class TemplateComponent implements OnInit {
 
 
   camposFormTF: CamposForm[] = CAMPOSTFORTALEZA; //ETAPA1
-  camposFormTF1: CamposForm[] = CAMPOSTFORTALEZA1; //ETAPA1 No utilizado
-  camposFormTF2: CamposForm[] = CAMPOSTFORTALEZA2; //ETAPA1 No utilizado
+  camposFormTF1: CamposForm[] = CAMPOSTFORTALEZA1; //ETAPA1 SI utilizado
+  camposFormTF2: CamposForm[] = CAMPOSTFORTALEZA2; //ETAPA1 SI utilizado
 
   camposFormOM: CamposForm[] = CAMPOSOMEJORA; //ETAPA1
   camposFormOM1: CamposForm[] = CAMPOSOMEJORA1; //ETAPA1 No utilizado
@@ -302,7 +306,7 @@ export class TemplateComponent implements OnInit {
     this.formGroupPadreOCom = this.fb.group({
       formGroupHijoTF: this.fb.group(this.inicializarFormHijoTF),
       formGroupHijoTF2: this.fb.group(this.inicializarFormHijoTF2),
-      formGroupHijoTF3: this.fb.group(this.inicializarFormHijoTF2),
+      formGroupHijoTF3: this.fb.group(this.inicializarFormHijoTF3),
 
       formGroupHijoOM1: this.fb.group(this.inicializarFormHijoOM),
       formGroupHijoOM2: this.fb.group(this.inicializarFormHijoOM)
@@ -537,6 +541,47 @@ export class TemplateComponent implements OnInit {
       }
     }
   }
+
+  async onSubmitTFOR3() {
+
+    this.guardando = true;
+    for (let i = 0; i < this.nombresFromGroupTFORTALEZA3.length; i++) {
+
+      const element = this.nombresFromGroupTFORTALEZA3[i]; // se asigna nombre del form hijo
+      const elementInfoId = this.formGroupPadreOCom.get(element).get('ID').value; //obtengo el valor de form indicado pero solo el campo ID
+      const elementInfoValue = this.formGroupPadreOCom.get(element).value; // Obtengo todos los values del submit del form hijo
+      // console.log(this.formGroupPadre.get(element).get('ID').value );
+
+      if (elementInfoId !== '') { // si el ID NO esta vacio
+        console.log('Existe info objeto');
+        console.log(elementInfoValue );
+        await this.etapaService.actualizarTFor(elementInfoValue, elementInfoId).then(() => {
+              if ( i === this.nombresFromGroupTFORTALEZA3.length - 1 ) { // solo para el ultimo form Hijo
+                this.guardando = false;
+                this.snackBar.open('Información TF3 guardada', 'x', {
+                      duration: 5000,
+                    });
+              }
+            });
+      } else { // SI ESTA VACIO
+        console.log('NO Existe info  objeto');
+        const objetoAuxiliar = elementInfoValue;
+        delete objetoAuxiliar.ID; // ELIMINO DEL SUBMIT EL ELEMENTO ID PARA QUE EN SP SE INGRESE UNO NUEVO
+        console.log(objetoAuxiliar);
+
+        await this.etapaService.guardarTFor(objetoAuxiliar).then(() => {
+          if ( i === this.nombresFromGroupTFORTALEZA3.length - 1 ) {
+            this.infoTFortaleza().then( () => {
+              this.guardando = false;
+              this.snackBar.open('Información TF3 guardada', 'x', {
+                    duration: 5000,
+                  });
+            });
+          }
+        });
+      }
+    }
+  }
  
 
   submitEtapa() {
@@ -549,6 +594,7 @@ export class TemplateComponent implements OnInit {
         this.onSubmitFEEDBACKR(); //Etapa1
         this.onSubmitTFOR1(); //Etapa1
         this.onSubmitTFOR2(); //Etapa1
+        this.onSubmitTFOR3(); //Etapa1
   }
 
   async infoPPer() {
@@ -717,7 +763,7 @@ export class TemplateComponent implements OnInit {
                     id_periId: '1',
                     id_num_sapId: this.usuarioActivo.ID,
                     ocom_descripcion: '',
-                    ocom_tipo: '',
+                    //ocom_tipo: '', //Comentado para guardar los datos por defecto
                   });
 
                   //this.formGroupPadreOCom.get(element).get('ocom_tipo').disable();
