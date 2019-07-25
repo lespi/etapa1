@@ -221,6 +221,8 @@ export class TemplateComponent implements OnInit {
   inicializarFormHijoOM1 = INICIALIZAROMEJORA1; // Se utilizará para ETAPA 1
   inicializarFormHijoOM2 = INICIALIZAROMEJORA2; // Se utilizará para ETAPA 1
 
+  inicializarFormHijoCHECKL1 = INICIALIZARCHECKL;
+  inicializarFormHijoCHECKL2 = INICIALIZARCHECKL;
   inicializarFormHijoCHECKL = INICIALIZARCHECKL;
 
   inicializarFormHijoTOP5V = INICIALIZARTOP5V;
@@ -352,8 +354,8 @@ export class TemplateComponent implements OnInit {
     });
   
     this.formGroupPadreMVal = this.fb.group({
-        formGroupHijoCHECKL1: this.fb.group(this.inicializarFormHijoCHECKL),
-        formGroupHijoCHECKL2: this.fb.group(this.inicializarFormHijoCHECKL),
+        formGroupHijoCHECKL1: this.fb.group(this.inicializarFormHijoCHECKL1),
+        formGroupHijoCHECKL2: this.fb.group(this.inicializarFormHijoCHECKL2),
         formGroupHijoCHECKL3: this.fb.group(this.inicializarFormHijoCHECKL),
         formGroupHijoCHECKL4: this.fb.group(this.inicializarFormHijoCHECKL),
         formGroupHijoCHECKL5: this.fb.group(this.inicializarFormHijoCHECKL),

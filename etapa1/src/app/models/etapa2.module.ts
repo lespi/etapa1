@@ -8,7 +8,7 @@ export class Etapa2 {
         public InfoFR: InfoFR,
         public infoTF: InfoTF,
         public infoOM: InfoOM,
-        public InfoMV: InfoMV,
+        public infoMV: InfoMV,
         public infoEspecifica: InfoEspecifica[]
     ) {}
 
