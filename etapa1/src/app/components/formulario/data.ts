@@ -267,255 +267,247 @@ export const CAMPOSTFORTALEZA2 = [
   },
 ];
 
-export const CAMPOSOMEJORA = [
-  {
-    nombreCampoOM1: 'ocom_descripcion',
-    nombreMostrarOM1: 'Fortaleza',
-    nombreCampoOM2: 'ocom_tipo',
-    nombreMostrarOM2: 'Tipo',
-  },
-];
 
 export const CAMPOSOMEJORA1 = [
   {
     nombreCampoOM1: 'ocom_descripcion',
-    nombreMostrarOM1: 'Fortaleza',
+    nombreMostrarOM1: 'Mejora',
     nombreCampoOM2: 'ocom_tipo',
-    nombreMostrarOM2: 'Tipo',
+    nombreMostrarOM2: 'Mejora1',
   },
 ];
 
 export const CAMPOSOMEJORA2 = [
   {
     nombreCampoOM1: 'ocom_descripcion',
-    nombreMostrarOM1: 'Fortaleza',
+    nombreMostrarOM1: 'Mejora',
     nombreCampoOM2: 'ocom_tipo',
-    nombreMostrarOM2: 'Tipo',
+    nombreMostrarOM2: 'Mejora2',
   },
 ];
 
 export const CAMPOSCHECKL = [
   {
-    nombreCampoCHECKL1: 'ocom_descripcion',
+    nombreCampoCHECKL1: 'mova_descripcion',
     nombreMostrarCHECKL1: 'Motivación o Valor',
-    nombreCampoCHECKL2: 'ocom_tipo',
+    nombreCampoCHECKL2: 'mova_valor',
     nombreMostrarCHECKL2: 'Jerarquizar',
   },
 ];
 
 export const CAMPOSCHECKL2 = [
   {
-    nombreCampoCHECKL1: 'ocom_descripcion',
+    nombreCampoCHECKL1: 'mova_descripcion',
     nombreMostrarCHECKL1: 'Motivación o Valor',
-    nombreCampoCHECKL2: 'ocom_tipo',
+    nombreCampoCHECKL2: 'mova_valor',
     nombreMostrarCHECKL2: 'Jerarquizar',
   },
 ];
 
 export const CAMPOSCHECKL3 = [
   {
-    nombreCampoOM1: 'ocom_descripcion',
-    nombreMostrarOM1: 'Fortaleza',
-    nombreCampoOM2: 'ocom_tipo',
-    nombreMostrarOM2: 'Tipo',
+    nombreCampoCHECKL1: 'mova_descripcion',
+    nombreMostrarCHECKL1: 'Motivación o Valor',
+    nombreCampoCHECKL2: 'mova_valor',
+    nombreMostrarCHECKL2: 'Jerarquizar',
   },
 ];
 
 export const CAMPOSCHECKL4 = [
   {
-    nombreCampoOM1: 'ocom_descripcion',
-    nombreMostrarOM1: 'Fortaleza',
-    nombreCampoOM2: 'ocom_tipo',
-    nombreMostrarOM2: 'Tipo',
+    nombreCampoCHECKL1: 'mova_descripcion',
+    nombreMostrarCHECKL1: 'Motivación o Valor',
+    nombreCampoCHECKL2: 'mova_valor',
+    nombreMostrarCHECKL2: 'Jerarquizar',
   },
 ];
 
 export const CAMPOSCHECKL5 = [
   {
-    nombreCampoOM1: 'ocom_descripcion',
-    nombreMostrarOM1: 'Fortaleza',
-    nombreCampoOM2: 'ocom_tipo',
-    nombreMostrarOM2: 'Tipo',
+    nombreCampoCHECKL1: 'mova_descripcion',
+    nombreMostrarCHECKL1: 'Motivación o Valor',
+    nombreCampoCHECKL2: 'mova_valor',
+    nombreMostrarCHECKL2: 'Jerarquizar',
   },
 ];
 
 export const CAMPOSCHECKL6 = [
   {
-    nombreCampoOM1: 'ocom_descripcion',
-    nombreMostrarOM1: 'Fortaleza',
-    nombreCampoOM2: 'ocom_tipo',
-    nombreMostrarOM2: 'Tipo',
+    nombreCampoCHECKL1: 'mova_descripcion',
+    nombreMostrarCHECKL1: 'Motivación o Valor',
+    nombreCampoCHECKL2: 'mova_valor',
+    nombreMostrarCHECKL2: 'Jerarquizar',
   },
 ];
 
 export const CAMPOSCHECKL7 = [
   {
-    nombreCampoOM1: 'ocom_descripcion',
-    nombreMostrarOM1: 'Fortaleza',
-    nombreCampoOM2: 'ocom_tipo',
-    nombreMostrarOM2: 'Tipo',
+    nombreCampoCHECKL1: 'mova_descripcion',
+    nombreMostrarCHECKL1: 'Motivación o Valor',
+    nombreCampoCHECKL2: 'mova_valor',
+    nombreMostrarCHECKL2: 'Jerarquizar',
   },
 ];
 
 export const CAMPOSCHECKL8 = [
   {
-    nombreCampoOM1: 'ocom_descripcion',
-    nombreMostrarOM1: 'Fortaleza',
-    nombreCampoOM2: 'ocom_tipo',
-    nombreMostrarOM2: 'Tipo',
+    nombreCampoCHECKL1: 'mova_descripcion',
+    nombreMostrarCHECKL1: 'Motivación o Valor',
+    nombreCampoCHECKL2: 'mova_valor',
+    nombreMostrarCHECKL2: 'Jerarquizar',
   },
 ];
 
 export const CAMPOSCHECKL9 = [
   {
-    nombreCampoOM1: 'ocom_descripcion',
-    nombreMostrarOM1: 'Fortaleza',
-    nombreCampoOM2: 'ocom_tipo',
-    nombreMostrarOM2: 'Tipo',
+    nombreCampoCHECKL1: 'mova_descripcion',
+    nombreMostrarCHECKL1: 'Motivación o Valor',
+    nombreCampoCHECKL2: 'mova_valor',
+    nombreMostrarCHECKL2: 'Jerarquizar',
   },
 ];
 
 export const CAMPOSCHECKL10 = [
   {
-    nombreCampoOM1: 'ocom_descripcion',
-    nombreMostrarOM1: 'Fortaleza',
-    nombreCampoOM2: 'ocom_tipo',
-    nombreMostrarOM2: 'Tipo',
+    nombreCampoCHECKL1: 'mova_descripcion',
+    nombreMostrarCHECKL1: 'Motivación o Valor',
+    nombreCampoCHECKL2: 'mova_valor',
+    nombreMostrarCHECKL2: 'Jerarquizar',
   },
 ];
 
 export const CAMPOSCHECKL11 = [
   {
-    nombreCampoOM1: 'ocom_descripcion',
-    nombreMostrarOM1: 'Fortaleza',
-    nombreCampoOM2: 'ocom_tipo',
-    nombreMostrarOM2: 'Tipo',
+    nombreCampoCHECKL1: 'mova_descripcion',
+    nombreMostrarCHECKL1: 'Motivación o Valor',
+    nombreCampoCHECKL2: 'mova_valor',
+    nombreMostrarCHECKL2: 'Jerarquizar',
   },
 ];
 
 export const CAMPOSCHECKL12 = [
   {
-    nombreCampoOM1: 'ocom_descripcion',
-    nombreMostrarOM1: 'Fortaleza',
-    nombreCampoOM2: 'ocom_tipo',
-    nombreMostrarOM2: 'Tipo',
+    nombreCampoCHECKL1: 'mova_descripcion',
+    nombreMostrarCHECKL1: 'Motivación o Valor',
+    nombreCampoCHECKL2: 'mova_valor',
+    nombreMostrarCHECKL2: 'Jerarquizar',
   },
 ];
 
 export const CAMPOSCHECKL13 = [
   {
-    nombreCampoOM1: 'ocom_descripcion',
-    nombreMostrarOM1: 'Fortaleza',
-    nombreCampoOM2: 'ocom_tipo',
-    nombreMostrarOM2: 'Tipo',
+    nombreCampoCHECKL1: 'mova_descripcion',
+    nombreMostrarCHECKL1: 'Motivación o Valor',
+    nombreCampoCHECKL2: 'mova_valor',
+    nombreMostrarCHECKL2: 'Jerarquizar',
   },
 ];
 
 export const CAMPOSCHECKL14 = [
   {
-    nombreCampoOM1: 'ocom_descripcion',
-    nombreMostrarOM1: 'Fortaleza',
-    nombreCampoOM2: 'ocom_tipo',
-    nombreMostrarOM2: 'Tipo',
+    nombreCampoCHECKL1: 'mova_descripcion',
+    nombreMostrarCHECKL1: 'Motivación o Valor',
+    nombreCampoCHECKL2: 'mova_valor',
+    nombreMostrarCHECKL2: 'Jerarquizar',
   },
 ];
 
 export const CAMPOSCHECKL15 = [
   {
-    nombreCampoOM1: 'ocom_descripcion',
-    nombreMostrarOM1: 'Fortaleza',
-    nombreCampoOM2: 'ocom_tipo',
-    nombreMostrarOM2: 'Tipo',
+    nombreCampoCHECKL1: 'mova_descripcion',
+    nombreMostrarCHECKL1: 'Motivación o Valor',
+    nombreCampoCHECKL2: 'mova_valor',
+    nombreMostrarCHECKL2: 'Jerarquizar',
   },
 ];
 
 export const CAMPOSCHECKL16 = [
   {
-    nombreCampoOM1: 'ocom_descripcion',
-    nombreMostrarOM1: 'Fortaleza',
-    nombreCampoOM2: 'ocom_tipo',
-    nombreMostrarOM2: 'Tipo',
+    nombreCampoCHECKL1: 'mova_descripcion',
+    nombreMostrarCHECKL1: 'Motivación o Valor',
+    nombreCampoCHECKL2: 'mova_valor',
+    nombreMostrarCHECKL2: 'Jerarquizar',
   },
 ];
 
 export const CAMPOSCHECKL17 = [
   {
-    nombreCampoOM1: 'ocom_descripcion',
-    nombreMostrarOM1: 'Fortaleza',
-    nombreCampoOM2: 'ocom_tipo',
-    nombreMostrarOM2: 'Tipo',
+    nombreCampoCHECKL1: 'mova_descripcion',
+    nombreMostrarCHECKL1: 'Motivación o Valor',
+    nombreCampoCHECKL2: 'mova_valor',
+    nombreMostrarCHECKL2: 'Jerarquizar',
   },
 ];
 
 export const CAMPOSCHECKL18 = [
   {
-    nombreCampoOM1: 'ocom_descripcion',
-    nombreMostrarOM1: 'Fortaleza',
-    nombreCampoOM2: 'ocom_tipo',
-    nombreMostrarOM2: 'Tipo',
+    nombreCampoCHECKL1: 'mova_descripcion',
+    nombreMostrarCHECKL1: 'Motivación o Valor',
+    nombreCampoCHECKL2: 'mova_valor',
+    nombreMostrarCHECKL2: 'Jerarquizar',
   },
 ];
 
 export const CAMPOSCHECKL19 = [
   {
-    nombreCampoOM1: 'ocom_descripcion',
-    nombreMostrarOM1: 'Fortaleza',
-    nombreCampoOM2: 'ocom_tipo',
-    nombreMostrarOM2: 'Tipo',
+    nombreCampoCHECKL1: 'mova_descripcion',
+    nombreMostrarCHECKL1: 'Motivación o Valor',
+    nombreCampoCHECKL2: 'mova_valor',
+    nombreMostrarCHECKL2: 'Jerarquizar',
   },
 ];
 
 export const CAMPOSCHECKL20 = [
   {
-    nombreCampoOM1: 'ocom_descripcion',
-    nombreMostrarOM1: 'Fortaleza',
-    nombreCampoOM2: 'ocom_tipo',
-    nombreMostrarOM2: 'Tipo',
+    nombreCampoCHECKL1: 'mova_descripcion',
+    nombreMostrarCHECKL1: 'Motivación o Valor',
+    nombreCampoCHECKL2: 'mova_valor',
+    nombreMostrarCHECKL2: 'Jerarquizar',
   },
 ];
 
 export const CAMPOSTOP5V1 = [
   {
-    nombreCampoTOP5V1: 'ocom_descripcion',
-    nombreMostrarTOP5V1: 'Jerarquizar',
-    nombreCampoTOP5V2: 'ocom_tipo',
-    nombreMostrarTOP5V2: 'Valor',
+    nombreCampoTOP5V1: 'mova_valor',
+    nombreMostrarTOP5V1: 'Valor',
+    nombreCampoTOP5V2: 'mova_descripcion',
+    nombreMostrarTOP5V2: 'Motivación o Valor',
   },
 ];
 
 export const CAMPOSTOP5V2 = [
   {
-    nombreCampoTOP5V1: 'ocom_descripcion',
-    nombreMostrarTOP5V1: 'Jerarquizar',
-    nombreCampoTOP5V2: 'ocom_tipo',
-    nombreMostrarTOP5V2: 'Valor',
+    nombreCampoTOP5V1: 'mova_valor',
+    nombreMostrarTOP5V1: 'Valor',
+    nombreCampoTOP5V2: 'mova_descripcion',
+    nombreMostrarTOP5V2: 'Motivación o Valor',
   },
 ];
 
 export const CAMPOSTOP5V3 = [
   {
-    nombreCampoTOP5V1: 'ocom_descripcion',
-    nombreMostrarTOP5V1: 'Jerarquizar',
-    nombreCampoTOP5V2: 'ocom_tipo',
-    nombreMostrarTOP5V2: 'Valor',
+    nombreCampoTOP5V1: 'mova_valor',
+    nombreMostrarTOP5V1: 'Valor',
+    nombreCampoTOP5V2: 'mova_descripcion',
+    nombreMostrarTOP5V2: 'Motivación o Valor',
   },
 ];
 
 export const CAMPOSTOP5V4 = [
   {
-    nombreCampoTOP5V1: 'ocom_descripcion',
-    nombreMostrarTOP5V1: 'Jerarquizar',
-    nombreCampoTOP5V2: 'ocom_tipo',
-    nombreMostrarTOP5V2: 'Valor',
+    nombreCampoTOP5V1: 'mova_valor',
+    nombreMostrarTOP5V1: 'Valor',
+    nombreCampoTOP5V2: 'mova_descripcion',
+    nombreMostrarTOP5V2: 'Motivación o Valor',
   },
 ];
 
 export const CAMPOSTOP5V5 = [
   {
-    nombreCampoTOP5V1: 'ocom_descripcion',
-    nombreMostrarTOP5V1: 'Jerarquizar',
-    nombreCampoTOP5V2: 'ocom_tipo',
-    nombreMostrarTOP5V2: 'Valor',
+    nombreCampoTOP5V1: 'mova_valor',
+    nombreMostrarTOP5V1: 'Valor',
+    nombreCampoTOP5V2: 'mova_descripcion',
+    nombreMostrarTOP5V2: 'Motivación o Valor',
   },
 ];
   
@@ -611,11 +603,38 @@ export const INICIALIZARTFORTALEZA3 = {
   ocom_tipo: 'Fortaleza3',
 };
 
-export const INICIALIZAROMEJORA = {
+export const INICIALIZAROMEJORA1 = {
   ID: '',
   id_periId: '',
   id_num_sapId: '',
 
   ocom_descripcion: '',
-  ocom_tipo: '',
+  ocom_tipo: 'Mejora1',
+};
+
+export const INICIALIZAROMEJORA2 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  ocom_descripcion: '',
+  ocom_tipo: 'Mejora2',
+};
+
+export const INICIALIZARCHECKL = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: '',
+  mova_valor: '',
+};
+
+export const INICIALIZARTOP5V = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: '',
+  mova_valor: '',
 };

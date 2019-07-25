@@ -7,6 +7,8 @@ export class Etapa2 {
         public InfoCA: InfoCA,
         public InfoFR: InfoFR,
         public infoTF: InfoTF,
+        public infoOM: InfoOM,
+        public InfoMV: InfoMV,
         public infoEspecifica: InfoEspecifica[]
     ) {}
 
@@ -164,12 +166,32 @@ export class InfoFR {
     ) {}
 }
 
+export class InfoOM {
+    constructor(
+        public ID?: number,
+        public id_periId?: number,
+        public id_num_sapId?: string,
+        public ocom_descripcion?: string,
+        public ocom_tipo?: string
+    ) {}
+}
+
 export class InfoTF {
     constructor(
         public ID?: number,
         public id_periId?: number,
         public id_num_sapId?: string,
         public ocom_descripcion?: string,
-        public ocom_tipo?: string,
+        public ocom_tipo?: string
+    ) {}
+}
+
+export class InfoMV {
+    constructor(
+        public ID?: number,
+        public id_periId?: number,
+        public id_num_sapId?: string,
+        public mova_descripcion?: string,
+        public mova_valor?: string
     ) {}
 }

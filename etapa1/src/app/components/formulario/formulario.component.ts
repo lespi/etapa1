@@ -3,7 +3,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Observable, ReplaySubject, Subject } from 'rxjs';
 import { map, startWith, takeUntil, take } from 'rxjs/operators';
-import { Cargo, InfoGeneral, InfoEspecifica, InfoPPer, InfoCA, InfoFR, Usuario, Periodo, Rol } from 'src/app/models/etapa2.module';
+import { Cargo, InfoGeneral, InfoEspecifica, InfoPPer, InfoCA, InfoFR, InfoOM, Usuario, Periodo, Rol } from 'src/app/models/etapa2.module';
 import { EtapaService } from './etapa.service';
 import { MatSelect } from '@angular/material';
 import { MatSnackBar } from '@angular/material';
@@ -39,10 +39,12 @@ import {
   CAMPOSTFORTALEZA1,
   CAMPOSTFORTALEZA2,
   
-  INICIALIZAROMEJORA,
-  CAMPOSOMEJORA,
+  INICIALIZAROMEJORA1,
+  INICIALIZAROMEJORA2,
   CAMPOSOMEJORA1,
   CAMPOSOMEJORA2,
+
+  INICIALIZARCHECKL,
   CAMPOSCHECKL,
   CAMPOSCHECKL2,
   CAMPOSCHECKL3,
@@ -63,6 +65,7 @@ import {
   CAMPOSCHECKL18,
   CAMPOSCHECKL19,
   CAMPOSCHECKL20,
+  INICIALIZARTOP5V,
   CAMPOSTOP5V1,
   CAMPOSTOP5V2,
   CAMPOSTOP5V3,
@@ -137,6 +140,7 @@ export class TemplateComponent implements OnInit {
   infocaSel: InfoCA = null;
   infofrSel: InfoFR = null; //REVISAR
   infoPPSel: InfoPPer = null; //Etapa1
+  infoOMSel: InfoOM = null; //Etapa1
 
   // controles y estructura para formularios (Escucha los campos del formulario)
  
@@ -161,13 +165,44 @@ export class TemplateComponent implements OnInit {
   formGroupHijoFR4: FormGroup;
   formGroupHijoFR5: FormGroup;
 
+  formGroupPadreOCom: FormGroup;
+
   formGroupHijoTF: FormGroup;
   formGroupHijoTF2: FormGroup;
   formGroupHijoTF3: FormGroup;
-  
-  formGroupPadreOCom: FormGroup;
+
+  formGroupHijoOM1: FormGroup;
+  formGroupHijoOM2: FormGroup;
 
   formGroupPadreMVal: FormGroup;
+
+  formGroupHijoCHECKL1: FormGroup; //SE UTILIZA?
+  formGroupHijoCHECKL2: FormGroup;
+  formGroupHijoCHECKL3: FormGroup;
+  formGroupHijoCHECKL4: FormGroup;
+  formGroupHijoCHECKL5: FormGroup;
+  formGroupHijoCHECKL6: FormGroup;
+  formGroupHijoCHECKL7: FormGroup;
+  formGroupHijoCHECKL8: FormGroup;
+  formGroupHijoCHECKL9: FormGroup;
+  formGroupHijoCHECKL10: FormGroup;
+  formGroupHijoCHECKL11: FormGroup;
+  formGroupHijoCHECKL12: FormGroup;
+  formGroupHijoCHECKL13: FormGroup;
+  formGroupHijoCHECKL14: FormGroup;
+  formGroupHijoCHECKL15: FormGroup;
+  formGroupHijoCHECKL16: FormGroup;
+  formGroupHijoCHECKL17: FormGroup;
+  formGroupHijoCHECKL18: FormGroup;
+  formGroupHijoCHECKL19: FormGroup;
+  formGroupHijoCHECKL20: FormGroup;
+
+  formGroupHijoTOP5V1: FormGroup;
+  formGroupHijoTOP5V2: FormGroup;
+  formGroupHijoTOP5V3: FormGroup;
+  formGroupHijoTOP5V4: FormGroup;
+  formGroupHijoTOP5V5: FormGroup;
+
 
   nombresFromGroup = ['formGroupHijoPPer', 'formGroupHijo3'];
 
@@ -183,11 +218,14 @@ export class TemplateComponent implements OnInit {
   inicializarFormHijoTF2 = INICIALIZARTFORTALEZA2; // Se utilizará para ETAPA 1
   inicializarFormHijoTF3 = INICIALIZARTFORTALEZA3; // Se utilizará para ETAPA 1
 
-  inicializarFormHijoCHECKL = INICIALIZARTFORTALEZA;
+  inicializarFormHijoOM1 = INICIALIZAROMEJORA1; // Se utilizará para ETAPA 1
+  inicializarFormHijoOM2 = INICIALIZAROMEJORA2; // Se utilizará para ETAPA 1
 
-  inicializarFormHijoTOP5V = INICIALIZARTFORTALEZA;
+  inicializarFormHijoCHECKL = INICIALIZARCHECKL;
 
-  inicializarFormHijoOM = INICIALIZAROMEJORA; // Se utilizará para ETAPA 1
+  inicializarFormHijoTOP5V = INICIALIZARTOP5V;
+
+  
 
   // Crea el formulario HTML
   camposForm1: CamposForm[] = CAMPOSLARGO;
@@ -213,7 +251,11 @@ export class TemplateComponent implements OnInit {
 
   nombresFromGroupTFORTALEZAall = ['formGroupHijoTF', 'formGroupHijoTF2', 'formGroupHijoTF3'];
 
-  nombresFromGroupOMEJORA = ['formGroupHijoOM1', 'formGroupHijoOM2'];
+  nombresFromGroupOMEJORA1 = ['formGroupHijoOM1'];
+
+  nombresFromGroupOMEJORA2 = ['formGroupHijoOM2'];
+
+  nombresFromGroupOMEJORAall = ['formGroupHijoOM1', 'formGroupHijoOM2'];
 
 // tslint:disable-next-line: max-line-length
   nombresFromGroupCHECKLISTMV = ['formGroupHijoCHECKL1', 'formGroupHijoCHECKL2', 'formGroupHijoCHECKL3', 'formGroupHijoCHECKL4', 'formGroupHijoCHECKL5', 'formGroupHijoCHECKL6', 'formGroupHijoCHECKL7','formGroupHijoCHECKL8', 'formGroupHijoCHECKL9', 'formGroupHijoCHECKL10', 'formGroupHijoCHECKL11', 'formGroupHijoCHECKL12', 'formGroupHijoCHECKL13', 'formGroupHijoCHECKL14', 'formGroupHijoCHECKL15', 'formGroupHijoCHECKL16', 'formGroupHijoCHECKL17', 'formGroupHijoCHECKL18', 'formGroupHijoCHECKL19', 'formGroupHijoCHECKL20'];
@@ -231,7 +273,6 @@ export class TemplateComponent implements OnInit {
   camposFormTF1: CamposForm[] = CAMPOSTFORTALEZA1; //ETAPA1 SI utilizado
   camposFormTF2: CamposForm[] = CAMPOSTFORTALEZA2; //ETAPA1 SI utilizado
 
-  camposFormOM: CamposForm[] = CAMPOSOMEJORA; //ETAPA1
   camposFormOM1: CamposForm[] = CAMPOSOMEJORA1; //ETAPA1 No utilizado
   camposFormOM2: CamposForm[] = CAMPOSOMEJORA2; //ETAPA1 No utilizado
 
@@ -281,10 +322,7 @@ export class TemplateComponent implements OnInit {
   createForms() {
 
     this.formGroupPadrePPer = this.fb.group({
-   //   formGroupHijo1: this.fb.group(this.inicializarFormHijo1),
       formGroupHijoPPer: this.fb.group(this.inicializarFormHijoPPer),
-      //formGroupHijo3: this.fb.group(this.inicializarFormHijoPPer),
-     // formGroupHijo4: this.fb.group(this.inicializarFormHijo4)
 
     });
 
@@ -308,8 +346,8 @@ export class TemplateComponent implements OnInit {
       formGroupHijoTF2: this.fb.group(this.inicializarFormHijoTF2),
       formGroupHijoTF3: this.fb.group(this.inicializarFormHijoTF3),
 
-      formGroupHijoOM1: this.fb.group(this.inicializarFormHijoOM),
-      formGroupHijoOM2: this.fb.group(this.inicializarFormHijoOM)
+      formGroupHijoOM1: this.fb.group(this.inicializarFormHijoOM1),
+      formGroupHijoOM2: this.fb.group(this.inicializarFormHijoOM2)
 
     });
   
@@ -461,6 +499,8 @@ export class TemplateComponent implements OnInit {
   }
 
   async onSubmitTFOR1() {
+    console.log('Revisando Formulario');
+    console.log(this.formGroupPadreOCom.get('formGroupHijoTF').value);
 
     this.guardando = true;
     for (let i = 0; i < this.nombresFromGroupTFORTALEZA1.length; i++) {
@@ -583,6 +623,128 @@ export class TemplateComponent implements OnInit {
     }
   }
  
+  async onSubmitOM1() {
+
+    this.guardando = true;
+    for (let i = 0; i < this.nombresFromGroupOMEJORA1.length; i++) {
+
+      const element = this.nombresFromGroupOMEJORA1[i]; // se asigna nombre del form hijo
+      const elementInfoId = this.formGroupPadreOCom.get(element).get('ID').value; //obtengo el valor de form indicado pero solo el campo ID
+      const elementInfoValue = this.formGroupPadreOCom.get(element).value; // Obtengo todos los values del submit del form hijo
+      // console.log(this.formGroupPadre.get(element).get('ID').value );
+
+      if (elementInfoId !== '') { // si el ID NO esta vacio
+        console.log('Existe info objeto');
+        console.log(elementInfoValue );
+        await this.etapaService.actualizarOM(elementInfoValue, elementInfoId).then(() => {
+              if ( i === this.nombresFromGroupOMEJORA1.length - 1 ) { // solo para el ultimo form Hijo
+                this.guardando = false;
+                this.snackBar.open('Información OM guardada', 'x', {
+                      duration: 5000,
+                    });
+              }
+            });
+      } else { // SI ESTA VACIO
+        console.log('NO Existe info  objeto');
+        const objetoAuxiliar = elementInfoValue;
+        delete objetoAuxiliar.ID; // ELIMINO DEL SUBMIT EL ELEMENTO ID PARA QUE EN SP SE INGRESE UNO NUEVO
+        console.log(objetoAuxiliar);
+
+        await this.etapaService.guardarOM(objetoAuxiliar).then(() => {
+          if ( i === this.nombresFromGroupOMEJORA1.length - 1 ) {
+            this.infoOMejora().then( () => {
+              this.guardando = false;
+              this.snackBar.open('Información OM guardada', 'x', {
+                    duration: 5000,
+                  });
+            });
+          }
+        });
+      }
+    }
+  }
+
+  async onSubmitOM2() {
+
+    this.guardando = true;
+    for (let i = 0; i < this.nombresFromGroupOMEJORA2.length; i++) {
+
+      const element = this.nombresFromGroupOMEJORA2[i]; // se asigna nombre del form hijo
+      const elementInfoId = this.formGroupPadreOCom.get(element).get('ID').value; //obtengo el valor de form indicado pero solo el campo ID
+      const elementInfoValue = this.formGroupPadreOCom.get(element).value; // Obtengo todos los values del submit del form hijo
+      // console.log(this.formGroupPadre.get(element).get('ID').value );
+
+      if (elementInfoId !== '') { // si el ID NO esta vacio
+        console.log('Existe info objeto');
+        console.log(elementInfoValue );
+        await this.etapaService.actualizarOM(elementInfoValue, elementInfoId).then(() => {
+              if ( i === this.nombresFromGroupOMEJORA2.length - 1 ) { // solo para el ultimo form Hijo
+                this.guardando = false;
+                this.snackBar.open('Información OM guardada', 'x', {
+                      duration: 5000,
+                    });
+              }
+            });
+      } else { // SI ESTA VACIO
+        console.log('NO Existe info  objeto');
+        const objetoAuxiliar = elementInfoValue;
+        delete objetoAuxiliar.ID; // ELIMINO DEL SUBMIT EL ELEMENTO ID PARA QUE EN SP SE INGRESE UNO NUEVO
+        console.log(objetoAuxiliar);
+
+        await this.etapaService.guardarOM(objetoAuxiliar).then(() => {
+          if ( i === this.nombresFromGroupOMEJORA2.length - 1 ) {
+            this.infoOMejora().then( () => {
+              this.guardando = false;
+              this.snackBar.open('Información OM guardada', 'x', {
+                    duration: 5000,
+                  });
+            });
+          }
+        });
+      }
+    }
+  }
+
+  async onSubmitCHECKL() {
+
+    this.guardando = true;
+    for (let i = 0; i < this.nombresFromGroupCHECKLISTMV.length; i++) {
+
+      const element = this.nombresFromGroupCHECKLISTMV[i]; // se asigna nombre del form hijo
+      const elementInfoId = this.formGroupPadreMVal.get(element).get('ID').value; //obtengo el valor de form indicado pero solo el campo ID
+      const elementInfoValue = this.formGroupPadreMVal.get(element).value; // Obtengo todos los values del submit del form hijo
+      // console.log(this.formGroupPadre.get(element).get('ID').value );
+
+      if (elementInfoId !== '') { // si el ID NO esta vacio
+        console.log('Existe info objeto');
+        console.log(elementInfoValue );
+        await this.etapaService.actualizarCHECKL(elementInfoValue, elementInfoId).then(() => {
+              if ( i === this.nombresFromGroupCHECKLISTMV.length - 1 ) { // solo para el ultimo form Hijo
+                this.guardando = false;
+                this.snackBar.open('Información CHECKL guardada', 'x', {
+                      duration: 5000,
+                    });
+              }
+            });
+      } else { // SI ESTA VACIO
+        console.log('NO Existe info  objeto');
+        const objetoAuxiliar = elementInfoValue;
+        delete objetoAuxiliar.ID; // ELIMINO DEL SUBMIT EL ELEMENTO ID PARA QUE EN SP SE INGRESE UNO NUEVO
+        console.log(objetoAuxiliar);
+
+        await this.etapaService.guardarCHECKL(objetoAuxiliar).then(() => {
+          if ( i === this.nombresFromGroupCHECKLISTMV.length - 1 ) {
+            this.infoCHECKL().then( () => {
+              this.guardando = false;
+              this.snackBar.open('Información CHECKL guardada', 'x', {
+                    duration: 5000,
+                  });
+            });
+          }
+        });
+      }
+    }
+  }
 
   submitEtapa() {
         // this.onSubmitPPer().then( () => {//Etapa1
@@ -595,6 +757,9 @@ export class TemplateComponent implements OnInit {
         this.onSubmitTFOR1(); //Etapa1
         this.onSubmitTFOR2(); //Etapa1
         this.onSubmitTFOR3(); //Etapa1
+        this.onSubmitOM1(); //Etapa1
+        this.onSubmitOM2(); //Etapa1
+        this.onSubmitCHECKL();//Etapa1
   }
 
   async infoPPer() {
@@ -742,15 +907,15 @@ export class TemplateComponent implements OnInit {
   
           if ( element.ocom_tipo === 'Fortaleza1' ) {
             this.formGroupPadreOCom.get('formGroupHijoTF').patchValue(element);
-            //this.formGroupPadreOCom.get('formGroupHijoTF').get('ocom_tipo').disable();
+            this.formGroupPadreOCom.get('formGroupHijoTF').get('ocom_tipo').disable();
           }
           if ( element.ocom_tipo === 'Fortaleza2' ) {
             this.formGroupPadreOCom.get('formGroupHijoTF2').patchValue(element);
-           // this.formGroupPadreOCom.get('formGroupHijoTF2').get('ocom_tipo').disable();
+            this.formGroupPadreOCom.get('formGroupHijoTF2').get('ocom_tipo').disable();
           }
           if ( element.ocom_tipo === 'Fortaleza3' ) {
             this.formGroupPadreOCom.get('formGroupHijoTF3').patchValue(element);
-           // this.formGroupPadreOCom.get('formGroupHijoTF3').get('ocom_tipo').disable();
+            this.formGroupPadreOCom.get('formGroupHijoTF3').get('ocom_tipo').disable();
           }
   
         });
@@ -758,15 +923,17 @@ export class TemplateComponent implements OnInit {
 
         this.nombresFromGroupTFORTALEZAall.forEach(element => {
 
-                  this.formGroupPadreOCom.get(element).patchValue({
-                    ID: '',
-                    id_periId: '1',
-                    id_num_sapId: this.usuarioActivo.ID,
-                    ocom_descripcion: '',
-                    //ocom_tipo: '', //Comentado para guardar los datos por defecto
-                  });
+                  // this.formGroupPadreOCom.get(element).patchValue({
+                  //   ID: '',
+                  //   id_periId: '1',
+                  //   id_num_sapId: this.usuarioActivo.ID,
+                  //   ocom_descripcion: '',
+                  //   //ocom_tipo: '', //Comentado para guardar los datos por defecto
+                  // });
 
-                  //this.formGroupPadreOCom.get(element).get('ocom_tipo').disable();
+                  this.formGroupPadreOCom.get(element).get('id_periId').setValue('1');
+                  this.formGroupPadreOCom.get(element).get('id_num_sapId').setValue(this.usuarioActivo.ID);
+                 // this.formGroupPadreOCom.get(element).get('ocom_tipo').disable();
         });
 
 
@@ -775,6 +942,150 @@ export class TemplateComponent implements OnInit {
     });
   }
 
+  async infoOMejora() {
+    await this.etapaService.obtenerInfoOM(this.usuarioActivo.ID).then( (resp: [any]) => {
+      console.log('Obtener datos info O.Mejoras');
+      console.log(resp);
+
+      if (resp.length > 0) {
+
+        resp.forEach(element => {
+  
+          if ( element.ocom_tipo === 'Mejora1' ) {
+            this.formGroupPadreOCom.get('formGroupHijoOM1').patchValue(element);
+            this.formGroupPadreOCom.get('formGroupHijoOM1').get('ocom_tipo').disable();
+          }
+          if ( element.ocom_tipo === 'Mejora2' ) {
+            this.formGroupPadreOCom.get('formGroupHijoOM2').patchValue(element);
+            this.formGroupPadreOCom.get('formGroupHijoOM2').get('ocom_tipo').disable();
+          }
+  
+        });
+      } else {
+
+        this.nombresFromGroupOMEJORAall.forEach(element => {
+
+          this.formGroupPadreOCom.get(element).get('id_periId').setValue('1');
+          this.formGroupPadreOCom.get(element).get('id_num_sapId').setValue(this.usuarioActivo.ID);
+        });
+
+
+      }
+
+    });
+  }
+
+  async infoCHECKL() {
+    await this.etapaService.obtenerinfoCHECKL(this.usuarioActivo.ID).then( (resp: [any]) => {
+      console.log('Obtener datos info CHECKL');
+      console.log(resp);
+
+      if (resp.length > 0) {
+
+        resp.forEach(element => {
+  
+          if ( element.mova_valor === '1' ) {
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL1').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL1').get('mova_valor').disable();
+          }
+          if ( element.mova_valor === '2' ) {
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL2').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL2').get('mova_valor').disable();
+          }
+          if ( element.mova_valor === '3' ) {
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL3').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL3').get('mova_valor').disable();
+          }
+          if ( element.mova_valor === '4' ) {
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL4').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL4').get('mova_valor').disable();
+          }
+          if ( element.mova_valor === '5' ) {
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL5').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL5').get('mova_valor').disable();
+          }
+          if ( element.mova_valor === '6' ) {
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL6').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL6').get('mova_valor').disable();
+          }
+          if ( element.mova_valor === '7' ) {
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL7').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL7').get('mova_valor').disable();
+          }
+          if ( element.mova_valor === '8' ) {
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL8').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL8').get('mova_valor').disable();
+          }
+          if ( element.mova_valor === '9' ) {
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL9').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL9').get('mova_valor').disable();
+          }
+          if ( element.mova_valor === '10' ) {
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL10').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL10').get('mova_valor').disable();
+          }
+          if ( element.mova_valor === '11' ) {
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL11').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL11').get('mova_valor').disable();
+          }
+          if ( element.mova_valor === '12' ) {
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL12').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL12').get('mova_valor').disable();
+          }
+          if ( element.mova_valor === '13' ) {
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL13').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL13').get('mova_valor').disable();
+          }
+          if ( element.mova_valor === '14' ) {
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL14').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL14').get('mova_valor').disable();
+          }
+          if ( element.mova_valor === '15' ) {
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL15').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL15').get('mova_valor').disable();
+          }
+          if ( element.mova_valor === '16' ) {
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL16').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL16').get('mova_valor').disable();
+          }
+          if ( element.mova_valor === '17' ) {
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL17').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL17').get('mova_valor').disable();
+          }
+          if ( element.mova_valor === '18' ) {
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL18').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL18').get('mova_valor').disable();
+          }
+          if ( element.mova_valor === '19' ) {
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL19').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL19').get('mova_valor').disable();
+          }
+          if ( element.mova_valor === '20' ) {
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL20').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL20').get('mova_valor').disable();
+          }
+  
+        });
+      } else {
+
+        this.nombresFromGroupCHECKLISTMV.forEach(element => {
+
+                  this.formGroupPadreMVal.get(element).patchValue({
+                    ID: '',
+                    id_periId: '1',
+                    id_num_sapId: this.usuarioActivo.ID,
+                    mova_descripcion: '',
+                    mova_valor: '',
+                  });
+
+                  //this.formGroupPadreMVal.get(element).get('coau_competencia').disable();
+        });
+
+
+      }
+
+    });
+  }
 
   goToLink(url: string) {
     window.open(url, '_blank');
@@ -790,6 +1101,8 @@ export class TemplateComponent implements OnInit {
     this.infoCAutodesarrollo(); // Cargar info Competencia Autodesarrollo
     this.infoFeedbackR(); // Cargar info Feedback Recibido 
     this.infoTFortaleza(); // Cargar info Top Fortalezas 
+    this.infoOMejora(); // Cargar info Top Mejoras 
+    this.infoCHECKL(); //Cargar info Check List
     }
 
 }

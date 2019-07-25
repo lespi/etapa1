@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Web, ItemAddResult } from '@pnp/sp';
-import { InfoEspecifica, InfoGeneral, InfoPPer, InfoCA, InfoFR, InfoTF } from '../../models/etapa2.module';
+import { InfoEspecifica, InfoGeneral, InfoPPer, InfoCA, InfoFR, InfoTF, InfoOM, InfoMV  } from '../../models/etapa2.module';
 import { CurrentUser } from '@pnp/sp/src/siteusers';
 import { promise } from 'protractor';
 
@@ -120,6 +120,20 @@ export class EtapaService {
                           .get<{Title: string}[]>();
   }
 
+  async obtenerInfoOM( ID ) {
+    return await web.lists.getByTitle('otra_competencia')
+                          .items
+                          .filter(`id_num_sap eq '${ ID }'`)
+                          .get<{Title: string}[]>();
+  }
+
+  async obtenerinfoCHECKL( ID ) {
+    return await web.lists.getByTitle('motivacion_valor')
+                          .items
+                          .filter(`id_num_sap eq '${ ID }'`)
+                          .get<{Title: string}[]>();
+  }
+
   actualizarCA(InfoCA: InfoCA, ID?: number) {
 
     return new Promise( resolve => {
@@ -174,6 +188,42 @@ export class EtapaService {
 
   }
 
+  actualizarOM(InfoOM: InfoOM, ID?: number) {
+
+    return new Promise( resolve => {
+
+      web.lists
+        .getByTitle('otra_competencia')
+        .items
+        .getById(ID)
+        .update(InfoOM)
+        .then(i => {
+          console.log(i);
+          resolve(true);
+        });
+
+    });
+
+  }
+
+  actualizarCHECKL(InfoMV: InfoMV, ID?: number) {
+
+    return new Promise( resolve => {
+
+      web.lists
+        .getByTitle('motivacion_valor')
+        .items
+        .getById(ID)
+        .update(InfoMV)
+        .then(i => {
+          console.log(i);
+          resolve(true);
+        });
+
+    });
+
+  }
+
   guardarFR(InfoFR: InfoFR) {
     return new Promise( resolve => {
 
@@ -202,13 +252,40 @@ export class EtapaService {
     });
   }
 
-  guardarTFor(InfoTF: InfoTF) {
-    console.log("Intentando guardar" + InfoTF);
+  guardarTFor(infoTF: InfoTF) {
     return new Promise( resolve => {
 
       web.lists
         .getByTitle('otra_competencia')
-        .items.add(InfoTF)
+        .items.add(infoTF)
+        .then( (iar: ItemAddResult) => {
+            console.log(iar);
+            resolve(true);
+        });
+
+    });
+  }
+
+  guardarOM(InfoOM: InfoOM) {
+    return new Promise( resolve => {
+
+      web.lists
+        .getByTitle('otra_competencia')
+        .items.add(InfoOM)
+        .then( (iar: ItemAddResult) => {
+            console.log(iar);
+            resolve(true);
+        });
+
+    });
+  }
+
+  guardarCHECKL(InfoMV: InfoMV) {
+    return new Promise( resolve => {
+
+      web.lists
+        .getByTitle('motivacion_valor')
+        .items.add(InfoMV)
         .then( (iar: ItemAddResult) => {
             console.log(iar);
             resolve(true);
