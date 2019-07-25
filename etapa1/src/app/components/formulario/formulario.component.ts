@@ -44,7 +44,26 @@ import {
   CAMPOSOMEJORA1,
   CAMPOSOMEJORA2,
 
-  INICIALIZARCHECKL,
+  INICIALIZARCHECKL1,
+  INICIALIZARCHECKL2,
+  INICIALIZARCHECKL3,
+  INICIALIZARCHECKL4,
+  INICIALIZARCHECKL5,
+  INICIALIZARCHECKL6,
+  INICIALIZARCHECKL7,
+  INICIALIZARCHECKL8,
+  INICIALIZARCHECKL9,
+  INICIALIZARCHECKL10,
+  INICIALIZARCHECKL11,
+  INICIALIZARCHECKL12,
+  INICIALIZARCHECKL13,
+  INICIALIZARCHECKL14,
+  INICIALIZARCHECKL15,
+  INICIALIZARCHECKL16,
+  INICIALIZARCHECKL17,
+  INICIALIZARCHECKL18,
+  INICIALIZARCHECKL19,
+  INICIALIZARCHECKL20,
   CAMPOSCHECKL,
   CAMPOSCHECKL2,
   CAMPOSCHECKL3,
@@ -65,7 +84,13 @@ import {
   CAMPOSCHECKL18,
   CAMPOSCHECKL19,
   CAMPOSCHECKL20,
-  INICIALIZARTOP5V,
+  selectAjuste,
+
+  INICIALIZARTOP5V1,
+  INICIALIZARTOP5V2,
+  INICIALIZARTOP5V3,
+  INICIALIZARTOP5V4,
+  INICIALIZARTOP5V5,
   CAMPOSTOP5V1,
   CAMPOSTOP5V2,
   CAMPOSTOP5V3,
@@ -197,6 +222,8 @@ export class TemplateComponent implements OnInit {
   formGroupHijoCHECKL19: FormGroup;
   formGroupHijoCHECKL20: FormGroup;
 
+  selectAjuste = selectAjuste;
+
   formGroupHijoTOP5V1: FormGroup;
   formGroupHijoTOP5V2: FormGroup;
   formGroupHijoTOP5V3: FormGroup;
@@ -221,11 +248,32 @@ export class TemplateComponent implements OnInit {
   inicializarFormHijoOM1 = INICIALIZAROMEJORA1; // Se utilizará para ETAPA 1
   inicializarFormHijoOM2 = INICIALIZAROMEJORA2; // Se utilizará para ETAPA 1
 
-  inicializarFormHijoCHECKL1 = INICIALIZARCHECKL;
-  inicializarFormHijoCHECKL2 = INICIALIZARCHECKL;
-  inicializarFormHijoCHECKL = INICIALIZARCHECKL;
+  inicializarFormHijoCHECKL1 = INICIALIZARCHECKL1;
+  inicializarFormHijoCHECKL2 = INICIALIZARCHECKL2;
+  inicializarFormHijoCHECKL3 = INICIALIZARCHECKL3;
+  inicializarFormHijoCHECKL4 = INICIALIZARCHECKL4;
+  inicializarFormHijoCHECKL5 = INICIALIZARCHECKL5;
+  inicializarFormHijoCHECKL6 = INICIALIZARCHECKL6;
+  inicializarFormHijoCHECKL7 = INICIALIZARCHECKL7;
+  inicializarFormHijoCHECKL8 = INICIALIZARCHECKL8;
+  inicializarFormHijoCHECKL9 = INICIALIZARCHECKL9;
+  inicializarFormHijoCHECKL10 = INICIALIZARCHECKL10;
+  inicializarFormHijoCHECKL11 = INICIALIZARCHECKL11;
+  inicializarFormHijoCHECKL12 = INICIALIZARCHECKL12;
+  inicializarFormHijoCHECKL13 = INICIALIZARCHECKL13;
+  inicializarFormHijoCHECKL14 = INICIALIZARCHECKL14;
+  inicializarFormHijoCHECKL15 = INICIALIZARCHECKL15;
+  inicializarFormHijoCHECKL16 = INICIALIZARCHECKL16;
+  inicializarFormHijoCHECKL17 = INICIALIZARCHECKL17;
+  inicializarFormHijoCHECKL18 = INICIALIZARCHECKL18;
+  inicializarFormHijoCHECKL19 = INICIALIZARCHECKL19;
+  inicializarFormHijoCHECKL20 = INICIALIZARCHECKL20;
 
-  inicializarFormHijoTOP5V = INICIALIZARTOP5V;
+  inicializarFormHijoTOP5V1 = INICIALIZARTOP5V1;
+  inicializarFormHijoTOP5V2 = INICIALIZARTOP5V2;
+  inicializarFormHijoTOP5V3 = INICIALIZARTOP5V3;
+  inicializarFormHijoTOP5V4 = INICIALIZARTOP5V4;
+  inicializarFormHijoTOP5V5 = INICIALIZARTOP5V5;
 
   
 
@@ -356,30 +404,30 @@ export class TemplateComponent implements OnInit {
     this.formGroupPadreMVal = this.fb.group({
         formGroupHijoCHECKL1: this.fb.group(this.inicializarFormHijoCHECKL1),
         formGroupHijoCHECKL2: this.fb.group(this.inicializarFormHijoCHECKL2),
-        formGroupHijoCHECKL3: this.fb.group(this.inicializarFormHijoCHECKL),
-        formGroupHijoCHECKL4: this.fb.group(this.inicializarFormHijoCHECKL),
-        formGroupHijoCHECKL5: this.fb.group(this.inicializarFormHijoCHECKL),
-        formGroupHijoCHECKL6: this.fb.group(this.inicializarFormHijoCHECKL),
-        formGroupHijoCHECKL7: this.fb.group(this.inicializarFormHijoCHECKL),
-        formGroupHijoCHECKL8: this.fb.group(this.inicializarFormHijoCHECKL),
-        formGroupHijoCHECKL9: this.fb.group(this.inicializarFormHijoCHECKL),
-        formGroupHijoCHECKL10: this.fb.group(this.inicializarFormHijoCHECKL),
-        formGroupHijoCHECKL11: this.fb.group(this.inicializarFormHijoCHECKL),
-        formGroupHijoCHECKL12: this.fb.group(this.inicializarFormHijoCHECKL),
-        formGroupHijoCHECKL13: this.fb.group(this.inicializarFormHijoCHECKL),
-        formGroupHijoCHECKL14: this.fb.group(this.inicializarFormHijoCHECKL),
-        formGroupHijoCHECKL15: this.fb.group(this.inicializarFormHijoCHECKL),
-        formGroupHijoCHECKL16: this.fb.group(this.inicializarFormHijoCHECKL),
-        formGroupHijoCHECKL17: this.fb.group(this.inicializarFormHijoCHECKL),
-        formGroupHijoCHECKL18: this.fb.group(this.inicializarFormHijoCHECKL),
-        formGroupHijoCHECKL19: this.fb.group(this.inicializarFormHijoCHECKL),
-        formGroupHijoCHECKL20: this.fb.group(this.inicializarFormHijoCHECKL),
+        formGroupHijoCHECKL3: this.fb.group(this.inicializarFormHijoCHECKL3),
+        formGroupHijoCHECKL4: this.fb.group(this.inicializarFormHijoCHECKL4),
+        formGroupHijoCHECKL5: this.fb.group(this.inicializarFormHijoCHECKL5),
+        formGroupHijoCHECKL6: this.fb.group(this.inicializarFormHijoCHECKL6),
+        formGroupHijoCHECKL7: this.fb.group(this.inicializarFormHijoCHECKL7),
+        formGroupHijoCHECKL8: this.fb.group(this.inicializarFormHijoCHECKL8),
+        formGroupHijoCHECKL9: this.fb.group(this.inicializarFormHijoCHECKL9),
+        formGroupHijoCHECKL10: this.fb.group(this.inicializarFormHijoCHECKL10),
+        formGroupHijoCHECKL11: this.fb.group(this.inicializarFormHijoCHECKL11),
+        formGroupHijoCHECKL12: this.fb.group(this.inicializarFormHijoCHECKL12),
+        formGroupHijoCHECKL13: this.fb.group(this.inicializarFormHijoCHECKL13),
+        formGroupHijoCHECKL14: this.fb.group(this.inicializarFormHijoCHECKL14),
+        formGroupHijoCHECKL15: this.fb.group(this.inicializarFormHijoCHECKL15),
+        formGroupHijoCHECKL16: this.fb.group(this.inicializarFormHijoCHECKL16),
+        formGroupHijoCHECKL17: this.fb.group(this.inicializarFormHijoCHECKL17),
+        formGroupHijoCHECKL18: this.fb.group(this.inicializarFormHijoCHECKL18),
+        formGroupHijoCHECKL19: this.fb.group(this.inicializarFormHijoCHECKL19),
+        formGroupHijoCHECKL20: this.fb.group(this.inicializarFormHijoCHECKL20),
 
-        formGroupHijoTOP5V1: this.fb.group(this.inicializarFormHijoTOP5V),
-        formGroupHijoTOP5V2: this.fb.group(this.inicializarFormHijoTOP5V),
-        formGroupHijoTOP5V3: this.fb.group(this.inicializarFormHijoTOP5V),
-        formGroupHijoTOP5V4: this.fb.group(this.inicializarFormHijoTOP5V),
-        formGroupHijoTOP5V5: this.fb.group(this.inicializarFormHijoTOP5V)
+        formGroupHijoTOP5V1: this.fb.group(this.inicializarFormHijoTOP5V1),
+        formGroupHijoTOP5V2: this.fb.group(this.inicializarFormHijoTOP5V2),
+        formGroupHijoTOP5V3: this.fb.group(this.inicializarFormHijoTOP5V3),
+        formGroupHijoTOP5V4: this.fb.group(this.inicializarFormHijoTOP5V4),
+        formGroupHijoTOP5V5: this.fb.group(this.inicializarFormHijoTOP5V5)
       });
 }
 
@@ -986,85 +1034,85 @@ export class TemplateComponent implements OnInit {
 
         resp.forEach(element => {
   
-          if ( element.mova_valor === '1' ) {
+          if ( element.mova_descripcion === 'Realizar actividades y proyectos variados' ) {
             this.formGroupPadreMVal.get('formGroupHijoCHECKL1').patchValue(element);
-            this.formGroupPadreMVal.get('formGroupHijoCHECKL1').get('mova_valor').disable();
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL1').get('mova_descripcion').disable();
           }
-          if ( element.mova_valor === '2' ) {
+          if ( element.mova_descripcion === 'Ser un/a experto/a en mi área' ) {
             this.formGroupPadreMVal.get('formGroupHijoCHECKL2').patchValue(element);
-            this.formGroupPadreMVal.get('formGroupHijoCHECKL2').get('mova_valor').disable();
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL2').get('mova_descripcion').disable();
           }
-          if ( element.mova_valor === '3' ) {
+          if ( element.mova_descripcion === 'Innovar y ser creativo/a' ) {
             this.formGroupPadreMVal.get('formGroupHijoCHECKL3').patchValue(element);
-            this.formGroupPadreMVal.get('formGroupHijoCHECKL3').get('mova_valor').disable();
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL3').get('mova_descripcion').disable();
           }
-          if ( element.mova_valor === '4' ) {
+          if ( element.mova_descripcion === 'Tener un trabajo con sentido e impacto' ) {
             this.formGroupPadreMVal.get('formGroupHijoCHECKL4').patchValue(element);
-            this.formGroupPadreMVal.get('formGroupHijoCHECKL4').get('mova_valor').disable();
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL4').get('mova_descripcion').disable();
           }
-          if ( element.mova_valor === '5' ) {
+          if ( element.mova_descripcion === 'Asumir desafíos' ) {
             this.formGroupPadreMVal.get('formGroupHijoCHECKL5').patchValue(element);
-            this.formGroupPadreMVal.get('formGroupHijoCHECKL5').get('mova_valor').disable();
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL5').get('mova_descripcion').disable();
           }
-          if ( element.mova_valor === '6' ) {
+          if ( element.mova_descripcion === 'Influenciar a otros/as' ) {
             this.formGroupPadreMVal.get('formGroupHijoCHECKL6').patchValue(element);
-            this.formGroupPadreMVal.get('formGroupHijoCHECKL6').get('mova_valor').disable();
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL6').get('mova_descripcion').disable();
           }
-          if ( element.mova_valor === '7' ) {
+          if ( element.mova_descripcion === 'Alcanzar una sensación de logro' ) {
             this.formGroupPadreMVal.get('formGroupHijoCHECKL7').patchValue(element);
-            this.formGroupPadreMVal.get('formGroupHijoCHECKL7').get('mova_valor').disable();
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL7').get('mova_descripcion').disable();
           }
-          if ( element.mova_valor === '8' ) {
+          if ( element.mova_descripcion === 'Tener visibilidad/prestigio dentro y/o fuera de la empresa' ) {
             this.formGroupPadreMVal.get('formGroupHijoCHECKL8').patchValue(element);
-            this.formGroupPadreMVal.get('formGroupHijoCHECKL8').get('mova_valor').disable();
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL8').get('mova_descripcion').disable();
           }
-          if ( element.mova_valor === '9' ) {
+          if ( element.mova_descripcion === 'Tener líderes que sean referentes en mi contexto laboral' ) {
             this.formGroupPadreMVal.get('formGroupHijoCHECKL9').patchValue(element);
-            this.formGroupPadreMVal.get('formGroupHijoCHECKL9').get('mova_valor').disable();
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL9').get('mova_descripcion').disable();
           }
-          if ( element.mova_valor === '10' ) {
+          if ( element.mova_descripcion === 'Tener tiempo para mí vida personal' ) {
             this.formGroupPadreMVal.get('formGroupHijoCHECKL10').patchValue(element);
-            this.formGroupPadreMVal.get('formGroupHijoCHECKL10').get('mova_valor').disable();
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL10').get('mova_descripcion').disable();
           }
-          if ( element.mova_valor === '11' ) {
+          if ( element.mova_descripcion === 'Gestionar e integrar distintas funciones' ) {
             this.formGroupPadreMVal.get('formGroupHijoCHECKL11').patchValue(element);
-            this.formGroupPadreMVal.get('formGroupHijoCHECKL11').get('mova_valor').disable();
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL11').get('mova_descripcion').disable();
           }
-          if ( element.mova_valor === '12' ) {
+          if ( element.mova_descripcion === 'Recibir recompensas monetarias' ) {
             this.formGroupPadreMVal.get('formGroupHijoCHECKL12').patchValue(element);
-            this.formGroupPadreMVal.get('formGroupHijoCHECKL12').get('mova_valor').disable();
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL12').get('mova_descripcion').disable();
           }
-          if ( element.mova_valor === '13' ) {
+          if ( element.mova_descripcion === 'Trabajar como equipo' ) {
             this.formGroupPadreMVal.get('formGroupHijoCHECKL13').patchValue(element);
-            this.formGroupPadreMVal.get('formGroupHijoCHECKL13').get('mova_valor').disable();
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL13').get('mova_descripcion').disable();
           }
-          if ( element.mova_valor === '14' ) {
+          if ( element.mova_descripcion === 'Tener autonomía para realizar mis funciones' ) {
             this.formGroupPadreMVal.get('formGroupHijoCHECKL14').patchValue(element);
-            this.formGroupPadreMVal.get('formGroupHijoCHECKL14').get('mova_valor').disable();
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL14').get('mova_descripcion').disable();
           }
-          if ( element.mova_valor === '15' ) {
+          if ( element.mova_descripcion === 'Trabajar sin mucha presión' ) {
             this.formGroupPadreMVal.get('formGroupHijoCHECKL15').patchValue(element);
-            this.formGroupPadreMVal.get('formGroupHijoCHECKL15').get('mova_valor').disable();
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL15').get('mova_descripcion').disable();
           }
-          if ( element.mova_valor === '16' ) {
+          if ( element.mova_descripcion === 'Tener flexibilidad para compatibilizar con otros aspectos de mi vida' ) {
             this.formGroupPadreMVal.get('formGroupHijoCHECKL16').patchValue(element);
-            this.formGroupPadreMVal.get('formGroupHijoCHECKL16').get('mova_valor').disable();
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL16').get('mova_descripcion').disable();
           }
-          if ( element.mova_valor === '17' ) {
+          if ( element.mova_descripcion === 'Prestar un servicio que sea valorado por el/la cliente' ) {
             this.formGroupPadreMVal.get('formGroupHijoCHECKL17').patchValue(element);
-            this.formGroupPadreMVal.get('formGroupHijoCHECKL17').get('mova_valor').disable();
+            this.formGroupPadreMVal.get('formGroupHijoCHECKL17').get('mova_descripcion').disable();
           }
-          if ( element.mova_valor === '18' ) {
+          if ( element.mova_descripcion === '' ) {
             this.formGroupPadreMVal.get('formGroupHijoCHECKL18').patchValue(element);
-            this.formGroupPadreMVal.get('formGroupHijoCHECKL18').get('mova_valor').disable();
+            //this.formGroupPadreMVal.get('formGroupHijoCHECKL18').get('mova_descripcion').disable();
           }
-          if ( element.mova_valor === '19' ) {
+          if ( element.mova_descripcion === '' ) {
             this.formGroupPadreMVal.get('formGroupHijoCHECKL19').patchValue(element);
-            this.formGroupPadreMVal.get('formGroupHijoCHECKL19').get('mova_valor').disable();
+            //this.formGroupPadreMVal.get('formGroupHijoCHECKL19').get('mova_descripcion').disable();
           }
-          if ( element.mova_valor === '20' ) {
+          if ( element.mova_descripcion === '' ) {
             this.formGroupPadreMVal.get('formGroupHijoCHECKL20').patchValue(element);
-            this.formGroupPadreMVal.get('formGroupHijoCHECKL20').get('mova_valor').disable();
+            //this.formGroupPadreMVal.get('formGroupHijoCHECKL20').get('mova_descripcion').disable();
           }
   
         });
@@ -1076,11 +1124,68 @@ export class TemplateComponent implements OnInit {
                     ID: '',
                     id_periId: '1',
                     id_num_sapId: this.usuarioActivo.ID,
-                    mova_descripcion: '',
+                    //mova_descripcion: '',
                     mova_valor: '',
                   });
 
-                  //this.formGroupPadreMVal.get(element).get('coau_competencia').disable();
+                 // this.formGroupPadreMVal.get(element).get('mova_descripcion').disable();
+        });
+
+
+      }
+
+    });
+  }
+
+  async infoTOP5V5() {
+    await this.etapaService.obtenerinfoTOP5V5(this.usuarioActivo.ID).then( (resp: [any]) => {
+      console.log('Obtener datos info TOP5V5');
+      console.log(resp);
+
+      if (resp.length > 0) {
+
+        resp.forEach(element => {
+  
+          if ( element.mova_valor === '1' ) {
+            this.formGroupPadreMVal.get('formGroupHijoTOP5V1').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoTOP5V1').get('mova_valor').disable();
+            this.formGroupPadreMVal.get('formGroupHijoTOP5V1').get('mova_descripcion').disable();
+          }
+          if ( element.mova_valor === '2' ) {
+            this.formGroupPadreMVal.get('formGroupHijoTOP5V2').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoTOP5V2').get('mova_valor').disable();
+            this.formGroupPadreMVal.get('formGroupHijoTOP5V2').get('mova_descripcion').disable();
+          }
+          if ( element.mova_valor === '3' ) {
+            this.formGroupPadreMVal.get('formGroupHijoTOP5V3').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoTOP5V3').get('mova_valor').disable();
+            this.formGroupPadreMVal.get('formGroupHijoTOP5V3').get('mova_descripcion').disable();
+          }
+          if ( element.mova_valor === '4' ) {
+            this.formGroupPadreMVal.get('formGroupHijoTOP5V4').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoTOP5V4').get('mova_valor').disable();
+            this.formGroupPadreMVal.get('formGroupHijoTOP5V4').get('mova_descripcion').disable();
+          }
+          if ( element.mova_valor === '5' ) {
+            this.formGroupPadreMVal.get('formGroupHijoTOP5V5').patchValue(element);
+            this.formGroupPadreMVal.get('formGroupHijoTOP5V5').get('mova_valor').disable();
+            this.formGroupPadreMVal.get('formGroupHijoTOP5V5').get('mova_descripcion').disable();
+          }
+        });
+      } else {
+
+        this.nombresFromGroupTOP5V.forEach(element => {
+
+                  this.formGroupPadreMVal.get(element).patchValue({
+                    ID: '',
+                    id_periId: '1',
+                    id_num_sapId: this.usuarioActivo.ID,
+                    //mova_descripcion: '',
+                    mova_valor: '',
+                  });
+
+                  //this.formGroupPadreMVal.get(element).get('mova_valor').disable();
+                  //this.formGroupPadreMVal.get(element).get('mova_descripcion').disable();
         });
 
 
@@ -1105,6 +1210,8 @@ export class TemplateComponent implements OnInit {
     this.infoTFortaleza(); // Cargar info Top Fortalezas 
     this.infoOMejora(); // Cargar info Top Mejoras 
     this.infoCHECKL(); //Cargar info Check List
+    this.infoTOP5V5(); //Cargar info Check List
+
     }
 
 }

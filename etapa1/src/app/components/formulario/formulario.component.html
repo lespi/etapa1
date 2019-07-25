@@ -371,7 +371,7 @@
                    
                       <mat-expansion-panel>
                         <mat-expansion-panel-header>
-                        <mat-panel-title>Check List de Motivaciones y Valores 2227</mat-panel-title>
+                        <mat-panel-title>Check List de Motivaciones y Valores</mat-panel-title>
                         </mat-expansion-panel-header>
                        
                           <div *ngFor="let item of nombresFromGroupCHECKLISTMV">
@@ -379,18 +379,23 @@
                                                     <div [formGroupName]="item">
                                                       <div class="row form-group-border" *ngFor="let campo of camposFormCHECKL">
                                                       
-                                                        <div class="col-lg-6 col-sm-12">
+                                                        <div class="col-lg-10 col-sm-12">
                                                           <mat-form-field class="full-width">
                                                             <textarea matInput cdkTextareaAutosize [formControlName]="campo.nombreCampoCHECKL1"
                                                               [placeholder]="campo.nombreMostrarCHECKL1"></textarea>
                                                           </mat-form-field>
                                                         </div>
-                                                        <div class="col-lg-3 col-sm-12">
-                                                          <mat-form-field class="full-width">
-                                                            <textarea matInput cdkTextareaAutosize [formControlName]="campo.nombreCampoCHECKL2"
-                                                              [placeholder]="campo.nombreMostrarCHECKL2"></textarea>
-                                                          </mat-form-field>
-                                                        </div>
+
+                                                        <div class="col-lg-2 col-sm-12">
+                                                            <mat-form-field class="full-width">
+                                                              <mat-label>Jerarquizar</mat-label>
+                                                              <mat-select [formControlName]="campo.nombreCampoCHECKL2">
+                                                                <mat-option *ngFor="let ajuste of selectAjuste" [value]="ajuste.nompre">
+                                                                  {{ajuste.nompre}}
+                                                                </mat-option>
+                                                              </mat-select>
+                                                            </mat-form-field>
+                                                          </div>
                                                       
                                                       </div>
                                                     </div>
@@ -405,7 +410,7 @@
                    
                     <mat-expansion-panel>
                       <mat-expansion-panel-header>
-                      <mat-panel-title>Mis Top 5 Valores</mat-panel-title>
+                      <mat-panel-title>Mis Top 5 Valores 154</mat-panel-title>
                       </mat-expansion-panel-header>
                      
                         <div *ngFor="let item of nombresFromGroupTOP5V">
@@ -413,13 +418,13 @@
                                                   <div [formGroupName]="item">
                                                     <div class="row form-group-border" *ngFor="let campo of camposFormTOP5V1">
                                                     
-                                                      <div class="col-lg-6 col-sm-12">
-                                                        <mat-form-field class="full-width">
-                                                          <textarea matInput cdkTextareaAutosize [formControlName]="campo.nombreCampoTOP5V1"
-                                                            [placeholder]="campo.nombreMostrarTOP5V1"></textarea>
-                                                        </mat-form-field>
-                                                      </div>
-                                                      <div class="col-lg-3 col-sm-12">
+                                                        <div class="col-lg-2 col-sm-12">
+                                                            <mat-form-field class="full-width">
+                                                              <textarea matInput cdkTextareaAutosize [formControlName]="campo.nombreCampoTOP5V1"
+                                                                [placeholder]="campo.nombreMostrarTOP5V1"></textarea>
+                                                            </mat-form-field>
+                                                          </div>
+                                                      <div class="col-lg-10 col-sm-12">
                                                         <mat-form-field class="full-width">
                                                           <textarea matInput cdkTextareaAutosize [formControlName]="campo.nombreCampoTOP5V2"
                                                             [placeholder]="campo.nombreMostrarTOP5V2"></textarea>

@@ -5,15 +5,83 @@ export const selectAjuste = [
     },
     {
       ID: 1,
-      nompre: 'Alto'
+      nompre: '1'
     },
     {
       ID: 2,
-      nompre: 'Medio'
+      nompre: '2'
     },
     {
       ID: 3,
-      nompre: 'Bajo'
+      nompre: '3'
+    },
+    {
+      ID: 4,
+      nompre: '4'
+    },
+    {
+      ID: 5,
+      nompre: '5'
+    },
+    {
+      ID: 6,
+      nompre: '6'
+    },
+    {
+      ID: 7,
+      nompre: '7'
+    },
+    {
+      ID: 8,
+      nompre: '8'
+    },
+    {
+      ID: 9,
+      nompre: '9'
+    },
+    {
+      ID: 10,
+      nompre: '10'
+    },
+    {
+      ID: 11,
+      nompre: '11'
+    },
+    {
+      ID: 12,
+      nompre: '12'
+    },
+    {
+      ID: 13,
+      nompre: '13'
+    },
+    {
+      ID: 14,
+      nompre: '14'
+    },
+    {
+      ID: 15,
+      nompre: '15'
+    },
+    {
+      ID: 16,
+      nompre: '16'
+    },
+    {
+      ID: 17,
+      nompre: '17'
+    },
+    {
+      ID: 18,
+      nompre: '18'
+    },
+    {
+      ID: 19,
+      nompre: '19'
+    },
+    {
+      ID: 20,
+      nompre: '20'
     },
   ];
 
@@ -621,7 +689,160 @@ export const INICIALIZAROMEJORA2 = {
   ocom_tipo: 'Mejora2',
 };
 
-export const INICIALIZARCHECKL = {
+export const INICIALIZARCHECKL1 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: 'Realizar actividades y proyectos variados',
+  mova_valor: '',
+};
+
+export const INICIALIZARCHECKL2 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: 'Ser un/a experto/a en mi área',
+  mova_valor: '',
+};
+
+export const INICIALIZARCHECKL3 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: 'Innovar y ser creativo/a',
+  mova_valor: '',
+};
+
+export const INICIALIZARCHECKL4 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: 'Tener un trabajo con sentido e impacto',
+  mova_valor: '',
+};
+
+export const INICIALIZARCHECKL5 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: 'Asumir desafíos',
+  mova_valor: '',
+};
+
+export const INICIALIZARCHECKL6 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: 'Influenciar a otros/as',
+  mova_valor: '',
+};
+
+export const INICIALIZARCHECKL7 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: 'Alcanzar una sensación de logro',
+  mova_valor: '',
+};
+
+export const INICIALIZARCHECKL8 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: 'Tener visibilidad/prestigio dentro y/o fuera de la empresa',
+  mova_valor: '',
+};
+
+export const INICIALIZARCHECKL9 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: 'Tener líderes que sean referentes en mi contexto laboral',
+  mova_valor: '',
+};
+
+export const INICIALIZARCHECKL10 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: 'Tener tiempo para mí vida personal',
+  mova_valor: '',
+};
+
+export const INICIALIZARCHECKL11 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: 'Gestionar e integrar distintas funciones',
+  mova_valor: '',
+};
+
+export const INICIALIZARCHECKL12 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: 'Recibir recompensas monetarias',
+  mova_valor: '',
+};
+
+export const INICIALIZARCHECKL13 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: 'Trabajar como equipo',
+  mova_valor: '',
+};
+
+export const INICIALIZARCHECKL14 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: 'Tener autonomía para realizar mis funciones',
+  mova_valor: '',
+};
+
+export const INICIALIZARCHECKL15 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: 'Trabajar sin mucha presión',
+  mova_valor: '',
+};
+
+export const INICIALIZARCHECKL16 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: 'Tener flexibilidad para compatibilizar con otros aspectos de mi vida',
+  mova_valor: '',
+};
+
+export const INICIALIZARCHECKL17 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: 'Prestar un servicio que sea valorado por el/la cliente',
+  mova_valor: '',
+};
+
+export const INICIALIZARCHECKL18 = {
   ID: '',
   id_periId: '',
   id_num_sapId: '',
@@ -630,11 +851,65 @@ export const INICIALIZARCHECKL = {
   mova_valor: '',
 };
 
-export const INICIALIZARTOP5V = {
+export const INICIALIZARCHECKL19 = {
   ID: '',
   id_periId: '',
   id_num_sapId: '',
 
   mova_descripcion: '',
   mova_valor: '',
+};
+
+export const INICIALIZARCHECKL20 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: '',
+  mova_valor: '',
+};
+
+export const INICIALIZARTOP5V1 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: '',
+  mova_valor: '',
+};
+
+export const INICIALIZARTOP5V2 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: '',
+  mova_valor: '2',
+};
+
+export const INICIALIZARTOP5V3 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: '',
+  mova_valor: '3',
+};
+
+export const INICIALIZARTOP5V4 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: '',
+  mova_valor: '4',
+};
+
+export const INICIALIZARTOP5V5 = {
+  ID: '',
+  id_periId: '',
+  id_num_sapId: '',
+
+  mova_descripcion: '',
+  mova_valor: '5',
 };

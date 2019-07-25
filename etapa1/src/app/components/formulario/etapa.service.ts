@@ -134,6 +134,13 @@ export class EtapaService {
                           .get<{Title: string}[]>();
   }
 
+  async obtenerinfoTOP5V5( ID ) {
+    return await web.lists.getByTitle('motivacion_valor')
+                          .items
+                          .filter(`id_num_sap eq '${ ID }'`)
+                          .get<{Title: string}[]>();
+  }
+
   actualizarCA(InfoCA: InfoCA, ID?: number) {
 
     return new Promise( resolve => {
