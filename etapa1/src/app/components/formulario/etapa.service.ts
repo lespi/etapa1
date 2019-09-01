@@ -140,6 +140,13 @@ export class EtapaService {
                           .filter(`id_num_sap eq '${ ID }'`)
                           .get<{Title: string}[]>();
   }
+  
+  async obtenerCompetencias() {
+    return await web.lists.getByTitle('competencia')
+                          .items
+                          // .filter(`com_tipo eq 'Otra'`)
+                          .get<{Title: string}[]>();
+  }
 
   actualizarCA(InfoCA: InfoCA, ID?: number) {
 

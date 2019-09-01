@@ -35,9 +35,9 @@ import {
   INICIALIZARTFORTALEZA,
   INICIALIZARTFORTALEZA2,
   INICIALIZARTFORTALEZA3,
-  CAMPOSTFORTALEZA,
   CAMPOSTFORTALEZA1,
   CAMPOSTFORTALEZA2,
+  CAMPOSTFORTALEZA3,
   
   INICIALIZAROMEJORA1,
   INICIALIZAROMEJORA2,
@@ -99,7 +99,7 @@ import {
 } from './data';
 import { Form } from '@pnp/sp/src/forms';
 import { INICIALIZARFORMCORTO } from './data';
-
+import * as moment from 'moment';
 
 export interface CamposForm {
   Id?: number;
@@ -156,6 +156,12 @@ export interface CamposForm {
 
 export class TemplateComponent implements OnInit {
 
+  curDate = new Date();
+  day = this.curDate.getDay();
+  month = this.curDate.getMonth();
+  year = this.curDate.getFullYear();
+  minDate = new Date(this.year, this.month, this.day);
+
   usuarioActivo: Usuario;
 
   infoEsSel: InfoEspecifica = null;
@@ -166,6 +172,8 @@ export class TemplateComponent implements OnInit {
   infofrSel: InfoFR = null; //REVISAR
   infoPPSel: InfoPPer = null; //Etapa1
   infoOMSel: InfoOM = null; //Etapa1
+
+  selectCompetencia = [];
 
   // controles y estructura para formularios (Escucha los campos del formulario)
  
@@ -319,14 +327,15 @@ export class TemplateComponent implements OnInit {
   camposFormFR4: CamposForm[] = CAMPOSFEEDBACKR4; //ETAPA1 No utilizado
 
 
-  camposFormTF: CamposForm[] = CAMPOSTFORTALEZA; //ETAPA1
-  camposFormTF1: CamposForm[] = CAMPOSTFORTALEZA1; //ETAPA1 SI utilizado
-  camposFormTF2: CamposForm[] = CAMPOSTFORTALEZA2; //ETAPA1 SI utilizado
+  camposFormTF: CamposForm[] = CAMPOSTFORTALEZA1; //ETAPA1
+  camposFormTF1: CamposForm[] = CAMPOSTFORTALEZA2; //ETAPA1 SI utilizado
+  camposFormTF2: CamposForm[] = CAMPOSTFORTALEZA3; //ETAPA1 SI utilizado
 
   camposFormOM1: CamposForm[] = CAMPOSOMEJORA1; //ETAPA1 No utilizado
   camposFormOM2: CamposForm[] = CAMPOSOMEJORA2; //ETAPA1 No utilizado
 
   camposFormCHECKL: CamposForm[] = CAMPOSCHECKL; //ETAPA1
+  /*
   camposFormCHECKL2: CamposForm[] = CAMPOSCHECKL2; //ETAPA1 No utilizado
   camposFormCHECKL3: CamposForm[] = CAMPOSCHECKL3; //ETAPA1 No utilizado
   camposFormCHECKL4: CamposForm[] = CAMPOSCHECKL4; //ETAPA1 No utilizado
@@ -346,6 +355,7 @@ export class TemplateComponent implements OnInit {
   camposFormCHECKL18: CamposForm[] = CAMPOSCHECKL18; //ETAPA1 No utilizado
   camposFormCHECKL19: CamposForm[] = CAMPOSCHECKL19; //ETAPA1 No utilizado
   camposFormCHECKL20: CamposForm[] = CAMPOSCHECKL20; //ETAPA1 No utilizado
+  */
 
   camposFormTOP5V1: CamposForm[] = CAMPOSTOP5V1; //ETAPA1
   //camposFormTOP5V2: CamposForm[] = CAMPOSTOP5V2; //ETAPA1 No utilizado
@@ -364,7 +374,19 @@ export class TemplateComponent implements OnInit {
               private etapaService: EtapaService,
               private snackBar: MatSnackBar) { }
 
+
+
   ngOnInit() {
+
+    this.etapaService.obtenerCompetencias().then( (resp: [any]) => {
+      console.log('-----------------Obtener competencias');
+      console.log(resp);
+      resp.forEach(element => {
+        this.selectCompetencia.push(element.com_descripcion);
+      });
+      console.log(this.selectCompetencia);
+    });
+
     // Creamos el Form
     this.createForms();
   }
@@ -512,7 +534,23 @@ export class TemplateComponent implements OnInit {
     this.guardando = true;
     for (let i = 0; i < this.nombresFromGroupFEEDBACKR.length; i++) {
 
-      const element = this.nombresFromGroupFEEDBACKR[i]; // se asigna nombre del form hijo
+      //const element = this.nombresFromGroupFEEDBACKR[i];
+
+      //const fechaPicker = this.formGroupPadreCA.get(element).get('fdbk_fecha').value;
+      //const fechaAux = moment(fechaPicker).format('YYYY-MM-DD');
+      //const fecha = moment(fechaAux).format('YYYY-MM-DDTHH:mm:ss');
+
+      //if ( moment(fecha).isValid() ) {
+        // lo llevo a UTC agregando 4 horas y luego le agrego 8 horas más para que en el calendario aparezca en las 10AM
+      //  const fechaIni = moment.utc(fecha).add(14, 'hours').format('YYYY-MM-DDTHH:mm:ss');
+      //  const fechaFin = moment.utc(fechaIni).add(1, 'hours') .format('YYYY-MM-DDTHH:mm:ss');
+
+      //  this.formGroupPadreCA.get(element).get('fdbk_fecha').setValue(fechaIni);
+      //  this.formGroupPadreCA.get(element).get('EventDate').setValue(fechaIni);
+      //  this.formGroupPadreCA.get(element).get('EndDate').setValue(fechaFin);
+     // }
+
+      const    element = this.nombresFromGroupFEEDBACKR[i]; // se asigna nombre del form hijo
       const elementInfoId = this.formGroupPadreCA.get(element).get('ID').value; //obtengo el valor de form indicado pero solo el campo ID
       const elementInfoValue = this.formGroupPadreCA.get(element).value; // Obtengo todos los values del submit del form hijo
       // console.log(this.formGroupPadre.get(element).get('ID').value );
@@ -1198,6 +1236,10 @@ export class TemplateComponent implements OnInit {
     window.open(url, '_blank');
   }
 
+  goToLinkSelf(url: string) {
+    window.open(url, '_self');
+  }
+
   recibirUsuarioActivo($event) {
     this.usuarioActivo = $event;
     console.log('usuarioActivo desde Padre ' + this.usuarioActivo.ID);
@@ -1212,6 +1254,21 @@ export class TemplateComponent implements OnInit {
     this.infoCHECKL(); //Cargar info Check List
     this.infoTOP5V5(); //Cargar info Check List
 
+    }
+
+    valorFecha(event) {
+      console.log('Valor DatePicker');
+      console.log(event.value);
+  
+      console.log(moment(event.value).format('YYYY-MM-DDTHH:mm:ss[Z]'));
+      console.log(moment.utc(event.value).add(14, 'hours').format('YYYY-MM-DDTHH:mm:ss'));
+      console.log(moment.utc(event.value).add(2, 'hours').format('YYYY-MM-DDTHH:mm:ss[Z]'));
+  
+      console.log('FORMULARIO PADRE');
+      console.log(this.formGroupPadreCA.value);
+      // let now = moment().format('LLLL');
+      // console.log(now);
+  
     }
 
 }

@@ -308,21 +308,12 @@ export const CAMPOSFEEDBACKR5 = [
   },
 ];
 
-export const CAMPOSTFORTALEZA = [
-  {
-    nombreCampoTF1: 'ocom_descripcion',
-    nombreMostrarTF1: 'Fortaleza',
-    nombreCampoTF2: 'ocom_tipo',
-    nombreMostrarTF2: 'Fortaleza1',
-  },
-];
-
 export const CAMPOSTFORTALEZA1 = [
   {
     nombreCampoTF1: 'ocom_descripcion',
     nombreMostrarTF1: 'Fortaleza',
     nombreCampoTF2: 'ocom_tipo',
-    nombreMostrarTF2: 'Fortaleza2',
+    nombreMostrarTF2: 'Seleccionar',
   },
 ];
 
@@ -330,6 +321,15 @@ export const CAMPOSTFORTALEZA2 = [
   {
     nombreCampoTF1: 'ocom_descripcion',
     nombreMostrarTF1: 'Fortaleza',
+    nombreCampoTF2: 'ocom_tipo',
+    nombreMostrarTF2: 'Seleccionar',
+  },
+];
+
+export const CAMPOSTFORTALEZA3 = [
+  {
+    nombreCampoTF1: 'ocom_descripcion',
+    nombreMostrarTF1: 'Fortaleza (Otra)',
     nombreCampoTF2: 'ocom_tipo',
     nombreMostrarTF2: 'Fortaleza3',
   },
@@ -341,14 +341,14 @@ export const CAMPOSOMEJORA1 = [
     nombreCampoOM1: 'ocom_descripcion',
     nombreMostrarOM1: 'Mejora',
     nombreCampoOM2: 'ocom_tipo',
-    nombreMostrarOM2: 'Mejora1',
+    nombreMostrarOM2: 'Seleccionar',
   },
 ];
 
 export const CAMPOSOMEJORA2 = [
   {
     nombreCampoOM1: 'ocom_descripcion',
-    nombreMostrarOM1: 'Mejora',
+    nombreMostrarOM1: 'Mejora (Otra)',
     nombreCampoOM2: 'ocom_tipo',
     nombreMostrarOM2: 'Mejora2',
   },
@@ -357,7 +357,7 @@ export const CAMPOSOMEJORA2 = [
 export const CAMPOSCHECKL = [
   {
     nombreCampoCHECKL1: 'mova_descripcion',
-    nombreMostrarCHECKL1: 'Motivación o Valor',
+    nombreMostrarCHECKL1: 'Motivación',
     nombreCampoCHECKL2: 'mova_valor',
     nombreMostrarCHECKL2: 'Jerarquizar',
   },

@@ -17,3 +17,31 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 // @import '~bootstrap/scss/root';
 // @import '~bootstrap/scss/reboot';
 // @import '~bootstrap/scss/grid';
+
+input:not([type]), input[type=email], input[type=file], input[type=password], input[type=text], select, textarea {
+    background-color: #fff;
+    color: #1f1f1f;
+  }
+  
+  .h1, h1 {
+    color: black;
+  }
+
+  .container {
+    margin-top: 10px;
+    background: white;
+  }
+
+  @import '~@angular/material/theming';
+@include mat-core();
+
+$my-app-primary:   mat-palette($mat-deep-orange);
+$my-app-accent:  mat-palette($mat-pink, 500, 900, A100);
+$my-app-warn:    mat-palette($mat-blue-grey);
+
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+@include angular-material-theme($my-app-theme);
+
+
+  
+  
