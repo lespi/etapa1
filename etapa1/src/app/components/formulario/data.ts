@@ -875,7 +875,7 @@ export const INICIALIZARTOP5V1 = {
   id_num_sapId: '',
 
   mova_descripcion: '',
-  mova_valor: '',
+  mova_valor: '1',
 };
 
 export const INICIALIZARTOP5V2 = {
